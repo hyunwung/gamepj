@@ -1,8 +1,24 @@
 .header{
-    width: 100%;
+    width: 100vw;
+    height: 70px;
+    background-color: #f1e05a !important;
     .header-container{
-        height: 90px;
-        width: 100%;
         display: flex;
+        justify-content: space-between;
+        .header-left{
+            display: flex;
+            .main-logo{
+                
+            }
+        }
+        .header-right{
+            button{
+                margin-top: 17px;
+                margin-right: 15px;
+                font-size: 18px;
+                width: 100px;
+                height: 35px;
+            }
+        }
     }
 }
