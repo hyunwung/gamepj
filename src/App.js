@@ -2,9 +2,9 @@ import React from 'react'
 import { Route,Routes } from 'react-router-dom'
 import Main from './pages/Main'
 import Intro from "./pages/Intro"
-import "./App.css"
 import Notice from './pages/Notice'
 import WriteNotice from "./pages/WriteNotice"
+import "./App.css"
 
 const App = () => {
   return (
