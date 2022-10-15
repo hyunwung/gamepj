@@ -3,6 +3,7 @@ import NavBar from '../components/navBar/NavBar'
 import "../assets/Global.scss"
 import Board from '../components/board/Board'
 import Header from '../components/header/Header'
+import Notice from '../components/notice/Notice'
 
 const Main = () => {
   return (
@@ -10,7 +11,12 @@ const Main = () => {
       <Header></Header>
       <div className='main-page-container'>
         <NavBar></NavBar>
-        <Board></Board>
+        <div className='page-view'>
+          <Board></Board>
+          <Notice></Notice>
+        </div>
+        
+
       </div>
     </div>
   )
