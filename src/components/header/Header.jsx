@@ -4,11 +4,8 @@ import logo from "../../assets/example.jpg"
 import LoginModal from "../modal/LoginModal"
 import {GiHamburgerMenu} from "react-icons/gi";
 
-const Header = ({setMenuOpens}) => {
+const Header = () => {
   const [login,setLogin] = useState(false)
-  const handleNavBar = () => {
-    setMenuOpens((prev)=>!prev)
-  }
   const handleLogin = () => {
     setLogin((prev)=>!prev)
   }
@@ -16,7 +13,6 @@ const Header = ({setMenuOpens}) => {
     <div className="header">
       <div className="header-container">
         <div className="header-left">
-          <GiHamburgerMenu onClick={handleNavBar}></GiHamburgerMenu>
         </div>
         <div className="header-center">
           <img src={logo} className="header-logo"></img>
