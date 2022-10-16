@@ -17,7 +17,7 @@ const Board = () => {
         arrows:false,
         autoplay:true,
         centerMode:true,
-        centerPadding:"1px",
+        centerPadding:"0px",
     };
     return (
         <div className='board'>

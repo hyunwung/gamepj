@@ -1,23 +1,23 @@
-.notice{
-    margin : 20px 0 80px 20px;
-    width: 100%;
-    .notice-container{
-        .notice-line{
+.update{
+    margin : 20px 0 0 20px;
+    // background-color: yellow;
+    .update-container{
+        .update-line{
             opacity: 0.7;
             color: black;
         }
-        .notice-title{
+        .update-title{
             display: flex;
-            .notice-span{
+            .update-span{
                 font-size: 24px;
             }
         }
-        .notice-box{
-            .notice-box-contain{
+        .update-box{
+            .update-box-contain{
                 display: flex;
                 padding: 15px;
                 justify-content: space-between;
-                .notice-left{
+                .update-left{
                     display: flex;
                     a{
                         text-decoration: none;
@@ -26,30 +26,29 @@
                         font-size: 18px;
                     }
                 }
-                .notice-right{
+                .update-right{
                     display: flex;
-                    .notice-date{
+                    .update-date{
                         margin: 4px 10px 0 0;
                         color: gray;
                         opacity: 0.7;
                         font-size: 15px;
                     }
-                    .notice-like{
+                    .update-like{
                         margin: 3px 5px 0 0;
                         height: 20px;
                     }
-                    .notice-like-count{
+                    .update-like-count{
                         margin: 3px 5px 0 0;
                         color: gray;
                     }
-                    .notice-view{
+                    .update-view{
                         margin-top: 3px;
                         font-size: 15px;
                         color: gray;
                     }
                 }
             }
-            
         }
     }
 }

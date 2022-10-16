@@ -1,8 +1,8 @@
 .board{
+    width: 100%;
     margin: 20px 0 40px 20px;
-    min-width: 51vw;
-    max-width: 51vw;
-}
-.slider-item{
-    width: 1000px;
+    .slider-item{
+        width: 100%;
+        min-width: 80%;
+    }
 }

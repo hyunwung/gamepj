@@ -14,7 +14,6 @@ const NavBar = () => {
 
   return (
     <div className='navbar'>
-      
       <nav className='nav-menu'>
         <ul className='nav-menu-items'>
           <li className='navbar-toggle'>
