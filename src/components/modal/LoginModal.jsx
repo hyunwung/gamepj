@@ -5,7 +5,7 @@ const LoginModal = ({setLogin}) => {
     const handleLogin = () => {
         setLogin((prev)=>!prev)
     }
-  return (
+    return (
     <div className='login-modal'>
         <div className='login-modal-container'>
             <div className='login-modal-content'>

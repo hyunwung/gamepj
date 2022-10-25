@@ -59,6 +59,9 @@
     margin-top: 75px;
     color: white;
     cursor: pointer;
+    .nav-anchor{
+      text-decoration: none;
+    }
   }
   .nav-menu-in-item.active{
     text-align: center;
