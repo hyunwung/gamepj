@@ -20,7 +20,7 @@ const Header = () => {
     <div className="header">
       <div className="header-container">
         <div className="header-left">
-          <span>게임 로고</span>
+          <a href="/main" className="header-logo"><span>게임 로고</span></a>
         </div>
         <div className="header-center">
           <form>

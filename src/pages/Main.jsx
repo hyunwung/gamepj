@@ -8,11 +8,11 @@ import Update from '../components/update/Update'
 
 const Main = () => {
   return (
-    <div className='main-page'>
+    <div className='default'>
       <Header></Header>
-      <div className='main-page-container'>
+      <div className='default-container'>
         <NavBar></NavBar>
-        <div className='page-view'>
+        <div className='default-page'>
           <Board></Board>
           <Notice></Notice>
           <Update></Update>

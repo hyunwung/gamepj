@@ -32,7 +32,7 @@ const Update = () => {
         </div>
 
         </div>
-        <FiMoreHorizontal style={{fontSize:"24px" , margin:"20px 0 0 470px"}}></FiMoreHorizontal>
+        <FiMoreHorizontal style={{fontSize:"24px" , margin:"0 auto" ,display:"flex"}}></FiMoreHorizontal>
     </div>
   )
 }
