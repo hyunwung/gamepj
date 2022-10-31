@@ -2,6 +2,7 @@ import React from 'react'
 import ViewHeader from '../components/viewHeader/ViewHeader'
 import Header from '../components/header/Header'
 import NavBar from '../components/navBar/NavBar'
+import Comment from '../components/comment/Comment'
 
 const ViewBoard = () => {
   return (
@@ -11,6 +12,7 @@ const ViewBoard = () => {
         <NavBar></NavBar>
         <div className='default-page'>
           <ViewHeader></ViewHeader>
+          <Comment></Comment>
         </div>
       </div>
     </div>
