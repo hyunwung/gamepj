@@ -12,7 +12,6 @@ const ViewBoard = () => {
         <NavBar></NavBar>
         <div className='default-page'>
           <ViewHeader></ViewHeader>
-          
           <Comment></Comment>
         </div>
       </div>
