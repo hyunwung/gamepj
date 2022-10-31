@@ -1,8 +1,23 @@
 .comment{
     margin: 20px 0 40px 20px;
+    .comment-count{
+        margin: 6px 0 18px 30px;
+        font-size: 18px;
+    }
     .comment-container{
-        .comment-count{
-            margin: 6px 0 18px 0;
+        margin: 20px 0 40px 20px;
+        padding: 28px;
+        background-color: #f3f5f7;
+        textarea{
+            margin: 0px;
+            padding: 0px;
+            border: 1px solid rgb(209, 209, 209);
+            text-decoration: none;
+            width: 600px;
+            height: auto;
+            vertical-align: baseline;
+            box-sizing: content-box;
+            transition: none 0s ease 0s;
         }
     }
 }
