@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/header/Header'
 import NavBar from '../components/navBar/NavBar'
+import CreateBoard from '../components/createBoard/CreateBoard'
 import "../assets/Global.scss"
 
 const Create = () => {
@@ -10,8 +11,7 @@ const Create = () => {
       <div className='default-container'>
         <NavBar></NavBar>
         <div className='default-page'>
-          
-          
+          <CreateBoard></CreateBoard>
         </div>
       </div>
     </div>
