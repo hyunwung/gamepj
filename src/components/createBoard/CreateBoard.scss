@@ -1,3 +1,7 @@
 .createBoard{
     margin: 20px 0 40px 20px;
+    .createBoard-container{
+        display: flex;
+        flex-direction: column;
+    }
 }
