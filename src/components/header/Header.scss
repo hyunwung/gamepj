@@ -6,6 +6,9 @@
         justify-content: space-between;
         height: 70px;
         background-color: rgb(30, 55, 153);
+        background-image: url('../../assets/heart.png');
+        background-size: cover;
+        background-position: center;
         .header-left{
             font-size: 30px;
             margin: 0 0 0 35px;
@@ -31,7 +34,7 @@
                 height: 44px;
                 background-color: white;
                 font-size: 16px;
-                color: white;
+                
                 padding-left: 16px;
                 padding-right: 40px;
                 box-sizing: border-box;

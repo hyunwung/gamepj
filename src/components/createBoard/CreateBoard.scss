@@ -1,7 +1,26 @@
 .createBoard{
-    margin: 20px 0 40px 20px;
+    margin: 40px 0 0 50px;
     .createBoard-container{
         display: flex;
         flex-direction: column;
+        label{
+            margin-bottom: 10px;
+        }
+        .board-title{
+            border: 1px solid gray;
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        a{
+            margin: 0 auto;
+            .board-submit{
+                font-weight: bold;
+                font-size: 16px;
+                border: none ;
+                height: 40px;
+                border-radius: 10px;   
+                width: 200px;
+            }
+        }
     }
 }

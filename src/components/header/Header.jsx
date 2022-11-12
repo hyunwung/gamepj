@@ -10,8 +10,8 @@ const Header = () => {
   const handleLogin = () => {
     setLogin((prev)=>!prev)
   }
-  const handleSearch = () => {
-
+  const handleSearch = (e) => {
+    setKeyWord(e.target.value)
   }
   const searchKeyWord = () => {
 
@@ -27,13 +27,11 @@ const Header = () => {
             <input
               type="search"
               className="header-search"
-              maxLength="28"
-              autoComplete="off"
+              maxLength="14"
               placeholder="검색"
               value={keyword}
               onChange={handleSearch}>  
             </input>
-            
           </form>
           <a href="/main" onClick={searchKeyWord} className="search-link">
             <img src={search} className="search-btn"></img>
