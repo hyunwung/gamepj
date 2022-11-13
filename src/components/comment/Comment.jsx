@@ -13,6 +13,9 @@ const Comment = () => {
           <textarea></textarea>
           <a><button>등록</button></a>
         </div>
+        <div>
+          
+        </div>
     </div>
   )
 }
