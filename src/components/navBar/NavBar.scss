@@ -63,7 +63,6 @@
     margin-top: 75px;
     color: white;
     cursor: pointer;
-    transition: width 1s ease-in 1s;
     .nav-anchor{
       text-decoration: none;
     }
@@ -74,18 +73,15 @@
     cursor: pointer;
     color: white;
     font-size: 16px;
-    transition: width 1s ease-in 1s;
   }
   .nav-menu-in-item.none{
     display: none;
-    transition: 350ms;
   }
 }
 
 .navbar-toggle {
   background-color: #488bf4;
   width: 100%;
-  
   display: flex;
   justify-content: start;
   align-items: center;
