@@ -18,7 +18,7 @@
             background-color: white;
             display: flex;
             align-items: center;
-            span{
+            .comment-profile{
                 margin: 0 auto;
                 font-size: 18px;
             }
@@ -40,6 +40,9 @@
                 font-size: 15px;
             }
         }
+    }
+    .other-comment{
+        margin: 20px 0 40px 20px;
     }
 }
 

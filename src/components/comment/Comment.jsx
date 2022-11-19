@@ -8,15 +8,17 @@ const Comment = () => {
       <span className='comment-count'>댓글 2</span>
       <div className='comment-container'>
         <div className='comment-username'>
-          <span>현웅</span>
+          <span className='comment-profile'>현웅</span>
         </div>
         <textarea></textarea>
         <a><button>등록</button></a>
-      <hr></hr>
-      <div className='other-comment'>
-        
       </div>
-      </div> 
+      <div className='other-comment'>
+        <span className='comment-profile'>하림</span> &nbsp; |  &nbsp; 
+        <span>2022. 10. 15. &nbsp; 15:30 </span>
+        <button className='comment-reply'>답글</button>
+        <span className='comment-comments'>그냥 댓글1</span>
+      </div>
     </div>
   )
 }
