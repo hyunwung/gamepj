@@ -12,11 +12,11 @@ const App = () => {
   return (
     <div className='App'>
       <Routes>
-        <Route path='/' element={<Intro></Intro>}></Route>
-        <Route path='/main' element={<Main></Main>}></Route>
-        <Route path='/notice' element={<NoticeBoard></NoticeBoard>}></Route>
-        <Route path='/create' element={<Create></Create>}></Route>
-        <Route path='/board/detail' element={<ViewBoard></ViewBoard>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/`} element={<Intro></Intro>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/main`} element={<Main></Main>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/notice`} element={<NoticeBoard></NoticeBoard>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/create`} element={<Create></Create>}></Route>
+        <Route path={`${process.env.PUBLIC_URL}/board/detail`} element={<ViewBoard></ViewBoard>}></Route>
       </Routes>
     </div>
   )
