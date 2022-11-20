@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/gamepj/static/css/main.f7177b3b.css",
-    "main.js": "/gamepj/static/js/main.007d9e27.js",
+    "main.js": "/gamepj/static/js/main.84f55f0d.js",
     "static/media/optimize3.webp": "/gamepj/static/media/optimize3.d85855715220d44b1868.webp",
     "static/media/optimize4.webp": "/gamepj/static/media/optimize4.44ab5bc371cd4cd56330.webp",
     "static/media/heart.png": "/gamepj/static/media/heart.bda42f794f2083991630.png",
@@ -13,10 +13,10 @@
     "static/media/slick.woff": "/gamepj/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/gamepj/index.html",
     "main.f7177b3b.css.map": "/gamepj/static/css/main.f7177b3b.css.map",
-    "main.007d9e27.js.map": "/gamepj/static/js/main.007d9e27.js.map"
+    "main.84f55f0d.js.map": "/gamepj/static/js/main.84f55f0d.js.map"
   },
   "entrypoints": [
     "static/css/main.f7177b3b.css",
-    "static/js/main.007d9e27.js"
+    "static/js/main.84f55f0d.js"
   ]
 }
