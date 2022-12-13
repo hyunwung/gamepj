@@ -54,7 +54,7 @@ const Comment = () => {
 
       <div className='origin-comment'>
         <div className='comment-info'>
-          <span className='comment-username'>현웅</span>|
+          <span className='comment-username'>하림</span>|
           <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span>
           <button className='comment-reply'>답글</button>
         </div>
