@@ -19,7 +19,9 @@
             }
         }
         .header-right{
+            display: flex;
             .login-link{
+                text-decoration: none;
                 margin-top: 20px;
                 margin-right: 45px;
                 color:white;

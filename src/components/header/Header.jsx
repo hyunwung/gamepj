@@ -1,7 +1,5 @@
 import React, { useState } from "react"
 import "./Header.scss"
-import LoginModal from "../modal/LoginModal"
-// import {AiOutlineSearch} from "react-icons/ai";
 import search from "../../assets/search.png"
 
 const Header = () => {
@@ -38,8 +36,7 @@ const Header = () => {
           </a>
         </div>
         <div className="header-right">
-          <div className="login-link" onClick={handleLogin}>Login</div>
-          {login ? <LoginModal setLogin={setLogin}></LoginModal> : null} 
+          <a className="login-link" href="/login">Login</a>
         </div>
       </div>
     </div>

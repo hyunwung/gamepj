@@ -3,19 +3,23 @@ import "./Comment.scss"
 
 const Comment = () => {
   const [ex , setEx] = useState()
+  const [commentCT,setCommentCT] = useState(false)
   const [data,setData] = useState([])
   const commentOn = (id) => {
-    if (id == 0){
+    if (id === 0){
       setData([{id:0,datas:"여기 댓글과 내용들이 작성됩니다."},{id:1,datas:"여기 댓글과 내용들이 작성됩니다."},{id:2,datas:"여기 댓글과 내용들이 작성됩니다"}])
       setEx(0)
     }
-    if (id == 1){
+    if (id === 1){
       setData([{id:0,datas:"여기 댓글과 내용들이 작성됩니다."},{id:1,datas:"여기 댓글과 내용들이 작성됩니다."},{id:2,datas:"여기 댓글과 내용들이 작성됩니다"}])
       setEx(1)
     }
   }
   const commentOff = () => {
     setEx()
+  }
+  const commentControl = () => {
+    setCommentCT((prev)=>!prev)
   }
   return (
     <div className='comment'>
@@ -30,7 +34,7 @@ const Comment = () => {
         <div className='comment-info'>
           <span className='comment-username'>형식</span>|
           <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span>
-          <button className='comment-reply'>답글</button>
+          <button className='comment-reply' onClick={()=>commentControl()}>답글</button>
         </div>
         <div className='comment-bottom'>
           <p>여기 댓글과 내용들이 작성됩니다</p>  
