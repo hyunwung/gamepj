@@ -80,7 +80,7 @@ const Comment = () => {
           <button className='comment-reply' onClick={()=>commentControlOn(2)}>답글</button>
         </div>
         <div className='comment-bottom'>
-          <p >여기 댓글과 내용들이 작성됩니다</p>  
+          <p>여기 댓글과 내용들이 작성됩니다</p>  
         </div>
         {commentCT === 2 ? 
           <div className='comment-input-container'>
