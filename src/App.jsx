@@ -6,6 +6,7 @@ import NoticeBoard from './pages/NoticeBoard'
 import ViewBoard from './pages/ViewBoard'
 import Create from './pages/Create'
 import Login from "./pages/Login"
+import axios from './api/axios';
 import "./App.css"
 
 const App = () => {

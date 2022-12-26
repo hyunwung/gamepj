@@ -3,11 +3,10 @@ import "./Notice.scss"
 import { AiFillHome ,AiFillStar ,AiFillEye} from "react-icons/ai";
 import { FiMoreHorizontal } from "react-icons/fi";
 import like from "../../assets/heart.png"
-import {Link , useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 import { BsFillPencilFill } from "react-icons/bs";
 
 const Notice = () => {
-  const navigate = useNavigate()
   const datas = [
     {
       title : "변경되었습니당~",

@@ -82,7 +82,7 @@ const Comment = () => {
         <div className='comment-bottom'>
           <p>여기 댓글과 내용들이 작성됩니다</p>  
         </div>
-        {commentCT === 2 ? 
+        {commentCT === 2 ?
           <div className='comment-input-container'>
             <input className='comment-input'></input>
             <button onClick={()=>commentControlOff()}>닫기</button>
