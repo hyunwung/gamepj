@@ -18,7 +18,7 @@ const CreateBoard = () => {
         <span>제목</span>
         <input type="text" className='board-title' placeholder="글 제목" value={title} onChange={onChange}></input>
         <span>내용</span>
-        <TextEditor setData={setData} data={data}></TextEditor>
+        <TextEditor title={title}></TextEditor>
         <a><button className='board-submit' onClick={()=>submitData()}>제출</button></a>
       </div>
     </div>

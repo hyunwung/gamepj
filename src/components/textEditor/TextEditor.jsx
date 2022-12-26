@@ -16,12 +16,12 @@ export class TextEditor extends Component {
       editorState,
     });
   };
-
+  
   render() {
     const { editorState } = this.state;
-    const { data } = this.state;
-    console.log(data)
+    const title = this.props.title
     console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())))
+    console.log(title)
     return (
       <div className='editor'>
         <Editor
