@@ -5,6 +5,7 @@ import draftToHtml from 'draftjs-to-html';
 import htmlToDraft from 'html-to-draftjs';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import "./TextEditor.scss"
+import axios from 'axios';
 
 export class TextEditor extends Component {
   state = {
@@ -20,8 +21,23 @@ export class TextEditor extends Component {
   render() {
     const { editorState } = this.state;
     const title = this.props.title
-    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())))
-    console.log(title)
+    const submit = this.props.submit
+    const setSubmit = this.props.setSubmit
+
+    const submitData = async () => {
+      try{
+        await axios.post(`/`,{
+          title : title,
+          content : draftToHtml(convertToRaw(editorState.getCurrentContent())),
+        })
+        setSubmit(false)
+      }catch(error){
+        console.log(error)
+      }
+    }
+    if (submit === true){
+      submitData()
+    }
     return (
       <div className='editor'>
         <Editor
