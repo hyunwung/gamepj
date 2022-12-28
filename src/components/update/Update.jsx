@@ -10,7 +10,7 @@ const Update = () => {
     <div className='update'>
         <div className='update-container'>
         <div className='update-title'>
-          <AiFillPushpin style={{fontSize:"25px" , margin:"0 8px 4px 8px"}}></AiFillPushpin><h2 className='update-span'>업데이트(2)</h2>
+          <AiFillPushpin style={{fontSize:"23px" , margin:"0 8px 4px 8px"}}></AiFillPushpin><h2 className='update-span'>업데이트(2)</h2>
         </div>
         <hr className='update-line'></hr>
 

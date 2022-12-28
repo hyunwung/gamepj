@@ -22,6 +22,7 @@ export class TextEditor extends Component {
     const { editorState } = this.state;
     const title = this.props.title
     const submit = this.props.submit
+    const category = this.props.category
     const setSubmit = this.props.setSubmit
 
     const submitData = async () => {
@@ -29,6 +30,7 @@ export class TextEditor extends Component {
         await axios.post(`/`,{
           title : title,
           content : draftToHtml(convertToRaw(editorState.getCurrentContent())),
+          type : category,
         })
         setSubmit(false)
       }catch(error){

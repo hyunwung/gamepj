@@ -14,26 +14,27 @@
                 display: flex;
             }
             .notice-span{
-                font-size: 24px;
+                font-size: 20px;
             }
             .create-board{
                 display: flex;
                 align-items: center;
                 color: black;
                 height: 30px;
-                padding: 0 11px 0 9px;
+                padding: 0 12px 0 9px;
                 border: 1px solid #8b8e94;
                 text-decoration: none;
                 border-radius: 8px;
                 span{
-                    margin-left: 2px;
+                    margin-left: 3px;
+                    font-size: 16px;
                 }
             }
         }
         .notice-box{
             .notice-box-contain{
                 display: flex;
-                padding: 15px;
+                padding: 4px 15px 4px 12px;
                 justify-content: space-between;
                 .notice-left{
                     display: flex;
@@ -42,6 +43,9 @@
                         color: black;
                         margin-top: 2px;
                         font-size: 18px;
+                    }
+                    .notice-title{
+                        font-size: 16px;
                     }
                 }
                 .notice-right{
@@ -66,8 +70,7 @@
                         color: gray;
                     }
                 }
-            }
-            
+            }            
         }
     }
 }

@@ -38,7 +38,7 @@ const Comment = () => {
 
       <div className='origin-comment'>
         <div className='comment-info'>
-          <span className='comment-username'>형식 |</span>
+          <span className='comment-username'>형식 &nbsp; |</span>
           <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span>
           <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button>
         </div>
