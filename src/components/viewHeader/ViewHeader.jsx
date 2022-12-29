@@ -1,25 +1,53 @@
-import React from 'react'
 import "../../assets/Global.scss"
 import "./ViewHeader.scss"
 import {AiFillEye} from "react-icons/ai";
 import { BsLink45Deg } from "react-icons/bs";
 import heart from "../../assets/heart.png"
-import { useLocation } from 'react-router-dom'
+import { useLocation ,useNavigate} from 'react-router-dom'
 import axios from "axios"
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect ,useState} from 'react';
+import Swal from "sweetalert2";
 
 const ViewHeader = () => {
+  const navigate = useNavigate()
   const location = useLocation();
   const [data,setData] = useState("")
   const getBoardData = async () =>{
     try{
       const repo = await axios.get(`/${location.state.id}`)
       setData(repo.data)
-      console.log(data)
     }catch(error){
       console.log(error)
     }
+  }
+  const handleModi = () => {
+    navigate("/modi",{
+      state:{
+        datas:data,
+        id:location.state.id
+    }}
+  )}
+  const handleDelete = () => {
+    Swal.fire({
+      icon: "warning",
+      title: "삭제",
+      text: "게시글을 삭제하시겠습니까?",
+      showCancelButton: true,
+      confirmButtonText: "삭제",
+      cancelButtonText: "취소",
+      }).then((res) => {
+      if(res.isConfirmed) {
+         try{
+          axios.delete(`/${location.state.id}`)
+          navigate("/main")
+        }catch(error){
+          console.log(error)
+        }
+      }
+      else{
+        return
+      }
+    });
   }
   useEffect(()=>{
     getBoardData()
@@ -41,14 +69,16 @@ const ViewHeader = () => {
                 <span>{data.data.views} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>
-                <span style={{marginRight:"9px" , opacity:"0.7"}}>수정</span>
-                <BsLink45Deg style={{color:"gray",fontSize:"24px"}}></BsLink45Deg>
+                <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleModi}>수정</span>
+                <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleDelete}>삭제</span>
+                <BsLink45Deg style={{color:"gray",fontSize:"22px"}}></BsLink45Deg>
               </div>
             </div>
             <hr style={{opacity:"0.3" , color:"gray" ,margin:"15px 0 15px 0"}}></hr>
           </div>
-          <div className='board-detail-content'>
-            {data.data.content}
+          <div 
+            className='board-detail-content'
+            dangerouslySetInnerHTML={{__html:data.data.content}}>
           </div>
         </div>}
     </div>

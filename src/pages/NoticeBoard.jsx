@@ -1,6 +1,6 @@
 import Header from "../components/header/Header"
 import NavBar from "../components/navBar/NavBar"
-import Notice from "../components/notice/Notice"
+import BoardItems from "../components/boardItems/BoardItems"
 import "../assets/Global.scss"
 
 const NoticeBoard = () => {
@@ -10,7 +10,7 @@ const NoticeBoard = () => {
             <div className="notices-container">
                 <NavBar></NavBar>
                 <div className="notices-page">
-                    <Notice></Notice>
+                    <BoardItems></BoardItems>
                 </div>
             </div>
         </div>

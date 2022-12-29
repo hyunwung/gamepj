@@ -1,19 +1,19 @@
-.notice{
+.BoardItems{
     margin : 20px 0 80px 20px;
     width: 100%;
-    .notice-container{
+    .BoardItems-container{
         width: 100%;
-        .notice-line{
+        .BoardItems-line{
             opacity: 0.7;
             color: black;
         }
-        .notice-title{
+        .BoardItems-title{
             display: flex;
             justify-content: space-between;
-            .notice-title-name{
+            .BoardItems-title-name{
                 display: flex;
             }
-            .notice-span{
+            .BoardItems-span{
                 font-size: 20px;
             }
             .create-board{
@@ -31,13 +31,13 @@
                 }
             }
         }
-        .notice-box{
-            .notice-box-contain{
+        .BoardItems-box{
+            .BoardItems-box-contain{
                 display: flex;
                 padding: 4px 15px 4px 12px;
                 justify-content: space-between;
                 cursor: pointer;
-                .notice-left{
+                .BoardItems-left{
                     display: flex;
                     a{
                         text-decoration: none;
@@ -45,27 +45,27 @@
                         margin-top: 2px;
                         font-size: 18px;
                     }
-                    .notice-title{
+                    .BoardItems-title{
                         font-size: 16px;
                     }
                 }
-                .notice-right{
+                .BoardItems-right{
                     display: flex;
-                    .notice-date{
+                    .BoardItems-date{
                         margin: 4px 10px 0 0;
                         color: gray;
                         opacity: 0.7;
                         font-size: 15px;
                     }
-                    .notice-like{
+                    .BoardItems-like{
                         margin: 3px 5px 0 0;
                         height: 20px;
                     }
-                    .notice-like-count{
+                    .BoardItems-like-count{
                         margin: 3px 5px 0 0;
                         color: gray;
                     }
-                    .notice-view{
+                    .BoardItems-view{
                         margin-top: 3px;
                         font-size: 15px;
                         color: gray;

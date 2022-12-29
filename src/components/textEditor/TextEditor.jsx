@@ -24,10 +24,18 @@ export class TextEditor extends Component {
     const submit = this.props.submit
     const category = this.props.category
     const setSubmit = this.props.setSubmit
-
-    const submitData = async () => {
+    const id = this.props.id
+    console.log(id)
+    // const contents = this.props.contents
+    // console.log(contents)
+    // if(contents !==undefined){
+    //   this.setState({
+    //     editorState : contents
+    //   })
+    // }    
+    const modiData = async () => {
       try{
-        await axios.post(`/`,{
+        await axios.patch(`/${id}`,{
           title : title,
           content : draftToHtml(convertToRaw(editorState.getCurrentContent())),
           type : category,
@@ -37,8 +45,8 @@ export class TextEditor extends Component {
         console.log(error)
       }
     }
-    if (submit === true){
-      submitData()
+    if(submit === true){
+      modiData()
     }
     return (
       <div className='editor'>
