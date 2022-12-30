@@ -78,6 +78,7 @@ const Comment = () => {
               <div className='comment-left'>
                 <span className='comment-username'>형식</span>
                 <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span>
+                <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button>
               </div>
               <div className='comment-right'>
                 <span className='comment-option'>수정</span>
@@ -87,9 +88,40 @@ const Comment = () => {
             <div className='comment-bottom'>
               <p>{datas.comment}</p>
             </div>
-          </div>
-        )
-      })}
+            {commentCT === 0 ? 
+              <div className='comment-input-container'>
+                <input className='comment-input'></input>
+                <button onClick={()=>commentControlOff()}>닫기</button>
+              </div> : null}
+            {ex === 0 ? 
+              <div>
+                <p className='comment-answer' onClick={commentOff}>답글 숨기기</p>
+                <div className='other-comment'>
+                  <div className='comment-info'>
+                    <div className='comment-left'>
+                      <span className='comment-username'>하림 |</span>
+                      <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span>
+                      <button className='comment-reply' onClick={()=>commentControlOn(1)}>답글</button>
+                    </div>
+                    <div className='comment-right'>
+                      <span className='comment-option'>수정</span>
+                      <span className='comment-option'>삭제</span>
+                    </div>
+                  </div>
+                  <div className='comment-bottom'>
+                    <p>여기 대댓글과 내용들이 작성됩니다</p>  
+                  </div>
+                  {commentCT === 1 ? 
+                    <div className='comment-input-container'>
+                      <input className='comment-input'></input>
+                      <button onClick={()=>commentControlOff()}>닫기</button>
+                    </div> : null}
+                </div>
+              </div>
+              : <p className='comment-answer' onClick={()=>commentOn(0)}>답글 2개 모두 보기</p>}
+              </div>)}
+              )}
+
       <div className='origin-comment'>
         <div className='comment-info'>
           <div className='comment-left'>
@@ -138,27 +170,6 @@ const Comment = () => {
           </div>
           : <p className='comment-answer' onClick={()=>commentOn(0)}>답글 2개 모두 보기</p>}
         </div>
-
-      {/* <div className='origin-comment'>
-        <div className='comment-info'>
-          <span className='comment-username'>하림 |</span>
-          <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span>
-          <button className='comment-reply' onClick={()=>commentControlOn(2)}>답글</button>
-        </div>
-        <div className='comment-bottom'>
-          <p>여기 댓글과 내용들이 작성됩니다</p>  
-        </div>
-        {commentCT === 2 ?
-          <div className='comment-input-container'>
-            <input className='comment-input'></input>
-            <button onClick={()=>commentControlOff()}>닫기</button>
-          </div> : null}
-        {ex === 1 ?
-          <div>
-            <p className='comment-answer' onClick={commentOff}>답글 숨기기</p>
-          </div>
-          : <p className='comment-answer' onClick={()=>commentOn(1)}>답글 2개 모두 보기</p>}
-      </div> */}
     </div>
   )
 }
