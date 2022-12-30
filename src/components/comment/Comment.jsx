@@ -119,8 +119,9 @@ const Comment = () => {
                 </div>
               </div>
               : <p className='comment-answer' onClick={()=>commentOn(0)}>답글 2개 모두 보기</p>}
-              </div>)}
+              </div>
               )}
+            )}
 
       <div className='origin-comment'>
         <div className='comment-info'>

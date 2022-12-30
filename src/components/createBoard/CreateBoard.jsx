@@ -16,7 +16,6 @@ const CreateBoard = () => {
   const handleSelect = (e) => {
     setCategory(e.target.value)
   }
-  console.log(category)
   return (
     <div className='createBoard'>
       <div className='createBoard-container'>
