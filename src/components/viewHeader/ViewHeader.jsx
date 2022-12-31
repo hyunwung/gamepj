@@ -16,6 +16,7 @@ const ViewHeader = () => {
     try{
       const repo = await axios.get(`/${location.state.id}`)
       setData(repo.data)
+      console.log(repo)
     }catch(error){
       console.log(error)
     }

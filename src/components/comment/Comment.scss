@@ -4,6 +4,23 @@
         margin: 6px 0 18px 30px;
         font-size: 18px;
     }
+    .comment-bottom{
+        display: flex;
+        .comment-count{
+            margin: 6px 0 18px 30px;
+            font-size: 18px;
+        }
+        .comment-like{
+            margin: 6px 0 18px 30px;
+            font-size: 18px;
+        }
+        .comment-likeIcon{
+            margin-top: 5px;
+            margin-left: 5px;
+            height: 20px;
+        }
+    }
+    
     .comment-container{
         margin: 20px 0 20px 20px;
         padding: 28px;

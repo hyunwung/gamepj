@@ -3,10 +3,10 @@ import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 import "./Comment.scss"
 import { useEffect } from 'react'
+import heart2 from "../../assets/heart2.png"
 
 const Comment = () => {
   const location = useLocation()
-  console.log(location.state.id)
   const [ex , setEx] = useState()
   const [commentCT,setCommentCT] = useState()
   const [data,setData] = useState([])
@@ -19,13 +19,14 @@ const Comment = () => {
   const getComment = async () => {
     const repo = await axios.get(`/${location.state.id}/comments`)
     setData(repo.data.data)
-    console.log(repo.data.data)
+    console.log(data)
   }
 
   const postComment = async () => {
     try{
       await axios.post(`/${location.state.id}/comments`,{content:comment})
       setComment("")
+      getComment()
     }catch(error){
       console.log(error)
     }
@@ -33,6 +34,14 @@ const Comment = () => {
   const deleteComment = async (id) => {
     try{
       await axios.delete(`/${location.state.id}/comments/${id}`)
+    }catch(error){
+      console.log(error)
+    }
+  }
+  const likeHandle = async () => {
+    try{
+      await axios.patch(`/${location.state.id}/like`)
+      getComment()
     }catch(error){
       console.log(error)
     }
@@ -53,16 +62,24 @@ const Comment = () => {
   const commentControlOn = (id) => {
     setCommentCT(id)
   }
+  
   const commentControlOff = () => {
     setCommentCT()
   }
   useEffect(()=>{
     getComment()
   },[])
+  console.log(comment)
   return (
     <div className='comment'>
       <hr style={{opacity:"0.3",color:"gray",margin:"15px 5px 15px 24px"}}></hr>
-      <span className='comment-count'>댓글 2</span>
+      
+      <div className='comment-bottom'>
+        <span className='comment-count'>댓글 {data.length}</span>
+        <span className='comment-like'>좋아요 </span>
+        <img className='comment-likeIcon' src={heart2} onClick={()=>likeHandle()}></img>
+      </div>
+      
       <div className='comment-container'>
         <div className='comment-userbox'>
           <span className='comment-surname'>형</span>
