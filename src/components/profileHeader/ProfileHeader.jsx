@@ -1,4 +1,5 @@
 import React from 'react'
+import "./ProfileHeader.scss"
 
 const ProfileHeader = () => {
   return (
@@ -8,7 +9,6 @@ const ProfileHeader = () => {
         <span>닉네임</span>
         <span>내가 쓴 글</span>
         <span>내가 쓴 댓글</span>
-        <span>내가 쓴 대댓글</span>
       </div>
     </div>
   )
