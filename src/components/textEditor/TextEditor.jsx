@@ -42,7 +42,6 @@ export class TextEditor extends Component {
         setSubmit(false)
       }catch(error){
         console.log(error)
-        alert("멈춰")
       }
     }
     
