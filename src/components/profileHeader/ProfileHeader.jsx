@@ -7,10 +7,16 @@ const ProfileHeader = () => {
     <div className='profileHeader'>
       <Header></Header>
       <div className='profileHeader-container'>
-        <div>프로필 이미지</div>
-        <span>닉네임</span>
-        <span>내가 쓴 글</span>
-        <span>내가 쓴 댓글</span>
+        <div className='profile-left'>
+          <div className='profile-logo'>이미지</div>
+          <span>닉네임</span>
+        </div>
+        <div className='profile-right'>
+          d
+        </div>
+        
+        {/* <span>내가 쓴 글</span>
+        <span>내가 쓴 댓글</span> */}
       </div>
     </div>
   )
