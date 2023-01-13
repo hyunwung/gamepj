@@ -6,9 +6,10 @@ import NoticeBoard from './pages/NoticeBoard'
 import ViewBoard from './pages/ViewBoard'
 import Create from './pages/Create'
 import Login from "./pages/Login"
-import axios from './api/axios';
+import Profile from './pages/Profile'
 import "./App.css"
 import Modi from './pages/Modi'
+import axios from './api/axios';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/" element={<Intro></Intro>}></Route>
         <Route path="/main" element={<Main></Main>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route path="/notice" element={<NoticeBoard></NoticeBoard>}></Route>
         <Route path="/create" element={<Create></Create>}></Route>
         <Route path="/modi" element={<Modi></Modi>}></Route>

@@ -5,7 +5,7 @@ const LoginModal = () => {
     return (
     <div className='login-container'>
         <div className='login-header'>
-            <span className='login-logo'>RSD</span>
+            <a className='login-link' href='/main'><span className='login-logo'>RSD</span></a>
         </div>
         <div className='login-bottom-container'>
             <span className='login-title'>RSD</span>        

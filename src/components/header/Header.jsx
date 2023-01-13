@@ -37,6 +37,7 @@ const Header = () => {
         </div>
         <div className="header-right">
           <a className="login-link" href="/login">Login</a>
+          <a className="login-link" href="/profile">Profile</a>
         </div>
       </div>
     </div>
