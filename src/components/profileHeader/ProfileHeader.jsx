@@ -14,7 +14,6 @@ const ProfileHeader = () => {
         <div className='profile-right'>
           d
         </div>
-        
         {/* <span>내가 쓴 글</span>
         <span>내가 쓴 댓글</span> */}
       </div>
