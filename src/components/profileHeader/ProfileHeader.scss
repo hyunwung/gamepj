@@ -77,8 +77,22 @@
 			}
 			.profile-entire{
 				margin: 10px 0 0 20px;
-				input{
-					margin-right: 7px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				.profile-entire-left{
+					input{
+						margin-right: 7px;
+					}
+				}
+				.profile-entire-right{
+					margin-right: 18px;
+					button{
+						border: none;
+						width: 60px;
+						height: 30px;
+						cursor: pointer;
+					}
 				}
 			}
 		}

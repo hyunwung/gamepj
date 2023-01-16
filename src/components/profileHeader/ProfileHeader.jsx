@@ -35,8 +35,11 @@ const ProfileHeader = () => {
           {/* 여기까지 */}
           <hr className='line2'></hr>
           <div className='profile-entire'>
-            <input type="checkbox"></input>
-            <span>전체선택</span>  
+            <div className='profile-entire-left'>
+              <input type="checkbox"></input>
+              <span>전체선택</span>
+            </div>
+            <a className='profile-entire-right'><button>삭제</button></a>
           </div>
         </div>
         {/* <span>내가 쓴 글</span>
