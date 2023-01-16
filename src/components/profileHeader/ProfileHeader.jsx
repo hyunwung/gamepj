@@ -56,10 +56,12 @@ const ProfileHeader = () => {
               </div>
               <div className='profile-content-date'>2023.01.15</div>
             </div>
-          <hr className='line2'></hr>
-          </div>
-           : null}
-          <span className='profile-null'>작성하신 글이 없습니다.</span>
+            <hr className='line2'></hr>
+          </div> : null}
+          {data === null && title === 0 ?
+            <span className='profile-null'>작성하신 글이 없습니다.</span>
+          : null}
+          
           {data !== null && title === 1 ?
           <div>
             <div className='profile-content'>
@@ -69,9 +71,12 @@ const ProfileHeader = () => {
               </div>
               <div className='profile-content-date'>2023.01.15</div>
             </div>
-          <hr className='line2'></hr>
-          </div>
-           : <span className='profile-null'>작성하신 댓글이 없습니다.</span>}
+            <hr className='line2'></hr>
+          </div> : null}
+          {data === null && title === 1 ?
+            <span className='profile-null'>작성하신 댓글이 없습니다.</span>
+          : null}
+
           {data !== null && title === 2 ?
           <div>
             <div className='profile-content'>
@@ -82,8 +87,10 @@ const ProfileHeader = () => {
               <div className='profile-content-date'>2023.01.15</div>
             </div>
           <hr className='line2'></hr>
-          </div>
-           : <span className='profile-null'>좋아요 하신 글이 없습니다.</span>}
+          </div> : null}
+          {data === null && title === 2 ?
+            <span className='profile-null'>좋아요 하신 글이 없습니다.</span>
+          : null}
           {/* 여기까지 */}
           <div className='profile-entire'>
             <div className='profile-entire-left'>
