@@ -8,6 +8,7 @@ const ProfileHeader = () => {
   const handleTitle = (id) => {
     setTitle(id)
   }
+  const [data,setData] = useState(null)
   return (
     <div className='profileHeader'>
       <Header></Header>
@@ -46,41 +47,43 @@ const ProfileHeader = () => {
 
           <hr className='line2'></hr>
           {/* 댓글 or 작성글 */}
-          <div className='profile-content'>
-            <div className='profile-content-container'>
-              <input type="checkbox" className='profile-checkbox'></input>
-              <div>댓글 1</div>
+          {data !== null && title === 0 ?
+          <div>
+            <div className='profile-content'>
+              <div className='profile-content-container'>
+                <input type="checkbox" className='profile-checkbox'></input>
+                <div>댓글 1</div>
+              </div>
+              <div className='profile-content-date'>2023.01.15</div>
             </div>
-            <div className='profile-content-date'>2023.01.15</div>
-          </div>
           <hr className='line2'></hr>
-
-          <div className='profile-content'>
-            <div className='profile-content-container'>
-              <input type="checkbox" className='profile-checkbox'></input>
-              <div>댓글 2</div>
+          </div>
+           : null}
+          <span className='profile-null'>작성하신 글이 없습니다.</span>
+          {data !== null && title === 1 ?
+          <div>
+            <div className='profile-content'>
+              <div className='profile-content-container'>
+                <input type="checkbox" className='profile-checkbox'></input>
+                <div>댓글 1</div>
+              </div>
+              <div className='profile-content-date'>2023.01.15</div>
             </div>
-            <div className='profile-content-date'>2023.01.15</div>
-          </div>
           <hr className='line2'></hr>
-
-          <div className='profile-content'>
-            <div className='profile-content-container'>
-              <input type="checkbox" className='profile-checkbox'></input>
-              <div>댓글 2</div>
+          </div>
+           : <span className='profile-null'>작성하신 댓글이 없습니다.</span>}
+          {data !== null && title === 2 ?
+          <div>
+            <div className='profile-content'>
+              <div className='profile-content-container'>
+                <input type="checkbox" className='profile-checkbox'></input>
+                <div>댓글 1</div>
+              </div>
+              <div className='profile-content-date'>2023.01.15</div>
             </div>
-            <div className='profile-content-date'>2023.01.15</div>
-          </div>
           <hr className='line2'></hr>
-
-          <div className='profile-content'>
-            <div className='profile-content-container'>
-              <input type="checkbox" className='profile-checkbox'></input>
-              <div>이건 작성글</div>
-            </div>
-            <div className='profile-content-date'>2023.01.15</div>
           </div>
-          <hr className='line2'></hr>
+           : <span className='profile-null'>좋아요 하신 글이 없습니다.</span>}
           {/* 여기까지 */}
           <div className='profile-entire'>
             <div className='profile-entire-left'>
