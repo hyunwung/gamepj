@@ -35,7 +35,7 @@
 		.profile-right{
 			background-color: white;
 			width: 900px;
-			height: 400px;
+			height: 200vh;
 			display: flex;
 			flex-direction: column;
 			.profile-items{
@@ -48,11 +48,28 @@
 			}
 			.line1{
 				border: 0;
-				border-top: 2px dotted #8c8c8c;
+				border-top: 2px solid #8c8c8c;
 				width: 97%;
 			}
 			.profile-title{
 				margin : 5px auto 10px auto;
+				.profile-title-set1{
+					margin-right: 350px;
+					margin-left: 290px;
+				}
+				.profile-title-set2{
+					margin-right: 60px;
+				}
+				.profile-title-set4{
+					margin-right: 260px;
+					margin-left: 250px;
+				}
+				.profile-title-set5{
+					margin-right: 100px;
+				}
+				.profile-title-set6{
+					margin-right: 60px;
+				}
 			}
 			.line2{
 				border: 0;
