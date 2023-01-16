@@ -1,19 +1,86 @@
 .profileHeader{
 	width: 100%;
 	.profileHeader-container{
+		margin-top: 200px;
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
-		margin: 0 auto;
+		justify-content: center;		
 		.profile-left{
+			border-radius: 12px;
 			background-color: #488bf4;
-			width: 100px;
-			height: 100px;
+			width: 300px;
+			height: 400px;
+			display: flex;
+			flex-direction: column;
+			margin-right: 12px;
+			.profile-logo{
+				margin: 50px auto;
+				width: 180px;
+				height: 180px;
+				border-radius: 50%;
+				background-color: white;
+			}
+			.profile-modi{
+				margin: 0 auto;
+			}
+			.profile-exit{
+				margin-top: 75px;
+				margin-left: 5px;
+				font-size: 13px;
+				color: black;
+				opacity: 0.7;
+				cursor: pointer;
+			}
 		}
 		.profile-right{
-			background-color: yellow;
-			width: 100px;
-			height: 100px;
+			background-color: white;
+			width: 900px;
+			height: 400px;
+			display: flex;
+			flex-direction: column;
+			.profile-items{
+				display: flex;
+				.profile-item{
+					margin: 9px 12px 4px 12px;
+					cursor: pointer;
+					font-size: 16px;
+				}	
+			}
+			.line1{
+				border: 0;
+				border-top: 2px dotted #8c8c8c;
+				width: 97%;
+			}
+			.profile-title{
+				margin : 5px auto 10px auto;
+			}
+			.line2{
+				border: 0;
+				height: 0;
+				border-top: 1px solid #8c8c8c;
+				opacity: 0.4;
+				width: 97%;
+			}
+			.profile-content{
+				margin: 15px 0 15px 20px;
+				.profile-content-container{
+					display: flex;
+					.profile-checkbox{
+						margin-right: 7px;
+					}
+				}
+				.profile-content-date{
+					opacity: 0.6;
+					margin-top: 5px;
+					margin-left: 25px;
+				}
+			}
+			.profile-entire{
+				margin: 10px 0 0 20px;
+				input{
+					margin-right: 7px;
+				}
+			}
 		}
 	}
 }
