@@ -53,9 +53,10 @@ const ProfileHeader = () => {
                   <input type="checkbox" className='profile-checkbox'></input>
                   <span className='profile-content-title'>글 제목</span>
                 </div>
+                <div>
                   <span className='profile-content-title-date'>2023.01.15</span>
                   <span className='profile-content-title-view'>155</span>
-                
+                </div>
               </div>
             </div>
             <hr className='line2'></hr>
@@ -83,10 +84,16 @@ const ProfileHeader = () => {
           <div>
             <div className='profile-content3'>
               <div className='profile-content-container'>
-                <input type="checkbox" className='profile-checkbox'></input>
-                <div>댓글 1</div>
+                <div>
+                  <input type="checkbox" className='profile-checkbox'></input>
+                  <span className='profile-content-like'>글 제목</span>
+                </div>
+                <div>
+                  <span className='profile-content-like-date'>2023.01.15</span>
+                  <span className='profile-content-like-name'>김근육</span>
+                  <span className='profile-content-like-view'>155</span>
+                </div>
               </div>
-              <div className='profile-content-date'>2023.01.15</div>
             </div>
           <hr className='line2'></hr>
           </div> : null}
