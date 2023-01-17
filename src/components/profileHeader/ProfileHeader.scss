@@ -85,6 +85,35 @@
 				margin: 15px 0 15px 20px;
 				.profile-content-container{
 					display: flex;
+					justify-content: space-between;
+					.profile-checkbox{
+						margin-right: 7px;
+					}
+					.profile-content-container-display{
+					}
+				}
+				.profile-content-title-date{
+					margin-left: 25px;
+				}
+			}
+			.profile-content2{
+				margin: 15px 0 15px 20px;
+				.profile-content-container{
+					display: flex;
+					.profile-checkbox{
+						margin-right: 7px;
+					}
+				}
+				.profile-content-date{
+					opacity: 0.6;
+					margin-top: 5px;
+					margin-left: 25px;
+				}
+			}
+			.profile-content3{
+				margin: 15px 0 15px 20px;
+				.profile-content-container{
+					display: flex;
 					.profile-checkbox{
 						margin-right: 7px;
 					}

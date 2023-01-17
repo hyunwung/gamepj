@@ -1,6 +1,5 @@
 import React from 'react'
 import "./ProfileHeader.scss"
-import Header from '../header/Header'
 import { useState } from 'react'
 
 const ProfileHeader = () => {
@@ -8,10 +7,9 @@ const ProfileHeader = () => {
   const handleTitle = (id) => {
     setTitle(id)
   }
-  const [data,setData] = useState(null)
+  const [data,setData] = useState("ㄴ")
   return (
     <div className='profileHeader'>
-      <Header></Header>
       <div className='profileHeader-container'>
         <div className='profile-left'>
           <div className='profile-logo'></div>
@@ -51,10 +49,14 @@ const ProfileHeader = () => {
           <div>
             <div className='profile-content'>
               <div className='profile-content-container'>
-                <input type="checkbox" className='profile-checkbox'></input>
-                <div>댓글 1</div>
+                <div>
+                  <input type="checkbox" className='profile-checkbox'></input>
+                  <span className='profile-content-title'>글 제목</span>
+                </div>
+                  <span className='profile-content-title-date'>2023.01.15</span>
+                  <span className='profile-content-title-view'>155</span>
+                
               </div>
-              <div className='profile-content-date'>2023.01.15</div>
             </div>
             <hr className='line2'></hr>
           </div> : null}
@@ -64,7 +66,7 @@ const ProfileHeader = () => {
           
           {data !== null && title === 1 ?
           <div>
-            <div className='profile-content'>
+            <div className='profile-content2'>
               <div className='profile-content-container'>
                 <input type="checkbox" className='profile-checkbox'></input>
                 <div>댓글 1</div>
@@ -79,7 +81,7 @@ const ProfileHeader = () => {
 
           {data !== null && title === 2 ?
           <div>
-            <div className='profile-content'>
+            <div className='profile-content3'>
               <div className='profile-content-container'>
                 <input type="checkbox" className='profile-checkbox'></input>
                 <div>댓글 1</div>
@@ -100,8 +102,6 @@ const ProfileHeader = () => {
             <a className='profile-entire-right'><button>삭제</button></a>
           </div>
         </div>
-        {/* <span>내가 쓴 글</span>
-        <span>내가 쓴 댓글</span> */}
       </div>
     </div>
   )
