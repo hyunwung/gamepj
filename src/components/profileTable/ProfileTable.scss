@@ -1,37 +1,8 @@
-.profileHeader{
-	width: 100%;
-	.profileHeader-container{
-		margin-top: 200px;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;		
-		.profile-left{
-			border-radius: 12px;
-			background-color: #488bf4;
-			width: 300px;
-			height: 400px;
-			display: flex;
-			flex-direction: column;
-			margin-right: 12px;
-			.profile-logo{
-				margin: 50px auto;
-				width: 180px;
-				height: 180px;
-				border-radius: 50%;
-				background-color: white;
-			}
-			.profile-modi{
-				margin: 0 auto;
-			}
-			.profile-exit{
-				margin-top: 75px;
-				margin-left: 5px;
-				font-size: 13px;
-				color: black;
-				opacity: 0.7;
-				cursor: pointer;
-			}
-		}
+@import "../../assets/Global.scss";
+
+.profileTable{
+	width: 50vw;
+	.profileTable-container{
 		.profile-right{
 			background-color: white;
 			width: 900px;
@@ -143,9 +114,15 @@
 				}
 				.profile-entire-right{
 					margin-right: 18px;
-					button{
+					.btn{
 						border: none;
 						width: 60px;
+						height: 30px;
+						cursor: pointer;
+					}
+					.btn2{
+						border: none;
+						width: 100px;
 						height: 30px;
 						cursor: pointer;
 					}

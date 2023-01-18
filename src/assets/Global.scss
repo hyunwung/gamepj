@@ -1,3 +1,5 @@
+$nav-color : #488bf4;
+
 .main-page{
     width: 100%;
     height: 100%;    
@@ -35,5 +37,15 @@
             max-width: 51vw;
             min-width: 51vw;
         }
+    }
+}
+
+.profile{
+    width: 100%;
+    .profile-container{
+        margin-top: 200px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
     }
 }

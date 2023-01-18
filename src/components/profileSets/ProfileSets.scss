@@ -1,0 +1,31 @@
+@import "../../assets/Global.scss";
+
+.profileSets{
+	.profileSets-container{
+		border-radius: 12px;
+		background-color: $nav-color;
+		width: 300px;
+		height: 400px;
+		display: flex;
+		flex-direction: column;
+		margin-right: 12px;
+		.profile-logo{
+			margin: 50px auto;
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			background-color: white;
+		}
+		.profile-modi{
+				margin: 0 auto;
+		}
+		.profile-exit{
+				margin-top: 75px;
+				margin-left: 5px;
+				font-size: 13px;
+				color: black;
+				opacity: 0.7;
+				cursor: pointer;
+		}
+	}
+}

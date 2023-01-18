@@ -1,12 +1,17 @@
 import React from 'react'
-import ProfileHeader from '../components/profileHeader/ProfileHeader'
 import Header from '../components/header/Header'
+import ProfileTable from '../components/profileTable/ProfileTable'
+import ProfileSets from '../components/profileSets/ProfileSets'
+import "../assets/Global.scss"
 
 const Profile = () => {
   return (
     <div className='profile'>
       <Header></Header>
-      <ProfileHeader></ProfileHeader>
+      <div className='profile-container'>
+        <ProfileSets></ProfileSets>
+        <ProfileTable></ProfileTable>
+      </div>
     </div>
   )
 }

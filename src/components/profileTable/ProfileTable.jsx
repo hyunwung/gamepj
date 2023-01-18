@@ -1,30 +1,23 @@
 import React from 'react'
-import "./ProfileHeader.scss"
+import "./ProfileTable.scss"
 import { useState } from 'react'
 
-const ProfileHeader = () => {
+const ProfileTable = () => {
   const [title,setTitle] = useState(0)
   const handleTitle = (id) => {
     setTitle(id)
   }
   const [data,setData] = useState("ㄴ")
   return (
-    <div className='profileHeader'>
-      <div className='profileHeader-container'>
-        <div className='profile-left'>
-          <div className='profile-logo'></div>
-          <div className='profile-modi'>
-            <input placeholder='닉네임' type="text"></input>
-            <button>변경</button>
-          </div>
-          <span className='profile-exit'>회원탈퇴</span>
-        </div>
+    <div className='profileTable'>
+      <div className='profileTable-container'>  
         <div className='profile-right'>
           <div className='profile-items'>
             <span className='profile-item' onClick={()=>handleTitle(0)}>작성글</span>
             <span className='profile-item' onClick={()=>handleTitle(1)}>작성댓글</span>
             <span className='profile-item' onClick={()=>handleTitle(2)}>좋아요한 글</span>
           </div>
+
           <hr className='line1'></hr>
           {title === 0 ? 
             <div className='profile-title'>
@@ -44,7 +37,7 @@ const ProfileHeader = () => {
             : null}
 
           <hr className='line2'></hr>
-          {/* 댓글 or 작성글 */}
+          
           {data !== null && title === 0 ?
           <div>
             <div className='profile-content'>
@@ -89,8 +82,8 @@ const ProfileHeader = () => {
                   <span className='profile-content-like'>글 제목</span>
                 </div>
                 <div>
-                  <span className='profile-content-like-date'>2023.01.15</span>
                   <span className='profile-content-like-name'>김근육</span>
+                  <span className='profile-content-like-date'>2023.01.15</span>
                   <span className='profile-content-like-view'>155</span>
                 </div>
               </div>
@@ -100,18 +93,19 @@ const ProfileHeader = () => {
           {data === null && title === 2 ?
             <span className='profile-null'>좋아요 하신 글이 없습니다.</span>
           : null}
-          {/* 여기까지 */}
+          
           <div className='profile-entire'>
             <div className='profile-entire-left'>
               <input type="checkbox"></input>
               <span>전체선택</span>
             </div>
-            <a className='profile-entire-right'><button>삭제</button></a>
+            {title === 2 ? <a className='profile-entire-right'><button className='btn2'>좋아요 취소</button></a> : <a className='profile-entire-right'><button className='btn'>삭제</button></a>}
           </div>
         </div>
-      </div>
+      
+       </div>
     </div>
   )
 }
 
-export default ProfileHeader
+export default ProfileTable
