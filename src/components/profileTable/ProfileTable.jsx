@@ -11,14 +11,38 @@ const ProfileTable = () => {
   return (
     <div className='profileTable'>
       <div className='profileTable-container'>  
-        <div className='profile-right'>
-          <div className='profile-items'>
-            <span className='profile-item' onClick={()=>handleTitle(0)}>작성글</span>
-            <span className='profile-item' onClick={()=>handleTitle(1)}>작성댓글</span>
-            <span className='profile-item' onClick={()=>handleTitle(2)}>좋아요한 글</span>
-          </div>
-
-          <hr className='line1'></hr>
+        <div className='profile-items'>
+          <span className='profile-item' onClick={()=>handleTitle(0)}>작성글</span>
+          <span className='profile-item' onClick={()=>handleTitle(1)}>작성댓글</span>
+          <span className='profile-item' onClick={()=>handleTitle(2)}>좋아요한 글</span>
+        </div>
+        <hr className='line1'></hr>
+        <table className='profile-table'>
+          <thead>
+            <tr>
+              <th scope='col'>제목</th>
+              <th scope='col'>작성일</th>
+              <th scope='col'>조회</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* {title === 0 ?  */}
+              <tr>
+                <td>
+                  <input type="checkbox" className='profile-checkbox'></input>
+                  <span className='profile-content-title'>글 제목</span>
+                </td>
+                <td>
+                  <span className='profile-content-title-date'>2023.01.15</span>
+                </td>
+                <td>
+                  <span className='profile-content-title-view'>155</span>
+                </td>
+              </tr>
+            {/* : null} */}
+          </tbody>
+        </table>
+          {/* <hr className='line1'></hr>
           {title === 0 ? 
             <div className='profile-title'>
               <span className='profile-title-set1'>제목</span>
@@ -82,8 +106,8 @@ const ProfileTable = () => {
                   <span className='profile-content-like'>글 제목</span>
                 </div>
                 <div>
-                  <span className='profile-content-like-name'>김근육</span>
                   <span className='profile-content-like-date'>2023.01.15</span>
+                  <span className='profile-content-like-name'>김근육</span>
                   <span className='profile-content-like-view'>155</span>
                 </div>
               </div>
@@ -100,9 +124,7 @@ const ProfileTable = () => {
               <span>전체선택</span>
             </div>
             {title === 2 ? <a className='profile-entire-right'><button className='btn2'>좋아요 취소</button></a> : <a className='profile-entire-right'><button className='btn'>삭제</button></a>}
-          </div>
-        </div>
-      
+          </div> */}
        </div>
     </div>
   )
