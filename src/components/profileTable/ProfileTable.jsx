@@ -7,7 +7,7 @@ const ProfileTable = () => {
   const handleTitle = (id) => {
     setTitle(id)
   }
-  const [data,setData] = useState("ㄴ")
+  const [data,setData] = useState(null)
   return (
     <div className='profileTable'>
       <div className='profileTable-container'>  
