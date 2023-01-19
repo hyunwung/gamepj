@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/gamePj/index/static/css/main.562f6f7a.css",
-    "main.js": "/gamePj/index/static/js/main.e0241fea.js",
-    "static/media/optimize3.webp": "/gamePj/index/static/media/optimize3.d85855715220d44b1868.webp",
-    "static/media/optimize4.webp": "/gamePj/index/static/media/optimize4.44ab5bc371cd4cd56330.webp",
-    "static/media/heart.png": "/gamePj/index/static/media/heart.bda42f794f2083991630.png",
-    "static/media/optimize2.webp": "/gamePj/index/static/media/optimize2.69d2acf690cad1542c1f.webp",
-    "static/media/search.png": "/gamePj/index/static/media/search.19ac51b972f0fca9735e.png",
-    "static/media/slick.svg": "/gamePj/index/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "/gamePj/index/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "/gamePj/index/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "/gamePj/index/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "/gamePj/index/index.html",
-    "main.562f6f7a.css.map": "/gamePj/index/static/css/main.562f6f7a.css.map",
-    "main.e0241fea.js.map": "/gamePj/index/static/js/main.e0241fea.js.map"
+    "main.css": "/gamePj/static/css/main.b50bf50b.css",
+    "main.js": "/gamePj/static/js/main.4ddd7886.js",
+    "static/media/optimize3.webp": "/gamePj/static/media/optimize3.d85855715220d44b1868.webp",
+    "static/media/optimize4.webp": "/gamePj/static/media/optimize4.44ab5bc371cd4cd56330.webp",
+    "static/media/heart.png": "/gamePj/static/media/heart.bda42f794f2083991630.png",
+    "static/media/optimize2.webp": "/gamePj/static/media/optimize2.69d2acf690cad1542c1f.webp",
+    "static/media/search.png": "/gamePj/static/media/search.19ac51b972f0fca9735e.png",
+    "static/media/slick.svg": "/gamePj/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/gamePj/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/gamePj/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/gamePj/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/gamePj/index.html",
+    "main.b50bf50b.css.map": "/gamePj/static/css/main.b50bf50b.css.map",
+    "main.4ddd7886.js.map": "/gamePj/static/js/main.4ddd7886.js.map"
   },
   "entrypoints": [
-    "static/css/main.562f6f7a.css",
-    "static/js/main.e0241fea.js"
+    "static/css/main.b50bf50b.css",
+    "static/js/main.4ddd7886.js"
   ]
 }
