@@ -19,14 +19,45 @@ const ProfileTable = () => {
         <hr className='line1'></hr>
         <table className='profile-table'>
           <thead>
-            <tr>
+            {title === 0 ? <tr>
               <th scope='col'>제목</th>
               <th scope='col'>작성일</th>
+              <th scope='col'>조회수</th>
+            </tr> : null}
+            {title === 1 ? <tr>
+              <th scope='col'>댓글</th>
+            </tr> : null}
+            {title === 2 ? <tr>
+              <th scope='col'>제목</th>
+              <th scope='col'>작성일</th>
+              <th scope='col'>작성자</th>
               <th scope='col'>조회</th>
-            </tr>
+            </tr> : null}
           </thead>
           <tbody>
-            {/* {title === 0 ?  */}
+            {title === 0 ? 
+              <tr>
+                <td>
+                  <input type="checkbox" className='profile-checkbox'></input>
+                  <span className='profile-content-title'>글 제목@@@</span>
+                </td>
+                <td>
+                  <span className='profile-content-title-date'>2023.01.15</span>
+                </td>
+                <td>
+                  <span className='profile-content-title-view'>155</span>
+                </td>
+              </tr>
+            : null}
+            {title === 1 ? 
+              <tr>
+                <td>
+                  <input type="checkbox" className='profile-checkbox'></input>
+                  <span className='profile-content-title'>댓글이요.@@@</span>
+                </td>
+              </tr>
+            : null}
+            {title === 2 ? 
               <tr>
                 <td>
                   <input type="checkbox" className='profile-checkbox'></input>
@@ -36,10 +67,13 @@ const ProfileTable = () => {
                   <span className='profile-content-title-date'>2023.01.15</span>
                 </td>
                 <td>
+                  <span className='profile-content-title-date'>김근육</span>
+                </td>
+                <td>
                   <span className='profile-content-title-view'>155</span>
                 </td>
               </tr>
-            {/* : null} */}
+            : null}
           </tbody>
         </table>
           {/* <hr className='line1'></hr>
