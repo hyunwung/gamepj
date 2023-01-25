@@ -1,3 +1,5 @@
+@import "../../assets/Global.scss";
+
 .createBoard{
     margin: 40px 0 0 50px;
     .createBoard-container{
@@ -18,7 +20,7 @@
                 height: 40px;
                 border-radius: 10px;   
                 width: 200px;
-                background-color: #488bf4;
+                background-color: $nav-color;
                 span{
                     font-size: 19px;
                     color: white;

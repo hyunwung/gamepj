@@ -1,6 +1,6 @@
+@import "../../assets/Global.scss";
+
 .nav-menu{
-  height: 100vh;
-  background-color: rgb(30, 55, 153);
   // background-image: url('../../assets/heart.png');
   // background-size: cover;
   // background-position: center;
@@ -12,10 +12,10 @@
 }
   
 .nav-menu {
-  background-color: #488bf4;
+  background-color: $nav-color;
   margin-left: 325px;
   width: 230px;
-  
+  height: 100vh;
   display: flex;
   justify-content: center;
 
@@ -80,7 +80,7 @@
 }
 
 .navbar-toggle {
-  background-color: #488bf4;
+  background-color: $nav-color;
   width: 100%;
   display: flex;
   justify-content: start;
