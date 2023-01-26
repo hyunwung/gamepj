@@ -6,10 +6,14 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 		setModalIsOpen((prev)=>!prev)
 	}
     return (
-    <div className='report' style={{display : modalIsOpen ? "block" : "none"}}>
-		모달이당
-		<button onClick={()=>handleModal()}>닫기</button>
+	<div>
+		<div className='report' style={{display : modalIsOpen ? "block" : "none"}}>
+			모달이당
+			<button onClick={()=>handleModal()}>닫기</button>
+		</div>
+		<div className='report-background' style={{display : modalIsOpen ? "block" : "none"}}></div>
 	</div>
+    
   )
 }
 
