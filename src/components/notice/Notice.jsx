@@ -8,10 +8,13 @@ import { BsFillPencilFill } from "react-icons/bs";
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Report from '../modal/Report';
 
 const Notice = () => {
   const [datas,setData] = useState([])
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const navigate = useNavigate()
+  
   const getBoardData = async() =>{
     try{
       const repo = await axios.get("/all")
@@ -23,8 +26,13 @@ const Notice = () => {
       console.log(error)
     }
   }
+
   const enterRoom = (id) => {
     navigate(`/board/detail/${id}`,{state:{id:id}})
+  }
+
+  const handleModal = () => {
+    setModalIsOpen((prev)=>!prev)
   }
 
   useEffect(()=>{
@@ -41,6 +49,7 @@ const Notice = () => {
             <BsFillPencilFill style={{fontSize:"16px"}}></BsFillPencilFill>
             <span>글쓰기</span>
           </a>
+          <button onClick={()=>handleModal()}>모달 열기</button>
         </div>
         <hr className='notice-line'></hr>
         {Array.isArray(datas) && datas.length === 0 || datas === undefined ? null : datas.map((data, index)=>{
@@ -68,6 +77,8 @@ const Notice = () => {
         })}
       </div>
       <FiMoreHorizontal style={{fontSize:"24px", margin:"0 auto", display:"flex"}}></FiMoreHorizontal>
+      {/* 팝업창 */}
+      <Report modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}></Report>
     </div>
   )
 }
