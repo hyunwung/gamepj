@@ -1,13 +1,72 @@
 .report{
 	position: absolute;
 	z-index: 999;
-	width: 500px;
-	height: 600px;
+	width: 700px;
+	height: 800px;
 	background-color: white;
 	border-radius: 15px;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
+	.report-header{
+		background: #fff;
+		position: relative;
+		border-radius: 15px;
+		margin-top: 10px;
+		margin-left: 10px;		
+		.report-title{
+			text-align: center;
+			color: #303038;
+			font-size: 22px;
+			min-height: 30px;
+		}
+		.report-close{
+			position: absolute;
+			top: 4px;
+			right: 0;
+			cursor: pointer;
+			height: 30px;
+			width: 30px;
+			border: none;
+			background-color: #fff;
+			.report-closeFont{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 0;
+				height: 0;
+				font-size: 17px;
+			}
+		}
+	}
+	.report-container{
+		.report-data{
+			padding: 5px 15px 15px;
+			.report-area{
+				display: flex;
+				font-weight: bold;
+				font-size: 20px;
+				letter-spacing: -0.35px;
+				color: #929294;
+				margin: 10px;
+				p{
+					color: black;
+					margin-left: 5px;
+				}
+			}
+			.report-area2{
+				display: flex;
+				font-weight: bold;
+				font-size: 20px;
+				color: #929294;
+				margin: 10px;
+				p{
+					color: black;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
 }
 .report-background{
 	position: fixed;

@@ -50,6 +50,7 @@ const Notice = () => {
             <span>글쓰기</span>
           </a>
           <button onClick={()=>handleModal()}>모달 열기</button>
+          
         </div>
         <hr className='notice-line'></hr>
         {Array.isArray(datas) && datas.length === 0 || datas === undefined ? null : datas.map((data, index)=>{
@@ -69,8 +70,7 @@ const Notice = () => {
                   <span className="notice-like-count">{data.like}</span>
                   <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
                   <span className="notice-view">{data.views}</span>
-                  {/* 팝업창 */}
-                  <Report modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}></Report>
+                  
                 </div>
               </div>
               <hr className='notice-line'></hr>
@@ -78,6 +78,8 @@ const Notice = () => {
           )
         })}
       </div>
+      {/* 팝업창 */}
+      <Report modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}></Report>
       <FiMoreHorizontal style={{fontSize:"24px", margin:"0 auto", display:"flex"}}></FiMoreHorizontal>
     </div>
   )
