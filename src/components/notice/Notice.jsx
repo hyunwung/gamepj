@@ -69,6 +69,8 @@ const Notice = () => {
                   <span className="notice-like-count">{data.like}</span>
                   <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
                   <span className="notice-view">{data.views}</span>
+                  {/* 팝업창 */}
+                  <Report modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}></Report>
                 </div>
               </div>
               <hr className='notice-line'></hr>
@@ -77,8 +79,6 @@ const Notice = () => {
         })}
       </div>
       <FiMoreHorizontal style={{fontSize:"24px", margin:"0 auto", display:"flex"}}></FiMoreHorizontal>
-      {/* 팝업창 */}
-      <Report modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}></Report>
     </div>
   )
 }

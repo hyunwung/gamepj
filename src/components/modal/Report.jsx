@@ -8,7 +8,7 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
     return (
 	<div>
 		<div className='report' style={{display : modalIsOpen ? "block" : "none"}}>
-			모달이당
+			신고기능
 			<button onClick={()=>handleModal()}>닫기</button>
 		</div>
 		<div className='report-background' style={{display : modalIsOpen ? "block" : "none"}}></div>
