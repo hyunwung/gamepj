@@ -87,19 +87,23 @@
 					line-height: 21px;
 					background: #fff;
 					display: flex;
-					margin-bottom: 5px;
+					margin-bottom: 7px;
 					.reason-select{
 						background-color: $nav-color;
-						width: 30px;
-						height: 30px;
+						width: 32px;
+						height: 32px;
 						border-radius: 50%;
 						text-align: center;
-						line-height: 36px;
+						line-height: 38px;
 					}
 					.none-select{
 						background-color: white;
 						width: 30px;
 						height: 30px;
+						border-radius: 50%;
+						border: 1px solid #dcdcdc;
+						text-align: center;
+						line-height: 36px;
 					}
 					.report-reasons{
 						position: absolute;
