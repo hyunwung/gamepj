@@ -1,7 +1,9 @@
+@import "../../assets/Global.scss";
+
 .report{
 	position: absolute;
 	z-index: 999;
-	width: 700px;
+	width: 600px;
 	height: 800px;
 	background-color: white;
 	border-radius: 15px;
@@ -12,8 +14,8 @@
 		background: #fff;
 		position: relative;
 		border-radius: 15px;
-		margin-top: 10px;
-		margin-left: 10px;		
+		margin-top: 15px;
+		margin-left: 15px;		
 		.report-title{
 			text-align: center;
 			color: #303038;
@@ -42,9 +44,9 @@
 	.report-container{
 		.report-data{
 			padding: 5px 15px 15px;
+			margin-bottom: 15px;
 			.report-area{
 				display: flex;
-				font-weight: bold;
 				font-size: 20px;
 				letter-spacing: -0.35px;
 				color: #929294;
@@ -56,7 +58,6 @@
 			}
 			.report-area2{
 				display: flex;
-				font-weight: bold;
 				font-size: 20px;
 				color: #929294;
 				margin: 10px;
@@ -64,6 +65,72 @@
 					color: black;
 					margin-left: 5px;
 				}
+			}
+		}
+		.report-reason{
+			padding: 22px 30px 0;
+			.reason-title{
+				display: block;
+				padding-bottom: 11px;
+				font-size: 20px;
+				letter-spacing: -0.5px;
+				color: #1e1e23;
+			}
+			ul{
+				list-style: none;
+				.reason-item{
+					cursor: pointer;
+					position: relative;
+					font-size: 16px;
+					letter-spacing: -0.5px;
+					color: #1e1e23;
+					line-height: 21px;
+					background: #fff;
+					display: flex;
+					margin-bottom: 5px;
+					.reason-select{
+						background-color: $nav-color;
+						width: 30px;
+						height: 30px;
+						border-radius: 50%;
+						text-align: center;
+						line-height: 36px;
+					}
+					.none-select{
+						background-color: white;
+						width: 30px;
+						height: 30px;
+					}
+					.report-reasons{
+						position: absolute;
+						width: 1px;
+						height: 1px;
+						padding: 0;
+						margin: -1px;
+						overflow: hidden;
+						clip: rect(0, 0, 0, 0);
+						border: 0;
+					}
+					.report-reason-items{
+						font-size: 18px;
+						margin: 3px 0 0 7px;
+					}
+				}
+			}
+			.report-btn{
+				display: block;
+				background-color: $nav-color;
+				color: #fff;
+				font-size: 18px;
+				font-weight: bold;
+				width: 70%;
+				height: 38px;
+				line-height: 32px;
+				text-align: center;
+				border-radius: 6px;
+				box-shadow: 0 2px 2px 0 rgb(0 0 0 / 12%);
+				border: solid 0.5px rgba(0, 0, 0, 0.1);
+				cursor: pointer;
 			}
 		}
 	}
