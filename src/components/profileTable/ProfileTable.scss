@@ -30,17 +30,42 @@
 					vertical-align: inherit;
 					border-color: inherit;
 					td{
+						display: flex;
+						flex-direction: column;
 						padding : 5px 18px 6px 4px;
 						.profile-checkbox{
 							margin: 5px 10px 5px 17px;
 						}
+						.profile-comment-null{
+							margin: 10px auto;
+						}
+						.profile-type2{
+							margin: 15px 0 15px 20px;
+							.profile-type2-container{
+								display: flex;
+								.profile-checkbox{
+									margin-right: 7px;
+								}
+							}
+							.profile-type2-date{
+								opacity: 0.6;
+								margin-top: 5px;
+								margin-left: 25px;
+							}
+						}
 					}
 				}
+				.line2{
+					border: 0;
+					height: 0;
+					border-top: 1px solid #8c8c8c;
+					opacity: 0.4;
+					width: 97%;
+				}
 			}
+			
 		}
-		.profile-null{
-			margin: 10px auto;
-		}
+		
 		.profile-items{
 			display: flex;
 			.profile-item{
@@ -74,13 +99,7 @@
 				margin-right: 60px;
 			}
 		}
-		.line2{
-			border: 0;
-			height: 0;
-			border-top: 1px solid #8c8c8c;
-			opacity: 0.4;
-			width: 97%;
-		}
+		
 		.profile-content{
 			margin: 15px 0 15px 20px;
 			.profile-content-container{
@@ -98,20 +117,7 @@
 			}
 			
 		}
-		.profile-content2{
-			margin: 15px 0 15px 20px;
-			.profile-content-container{
-				display: flex;
-				.profile-checkbox{
-					margin-right: 7px;
-				}
-			}
-			.profile-content-date{
-				opacity: 0.6;
-				margin-top: 5px;
-				margin-left: 25px;
-			}
-		}
+		
 		.profile-content3{
 			margin: 15px 0 15px 20px;
 			.profile-content-container{
