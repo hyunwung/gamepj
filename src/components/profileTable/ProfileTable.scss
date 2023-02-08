@@ -1,7 +1,7 @@
 @import "../../assets/Global.scss";
 
 .profileTable{
-	width: 50vw;
+	width: 49vw;
 	.profileTable-container{		
 		background-color: white;
 		width: 900px;
@@ -21,6 +21,24 @@
 			word-wrap: break-word;
 			word-break: break-word;
 			table-layout: fixed;
+			thead{
+				display: table-header-group;
+				vertical-align: middle;
+				border-color: inherit;
+				tr{
+					display: table-row;
+					vertical-align: inherit;
+					border-color: inherit;
+					th{
+						line-height: 36px;
+						height: 40px;
+						padding: 2px;
+						border-top: 1px solid black;
+						border-bottom: 1px solid black;
+						text-align: center;
+					}
+				}
+			}
 			tbody{
 				display: table-row-group;
 				vertical-align: middle;
@@ -29,9 +47,15 @@
 					display: table-row;
 					vertical-align: inherit;
 					border-color: inherit;
+					.profile-comment-null{
+						height: 40px;
+						line-height: 37px;	
+						text-align: center;
+						border-bottom: 1px solid black;
+						width: 93%;
+					}
 					td{
-						display: flex;
-						flex-direction: column;
+						text-align: center;
 						padding : 5px 18px 6px 4px;
 						.profile-checkbox{
 							margin: 5px 10px 5px 17px;
