@@ -7,7 +7,7 @@ const ProfileTable = () => {
   const handleTitle = (id) => {
     setTitle(id)
   }
-  const [data,setData] = useState(null)
+  const [data,setData] = useState(1)
   return (
     <div className='profileTable'>
       <div className='profileTable-container'>  
@@ -16,14 +16,13 @@ const ProfileTable = () => {
           <span className='profile-item' onClick={()=>handleTitle(1)}>작성댓글</span>
           <span className='profile-item' onClick={()=>handleTitle(2)}>좋아요한 글</span>
         </div>
-        
         <table className='profile-table'>
           <thead>
             {title === 0 ? 
             <tr>
-              <th scope='col'>제목</th>
+              <th style={{width:"65%"}} scope='col'>제목</th>
               <th scope='col'>작성일</th>
-              <th scope='col'>조회수</th>
+              <th style={{width:"20%"}} scope='col'>조회수</th>
             </tr> : null}
             {title === 1 ? 
             <tr>
@@ -31,7 +30,7 @@ const ProfileTable = () => {
             </tr> : null}
             {title === 2 ? 
             <tr>
-              <th>제목</th>
+              <th style={{width:"60%"}}>제목</th>
               <th>작성일</th>
               <th>작성자</th>
               <th>조회</th>
@@ -40,7 +39,7 @@ const ProfileTable = () => {
           <tbody>
             {data === null && title === 0 ?
               <tr>
-                <td className='profile-comment-null' colSpan="3">작성하신 글이 없습니다.</td>
+                <td className='profil e-comment-null' colSpan="3">작성하신 글이 없습니다.</td>
               </tr> : null}
             {data !== null && title === 0 ? 
               <tr>
@@ -66,7 +65,7 @@ const ProfileTable = () => {
               </tr> : null}
             {data === null && title === 2 ? 
               <tr>
-                <td className='profile-comment-null' colSpan="4">작성하신 댓글이 없습니다.</td>
+                <td className='profile-comment-null' colSpan="4">좋아요 하신 글이 없습니다.</td>
               </tr> : null}
             {data !== null && title === 2 ?
             <tr>
