@@ -37,49 +37,60 @@ const ProfileTable = () => {
             </tr> : null}
           </thead>
           <tbody>
+
             {data === null && title === 0 ?
               <tr>
                 <td className='profil e-comment-null' colSpan="3">작성하신 글이 없습니다.</td>
               </tr> : null}
             {data !== null && title === 0 ? 
               <tr>
-                <td className='td-1'>
+                <td style={{textAlign:"start"}}>
                   <input type="checkbox" className='profile-checkbox'></input>
-                  <span className='profile-content-title'>글 제목@@@</span>
+                  <span>글 제목@@@</span>
                 </td>
-                <td className='td-2'>
-                  <span className='profile-content-title-date'>2023.01.15</span>
+                <td>
+                  <span>2023.01.15</span>
                 </td>
-                <td className='td-3'>
-                  <span className='profile-content-title-view'>155</span>
+                <td>
+                  <span>155</span>
                 </td>
               </tr>
             : null}
+
             {data === null && title === 1 ? 
               <tr>
                 <td className='profile-comment-null'>작성하신 댓글이 없습니다.</td>
               </tr> : null}
             {data !== null && title === 1 ?
               <tr>
-                <td>댓글</td>
+                <td className='comment-td'>
+                  <span>
+                    <input type="checkbox" className='profile-checkbox'></input>
+                    댓글!!!!!!!!!!!!!!!!!!!!
+                  </span>
+                  <span>2023.01.15</span>
+                  <span>2023.01.15</span>
+                </td>
               </tr> : null}
+
             {data === null && title === 2 ? 
               <tr>
                 <td className='profile-comment-null' colSpan="4">좋아요 하신 글이 없습니다.</td>
               </tr> : null}
             {data !== null && title === 2 ?
             <tr>
-              <td className='td-1'>
+              <td>
                 <input type="checkbox" className='profile-checkbox'></input>
-                <span className='profile-content-title'>글 제목@@@</span>
+                <span>글 제목@@@</span>
               </td>
-              <td className='td-2'>
-                <span className='profile-content-title-date'>2023.01.15</span>
+              <td>
+                <span>2023.01.15</span>
               </td>
-              <td className='td-3'>
-                <span className='profile-content-title-view'>155</span>
+              <td>
+                <span>155</span>
               </td>
             </tr> : null}
+
           </tbody>
         </table>
        </div>
