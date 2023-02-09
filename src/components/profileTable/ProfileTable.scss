@@ -40,6 +40,7 @@
 				vertical-align: middle;
 				border-color: inherit;
 				tr{
+					
 					display: table-row;
 					vertical-align: inherit;
 					border-color: inherit;
@@ -54,12 +55,18 @@
 						border-bottom: 1px solid #8c8c8c;
 						text-align: center;
 						padding : 7px 0;
-						.profile-checkbox{
-							margin: 5px 10px 5px 17px;
-						}
+					}
+					.profile-checkbox{
+						margin: 8px 7px 8px 12px;
 					}
 					.comment-td{
-						display: block;
+						text-align: left;
+						.comment-data{
+							margin-bottom: 5px;
+							margin-left: 32px;
+							color: #8c8c8c;
+							font-size: 14px;
+						}
 					}
 				}
 				.line2{

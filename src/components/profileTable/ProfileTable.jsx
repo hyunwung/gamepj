@@ -64,12 +64,9 @@ const ProfileTable = () => {
             {data !== null && title === 1 ?
               <tr>
                 <td className='comment-td'>
-                  <span>
-                    <input type="checkbox" className='profile-checkbox'></input>
-                    댓글!!!!!!!!!!!!!!!!!!!!
-                  </span>
-                  <span>2023.01.15</span>
-                  <span>2023.01.15</span>
+                  <p><input type="checkbox" className='profile-checkbox'></input>댓글!!!!!!!!!!!!!!!!!!!!</p>
+                  <p className='comment-data'>2023.01.15</p>
+                  <p className='comment-data'>어떤 게시글 일까요?</p>
                 </td>
               </tr> : null}
 
@@ -79,12 +76,15 @@ const ProfileTable = () => {
               </tr> : null}
             {data !== null && title === 2 ?
             <tr>
-              <td>
+              <td style={{textAlign:"left"}}>
                 <input type="checkbox" className='profile-checkbox'></input>
                 <span>글 제목@@@</span>
               </td>
               <td>
                 <span>2023.01.15</span>
+              </td>
+              <td>
+                <span>서현웅님</span>
               </td>
               <td>
                 <span>155</span>
