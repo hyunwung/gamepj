@@ -1,9 +1,10 @@
-import React from 'react';
 import { useState } from 'react';
 import { AiOutlineCheck } from "react-icons/ai";
+import ReportDetail from './ReportDetail';
 import "./Report.scss";
 
 const Report = ({modalIsOpen , setModalIsOpen}) => {
+	const [reportDetail, setReportDetail] = useState(false);
 	const handleModal = () => {
 		setModalIsOpen((prev)=>!prev)
 	}
@@ -14,6 +15,11 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 	const handleSelect = (id) =>{
 		setSelect(id)
 	}
+
+	const nextReport = () => {
+		setReportDetail((prev)=>!prev)
+	}
+
     return (
 	<div>
 		<div className='report' style={{display : modalIsOpen ? "block" : "none"}}>
@@ -77,11 +83,12 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 							<span className='report-reason-items'>불법촬영물등이 포함되어 있습니다.</span>
 						</li>
 					</ul>
-					<button className='report-btn'>신고하기</button>
+					<button className='report-btn' onClick={()=>nextReport()}>신고하기</button>
 				</div>
 			</div>
 		</div>
 		<div className='report-background' style={{display : modalIsOpen ? "block" : "none"}}></div>
+		<ReportDetail reportDetail={reportDetail} setReportDetail={setReportDetail}></ReportDetail>
 	</div>
     
   )
