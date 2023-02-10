@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineCheck , AiOutlineClose} from "react-icons/ai";
 import ReportDetail from './ReportDetail';
 import "./Report.scss";
 
@@ -26,7 +26,7 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 			<div className='report-header'>
 				<p className='report-title'>신고하기</p>
 				<button className='report-close' onClick={()=>handleModal()}>
-					<span className='report-closeFont'>X</span>
+					<AiOutlineClose style={{fontSize:"26px"}} className="report-closeFont"></AiOutlineClose>
 				</button>
 			</div>
 			<div className='report-container'>
@@ -88,7 +88,7 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 			</div>
 		</div>
 		<div className='report-background' style={{display : modalIsOpen ? "block" : "none"}}></div>
-		<ReportDetail reportDetail={reportDetail} setReportDetail={setReportDetail}></ReportDetail>
+		<ReportDetail reportDetail={reportDetail} setReportDetail={setReportDetail} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} category={select}></ReportDetail>
 	</div>
     
   )
