@@ -46,7 +46,7 @@ const ReportDetail = ({reportDetail,setReportDetail,modalIsOpen,setModalIsOpen,c
                     accept="image/*" 
                     className="file-input"></input>
 				<label>내용</label>
-				<textarea value={text} placeholder="확증을 위해 스크린샷을 첨부해주세요." onChange={handleTexts}></textarea>
+				<textarea value={text} cols="100" rows="10" placeholder="확증을 위해 스크린샷을 첨부해주세요." onChange={handleTexts}></textarea>
                 <button onClick={submitReport}>신고하기</button>
 			</div>
 		</div>
