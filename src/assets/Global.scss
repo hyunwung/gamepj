@@ -50,3 +50,15 @@ $header-color : rgb(30, 55, 153);
         justify-content: center;
     }
 }
+
+@mixin mobile {
+	@media (max-width: 500px) {
+	  @content;
+	}
+}
+
+@include mobile {
+	.footer{
+		left: 65%;
+	}
+}
