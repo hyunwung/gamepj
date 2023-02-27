@@ -8,11 +8,15 @@ const Create = () => {
   return (
     <div className='default'>
       <Header></Header>
-      <div className='default-container'>
-        <NavBar></NavBar>
-        <div className='default-page'>
-          <CreateBoard></CreateBoard>
+      <div className='default-slice'>
+        <div className='이미지1'></div>
+        <div className='default-container'>
+          <NavBar></NavBar>
+          <div className='default-page'>
+            <CreateBoard></CreateBoard>
+          </div>
         </div>
+        <div className='이미지2'></div>
       </div>
     </div>
   )

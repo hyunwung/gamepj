@@ -10,13 +10,17 @@ const Main = () => {
   return (
     <div className='default'>
       <Header></Header>
-      <div className='default-container'>
-        <NavBar></NavBar>
-        <div className='default-page'>
-          <Board></Board>
-          <Notice></Notice>
-          <Update></Update>
+      <div className='default-slice'>
+        <div className='여기에 이미지 1'></div>
+        <div className='default-container'>
+          <NavBar></NavBar>
+          <div className='default-page'>
+            <Board></Board>
+            <Notice></Notice>
+            <Update></Update>
+          </div>
         </div>
+        <div className='여기에 이미지 2'></div>
       </div>
     </div>
   )

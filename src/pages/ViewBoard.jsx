@@ -8,12 +8,16 @@ const ViewBoard = () => {
   return (
     <div className='default'>
       <Header></Header>
-      <div className='default-container'>
-        <NavBar></NavBar>
-        <div className='default-page'>
-          <ViewHeader></ViewHeader>
-          <Comment></Comment>
+      <div className='default-slice'>
+        <div className='이미지1'></div>
+        <div className='default-container'>
+          <NavBar></NavBar>
+          <div className='default-page'>
+            <ViewHeader></ViewHeader>
+            <Comment></Comment>
+          </div>
         </div>
+        <div className='이미지2'></div>
       </div>
     </div>
   )

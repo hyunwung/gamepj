@@ -1,42 +1,20 @@
 $nav-color : #488bf4;
 $header-color : rgb(30, 55, 153);
 
-.main-page{
-    width: 100%;
-    height: 100%;    
-    .main-page-container{
-        display: flex;
-        .page-view{
-            display: block;
-            max-width: 51vw;
-            min-width: 51vw;
-        }
-    }
-}
-
-.notices{
-    width: 100%;
-    height: 100%;    
-    .notices-container{
-        display: flex;
-        .notices-page{
-            display: block;
-            max-width: 51vw;
-            min-width: 51vw;
-        }
-    }
-}
-
-
 .default{
     width: 100%;
     height: 100%;    
-    .default-container{
+    .default-slice{
         display: flex;
-        .default-page{
-            display: block;
-            max-width: 51vw;
-            min-width: 51vw;
+        justify-content: space-between;
+        overflow: hidden;
+        .default-container{
+            display: flex;
+            .default-page{
+                display: block;
+                max-width: 51vw;
+                min-width: 51vw;
+            }
         }
     }
 }

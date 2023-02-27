@@ -5,13 +5,17 @@ import "../assets/Global.scss"
 
 const NoticeBoard = () => {
     return(
-        <div className="notices">
+        <div className="default">
             <Header></Header>
-            <div className="notices-container">
-                <NavBar></NavBar>
-                <div className="notices-page">
-                    <BoardItems></BoardItems>
+            <div className="default-slice">
+                <div className="이미지1"></div>
+                <div className="default-container">
+                    <NavBar></NavBar>
+                    <div className="default-page">
+                        <BoardItems></BoardItems>
+                    </div>
                 </div>
+                <div className="이미지2"></div>
             </div>
         </div>
     )
