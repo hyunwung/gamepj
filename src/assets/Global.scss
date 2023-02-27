@@ -57,7 +57,19 @@ $header-color : rgb(30, 55, 153);
 	}
 }
 
+@mixin tablet {
+	@media (max-width: 768px) {
+	  @content;
+	}
+}
+
 @include mobile {
+	.footer{
+		left: 65%;
+	}
+}
+
+@include tablet {
 	.footer{
 		left: 65%;
 	}
