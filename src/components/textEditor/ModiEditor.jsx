@@ -48,9 +48,9 @@ export class ModiEditor extends Component {
         alert("멈춰")
       }
     }
-    if(modi === true){   
-      modiData()
-    }
+    // if(modi === true){   
+    //   modiData()
+    // }
     return (
       <div className='editor'>
         <Editor

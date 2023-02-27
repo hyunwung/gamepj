@@ -55,6 +55,14 @@ export class TextEditor extends Component {
           wrapperClassName="demo-wrapper"
           editorClassName="demo-editor"
           onEditorStateChange={this.onEditorStateChange}
+          toolbar={{
+            inline:{inDropdown:true},
+            list:{inDropdown:true},
+            textAlign:{inDropdown:true},
+            link:{inDropdown:true},
+            history:{inDropdown:true},
+            // image:{uploadCallback:uploadCallback,alt:{present:true,mandatory:true}}
+          }}
         />
       </div>
     );
