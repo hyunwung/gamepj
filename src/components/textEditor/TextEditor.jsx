@@ -1,70 +1,103 @@
-import React, { Component } from 'react';
-import { EditorState, convertToRaw } from 'draft-js';
+import React, { useState, useEffect } from 'react';
+import { EditorState , ContentState ,convertToRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
-import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { convertToHTML } from 'draft-convert';
+import DOMPurify from 'dompurify';
 import "./TextEditor.scss"
 import axios from 'axios';
 
-export class TextEditor extends Component {
-  state = {
-    editorState: EditorState.createEmpty(),
-  }
+const TextEditor = () => {
+    const [editorState, setEditorState] = React.useState(() =>
+      EditorState.createEmpty()
+    );
+    const editor = React.useRef(null);
+    const _contentState = ContentState.createFromText('Sample content state');
+    const raw = convertToRaw(_contentState);  // RawDraftContentState JSON
+    const [contentState, setContentState] = useState(raw);
 
-  onEditorStateChange = (editorState) => {
-    this.setState({
-      editorState,
-    });
-  };
-  
-  render() {
-    const { editorState } = this.state;
-    const title = this.props.title // 타이틀
-    const submit = this.props.submit // 제출용
-    const category = this.props.category // 카테고리
-    const setSubmit = this.props.setSubmit // 제출용 수정함수
 
-    // const contents = this.props.contents
-    // console.log(contents)
-    // if(contents !==undefined){
-    //   this.setState({
-    //     editorState : contents
-    //   })
-    // }    
+    const [convertedContent, setConvertedContent] = useState(null);
+
+    useEffect(() => {
+      let html = convertToHTML(editorState.getCurrentContent());
+      setConvertedContent(html);
+    }, [editorState]);
+
+    const uploadImageCallBack = async (file) =>{
+      return new Promise(
+        (resolve,reject) => {
+          const data = new FormData();
+          data.append('image',file)
+          
+          fetch('https://api.imgur.com/3/image',{
+              method:'POST',
+              headers:{'Authorization':'Client-ID 85b5a4be79665d6'},
+              body:data,
+              credentials: 'same-origin',
+              mode: 'cors',
+              cache: 'no-cache', 
+              redirect: 'follow',
+              referrerPolicy: 'no-referrer', 
+          })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log('성공:', result);
+            resolve(result)
+          })
+          .catch((error) => {
+            console.error('실패:', error);
+            reject(error)
+          });
+        })
+    }
+    const onEditorStateChange = (editorState) => {
+      // editorState에 값 설정
+      setEditorState(editorState);
+    };
     const postData = async () => {
       try{
         await axios.post(`/`,{
-          title : title,
-          content : draftToHtml(convertToRaw(editorState.getCurrentContent())),
-          type : category,
+          // title : title,
+          // content : draftToHtml(convertToRaw(editorState.getCurrentContent())),
+          // type : category,
         })
-        setSubmit(false)
       }catch(error){
         console.log(error)
       }
     }
-    
-    if(submit === true){
-      postData()
+
+    const createMarkup = (html)=> {
+      console.log(html)
+      return {
+        __html: DOMPurify.sanitize(html)
+      }
     }
     return (
-      <div className='editor'>
+      <div>
         <Editor
+          defaultContentState={contentState}
+          onContentStateChange={setContentState}
           editorState={editorState}
-          wrapperClassName="demo-wrapper"
-          editorClassName="demo-editor"
-          onEditorStateChange={this.onEditorStateChange}
+          onEditorStateChange={setEditorState}
+          wrapperClassName="wrapper-class"
+          editorClassName="editor-class"
+          toolbarClassName="toolbar-class"
           toolbar={{
             inline:{inDropdown:true},
             list:{inDropdown:true},
             textAlign:{inDropdown:true},
             link:{inDropdown:true},
             history:{inDropdown:true},
-            // image:{uploadCallback:uploadCallback,alt:{present:true,mandatory:true}}
+            image:{uploadCallback:uploadImageCallBack, alt:{present:true,mandatory:false}}
           }}
         />
+        <div
+          className="preview"
+          dangerouslySetInnerHTML={createMarkup(convertedContent)}>
+        </div>
       </div>
     );
-  }
 }
+
+export default TextEditor;

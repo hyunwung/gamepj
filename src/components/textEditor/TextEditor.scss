@@ -1,5 +1,24 @@
-.editor{
-    border: 1px solid gray;
-    height: 600px;
-    margin-bottom: 30px;
+.preview {
+    padding: 1rem;
+    margin-top: 1rem;
 }
+
+.editor{
+    height: 500px !important;
+    border: 1px solid #f1f1f1 !important;
+    padding: 5px !important;
+    border-radius: 2px !important;
+}
+
+.wrapper-class {
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+  .editor-class {
+    
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+  .toolbar-class {
+    border: 1px solid #ccc;
+  }
