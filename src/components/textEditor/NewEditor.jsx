@@ -42,7 +42,7 @@ const NewEditor = () => {
             return customUploadAdapter(loader);
         }
     }
-    console.log(datas)
+    //console.log(datas)
     return(
         <CKEditor
         editor={ClassicEditor}
@@ -50,9 +50,7 @@ const NewEditor = () => {
             extraPlugins:[uploadPlugin],
             placeholder: '내용을 입력해 주세요.',
         }}
-
         data=""
-        
         onReady={editor => {
             // console.log('Editor is ready to use!', editor);
         }}
@@ -62,13 +60,9 @@ const NewEditor = () => {
             setData(data)
             console.log(data)
         }}
-        
         onBlur={(event, editor) => {
-            // console.log('Blur.', editor);
         }}
-        
         onFocus={(event, editor) => {
-            // console.log('Focus.', editor);
         }}>
         </CKEditor>
     )
