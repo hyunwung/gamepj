@@ -31,7 +31,7 @@ const CreateBoard = () => {
         </select>
         <span className='create-input'>내용</span>
         <TextEditor title={title} submit={submit} category={category} setSubmit={setSubmit}></TextEditor>
-        <a href='/main'><button className='board-submit' onClick={()=>submitData()}><span>저장</span></button></a>
+        <a href='#'><button className='board-submit' onClick={()=>submitData()}><span>저장</span></button></a>
       </div>
     </div>
   )
