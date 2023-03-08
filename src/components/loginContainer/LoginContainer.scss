@@ -8,9 +8,13 @@
         background-color: $header-color;
         align-items: center;
         justify-content: center;
-        .login-logo{ // 임시
-            color: white;
-            font-size: 43px;
+        .login-link{
+            text-decoration: none;
+            .login-logo{ // 임시
+                
+                color: white;
+                font-size: 43px;
+            }
         }
     }
     .login-bottom-container{
