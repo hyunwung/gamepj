@@ -12,9 +12,13 @@ const Google = () => {
 
   const googleLogin = async () => {
     try {
-        setToken()
-        const response = await axios.get("/users/me",{headers:{
-          Authorization: `Bearer ${location.hash.split('=')[1].split('&')[0]}`
+        console.log(location.hash)
+        
+        const response = await axios.get("/users/me",{
+          headers:{
+            'Content-type': 'application/json',
+            // 'Accept': '*/*',
+            'Authorization': `Bearer ${location.hash.split('=')[1].split('&')[0]}`
           }
         });
         console.log(response)
