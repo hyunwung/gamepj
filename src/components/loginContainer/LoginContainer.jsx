@@ -2,27 +2,26 @@ import React from 'react'
 import "./LoginContainer.scss"
 import { useNavigate ,useSearchParams} from 'react-router-dom';
 import { useEffect } from 'react';
-import {GoogleLogin ,GoogleOAuthProvider} from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin , GoogleLogout} from '@react-oauth/google';
 
 const LoginContainer = () => {
+    const navigate = useNavigate()
     const onSuccess = (response) => {
         console.log(response);
         // const params = new URLSearchParams();
         // console.log(params.append("idToken", response.tokenObj.id_token))
         //localStorage.setItem("accessToken",response.tokenObj.id_token);
     }
-    const onFailure = (error) => {
+    const onError = (error) => {
         console.log(error);
     }
     const openGoogle = () => {
-
-        // 토큰 불러오고
-        //window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&response_type=token&scope=${process.env.REACT_APP_GOOGLE_SCOPE}`
+        window.location.href = process.env.REACT_APP_GOOGLE_CLIENT_URL
+        //navigate("/oauth/redirect")
+        // window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&response_type=code&scope=${process.env.REACT_APP_GOOGLE_SCOPE}`
     };
     useEffect(()=>{
-        // setTimeout(()=>{
-        //     navigate("/oauth/redirect",{replace:true})
-        // })
+        
     },[])
     return (
     <div className='login-container'>
@@ -31,14 +30,7 @@ const LoginContainer = () => {
         </div>
         <div className='login-bottom-container'>
             <span className='login-title'>RSD</span>
-            <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} className='social-login-btn'>
-                <GoogleLogin
-                    onSuccess={onSuccess}
-                    onError={() => {
-                        console.log('Login Failed');
-                    }}></GoogleLogin>
-            </GoogleOAuthProvider>
-            {/* <button type="button" className='social-login-btn' onClick={openGoogle}><span>Google Play로 로그인</span></button> */}
+            <button type="button" className='social-login-btn' onClick={openGoogle}><span>Google Play로 로그인</span></button>
         </div>
     </div>
   )

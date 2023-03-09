@@ -10,18 +10,9 @@ import Profile from './pages/Profile'
 import "./App.css"
 import Modi from './pages/Modi'
 import Google from './components/loginContainer/Google'
-import { useNavigate ,useSearchParams} from 'react-router-dom';
 import axios from './api/axios';
 
 const App = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  if(window.location.href.includes("http://ec2-15-165-122-126.ap-northeast-2.compute.amazonaws.com:8080")){
-    console.log("왓나")
-    
-    window.location.href = "http://localhost:8080/oauth/redirect"
-  }
-
   return (
     <div className='App'>
       <Routes>

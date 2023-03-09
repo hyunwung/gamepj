@@ -8,12 +8,9 @@ const Google = () => {
   const location = useLocation();
   
   const navigate = useNavigate();
-  
 
   const googleLogin = async () => {
     try {
-        console.log(location.hash)
-        
         const response = await axios.get("/users/me",{
           headers:{
             'Content-type': 'application/json',
@@ -44,10 +41,11 @@ const Google = () => {
   };
 
   useEffect(() => {
-    //const access_token = searchParams.get("access_token")
-    console.log(location.hash.split('=')[1].split('&')[0])
-    
-    googleLogin()
+    console.log(location)
+    if(location.search.split('&')[0].split('=')[1].length > 1){
+      
+    }
+    //googleLogin()
   }, []);
 
     return (
