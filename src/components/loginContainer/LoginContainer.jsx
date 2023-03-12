@@ -1,8 +1,8 @@
 import React from 'react'
 import "./LoginContainer.scss"
-import { useNavigate ,useSearchParams} from 'react-router-dom';
+import { useNavigate ,useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { GoogleOAuthProvider, GoogleLogin , GoogleLogout} from '@react-oauth/google';
+import axios from "axios"
 
 const LoginContainer = () => {
     const navigate = useNavigate()
@@ -15,9 +15,8 @@ const LoginContainer = () => {
     const onError = (error) => {
         console.log(error);
     }
-    const openGoogle = () => {
-        window.location.href = process.env.REACT_APP_GOOGLE_CLIENT_URL
-        //navigate("/oauth/redirect")
+    const openGoogle = async () => {
+        window.location.href = process.env.REACT_APP_GOOGLE_CLIENT_URL2
         // window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${process.env.REACT_APP_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_GOOGLE_REDIRECT_URI}&response_type=code&scope=${process.env.REACT_APP_GOOGLE_SCOPE}`
     };
     useEffect(()=>{
