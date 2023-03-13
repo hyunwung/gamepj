@@ -1,14 +1,14 @@
 import React from 'react'
 import "./LoginContainer.scss"
-import { useNavigate ,useSearchParams} from 'react-router-dom';
+import { useNavigate  } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const LoginContainer = () => {
-    const openGoogle = () => {
-
+    const navigate = useNavigate()
+    const openGoogle = async () => {
+        window.location.href = process.env.REACT_APP_GOOGLE_CLIENT_URL2
     };
     useEffect(()=>{
-
     },[])
     return (
     <div className='login-container'>
