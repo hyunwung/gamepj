@@ -31,4 +31,9 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
+  <script>
+    if ( window.location === process.env.REACT_APP_GOOGLE_EXPO ) {
+      window.location.href=process.env.REACT_APP_GOOGLE_REDIRECT_URI;
+    }
+  </script>
 </html>
