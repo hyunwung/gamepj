@@ -15,12 +15,13 @@ const Google = () => {
             'Authorization': 'Bearer '+searchParams.get("token")
           }
         });
+        console.log(response)
         const user = response.data.body.user.id  
         localStorage.setItem("accessToken", searchParams.get("token"));
         localStorage.setItem("user", user);
         
         if(user.length > 8){
-          Swal.fire({title:"닉네임을 2자~6자로 변경해주세요"})
+          Swal.fire({title:"닉네임을 2자~8자로 변경해주세요"})
           navigate("/profile")
         }else{
           navigate("/main");

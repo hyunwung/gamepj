@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route,Routes} from 'react-router-dom'
+import { Route,Routes } from 'react-router-dom'
 import Main from './pages/Main'
 import Intro from "./pages/Intro"
 import NoticeBoard from './pages/NoticeBoard'
@@ -9,7 +9,7 @@ import Login from "./pages/Login"
 import Profile from './pages/Profile'
 import "./App.css"
 import Modi from './pages/Modi'
-import Google from './components/loginContainer/Google'
+import Google from './components/loginContainer/Google';
 import axios from './api/axios';
 
 const App = () => {

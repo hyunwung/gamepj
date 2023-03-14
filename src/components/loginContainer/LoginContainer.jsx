@@ -1,7 +1,8 @@
 import React from 'react'
 import "./LoginContainer.scss"
-import { useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import icon from "../../assets/google.png"
 
 const LoginContainer = () => {
     const navigate = useNavigate()
@@ -17,7 +18,7 @@ const LoginContainer = () => {
         </div>
         <div className='login-bottom-container'>
             <span className='login-title'>RSD</span>
-            <button type="button" className='social-login-btn' onClick={openGoogle}><span>Google Play로 로그인</span></button>
+            <img src={icon} className='social-login-btn' onClick={openGoogle}></img>
         </div>
     </div>
   )
