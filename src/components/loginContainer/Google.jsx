@@ -16,6 +16,7 @@ const Google = () => {
 
   const googleLogin = async () => {
     try{
+        console.log(searchParams.get("token"))
         const response = await axios.get("/users/me",{
           headers:{
             'Authorization': 'Bearer '+searchParams.get("token")

@@ -12,12 +12,12 @@ import { useEffect } from 'react';
 const Main = () => {
   const navigate = useNavigate();
   useEffect(()=>{
-    if(localStorage.getItem("user") !== null){
-      if(localStorage.getItem("user").length > 8){
-        Swal.fire({title:"닉네임을 2자~6자로 변경해주세요"})
-        navigate("/profile")
-      }
-    }
+    // if(localStorage.getItem("user") !== null){
+    //   if(localStorage.getItem("user").length > 8){
+    //     Swal.fire({title:"닉네임을 2자~6자로 변경해주세요"})
+    //     navigate("/profile")
+    //   }
+    // }
   },[])
   
   return (
