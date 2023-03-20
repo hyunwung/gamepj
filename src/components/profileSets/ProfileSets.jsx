@@ -15,9 +15,8 @@ const ProfileSets = () => {
     if(nickname.length < 2){
       Swal.fire({title:"닉네임은 최소 두글자 입니다."})
     }
-    const data = JSON.stringify({userName:nickname});
     try {
-        const response = await axios.patch("/users",data,
+        const response = await axios.patch("/users",{userName:nickname},
         {
           headers:{
             'Authorization': 'Bearer '+localStorage.getItem("accessToken")
