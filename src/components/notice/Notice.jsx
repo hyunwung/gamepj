@@ -49,8 +49,7 @@ const Notice = () => {
             <BsFillPencilFill style={{fontSize:"16px"}}></BsFillPencilFill>
             <span>글쓰기</span>
           </a>
-          <button onClick={()=>handleModal()}>신고하기</button>
-          
+          {/* <button onClick={()=>handleModal()}>신고하기</button> */}
         </div>
         <hr className='notice-line'></hr>
         {Array.isArray(datas) && datas.length === 0 || datas === undefined ? null : datas.map((data, index)=>{

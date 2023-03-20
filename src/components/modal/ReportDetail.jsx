@@ -31,7 +31,7 @@ const ReportDetail = ({reportDetail,setReportDetail,modalIsOpen,setModalIsOpen,c
 				<button className='report-back' onClick={()=>handleModal()}>
 					<BiArrowBack style={{fontSize:"26px"}}></BiArrowBack>
 				</button>
-				<p className='report-title'>신고하기</p>
+				{/* <p className='report-title'>신고하기</p> */}
 				<button className='report-close' onClick={()=>handleModal2()}>
 					<AiOutlineClose style={{fontSize:"26px"}}></AiOutlineClose>
 				</button>

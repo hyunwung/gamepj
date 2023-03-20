@@ -36,8 +36,7 @@ const Header = () => {
           </a>
         </div>
         <div className="header-right">
-          <a className="login-link" href="/login">Login</a>
-          <a className="login-link" href="/profile">Profile</a>
+          {localStorage.getItem("accessToken") ? <a className="login-link" href="/profile">Profile</a> : <a className="login-link" href="/login">Login</a>}
         </div>
       </div>
     </div>
