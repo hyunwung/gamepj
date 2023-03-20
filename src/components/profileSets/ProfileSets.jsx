@@ -4,10 +4,16 @@ import { useState } from 'react'
 import person from "../../assets/person.png"
 import axios from 'axios'
 import Swal from "sweetalert2";
+import { useNavigate } from 'react-router'
 
 const ProfileSets = () => {
   const [nickname , setNickName] = useState("")
-
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('user')
+    navigate("/main")
+  }
   const nameHandle = (e) => {
     setNickName(e.target.value)
   }
@@ -23,6 +29,8 @@ const ProfileSets = () => {
           }
         },{ withCredentials: true });
         console.log(response)
+        Swal.fire({title:"변경에 성공하였습니다."})
+        setNickName("")
     }catch (error) {
       console.log(error)
     }
@@ -37,7 +45,7 @@ const ProfileSets = () => {
             </form>
             <button className='profile-confirm' onClick={updateName}>변경</button>
           </div>
-          {/* <span className='profile-exit'>회원탈퇴</span> */}
+          <span className='profile-exit' onClick={logout}>로그아웃</span>
         </div>
     </div>
   )

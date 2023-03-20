@@ -13,7 +13,10 @@ const BoardItems = () => {
   const navigate = useNavigate()
   const getBoardData = async() =>{
     try{
-      const repo = await axios.get("/all")
+      const repo = await axios.get("/boards",{
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+      }})
       if (repo.data.data.content[0] !== undefined){
         setData(repo.data.data.content)
       }
