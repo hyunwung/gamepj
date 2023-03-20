@@ -12,6 +12,7 @@ const ProfileSets = () => {
   const logout = () => {
     localStorage.removeItem('accessToken')
     localStorage.removeItem('user')
+    Swal.fire({title:"로그아웃 !"})
     navigate("/main")
   }
   const nameHandle = (e) => {

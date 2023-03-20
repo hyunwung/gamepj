@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./CreateBoard.scss"
 import TextEditor from '../textEditor/TextEditor'
-import { useEffect } from 'react';
 
 const CreateBoard = () => {
   const [submit,setSubmit] = useState(false)
@@ -23,18 +22,16 @@ const CreateBoard = () => {
         <input type="text" className='board-title' placeholder="글 제목" value={title} onChange={onChange}></input>
         <span className='create-input'>카테고리</span>
         <select onChange={handleSelect} value={category}>
-          <option>선택해주세요</option>
-          <option value="1">버그</option>
-          <option value="2">자유게시판</option>
-          <option value="3">이벤트</option>
-          <option value="4">업데이트</option>
+          <option value="0">선택해주세요</option>
+          <option value="1">공지사항</option>
+          <option value="2">이벤트</option>
+          <option value="3">개발노트</option>
+          <option value="4">버그</option>
           <option value="5">가이드</option>
           <option value="6">FAQ</option>
-          <option value="7">공지사항</option>
-          <option value="8">개발노트</option>
         </select>
         <span className='create-input'>내용</span>
-        <TextEditor title={title} submit={submit} category={category} setSubmit={setSubmit}></TextEditor>
+        <TextEditor title={title} category={category} submit={submit} setSubmit={setSubmit}></TextEditor>
         <a href='#'><button className='board-submit' onClick={()=>submitData()}><span>저장</span></button></a>
       </div>
     </div>

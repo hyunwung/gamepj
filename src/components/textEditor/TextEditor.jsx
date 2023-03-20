@@ -6,33 +6,37 @@ import { convertToHTML } from 'draft-convert';
 import DOMPurify from 'dompurify';
 import "./TextEditor.scss"
 import axios from 'axios';
+import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
-const TextEditor = () => {
+const TextEditor = ({title,category,submit,setSubmit}) => {
     const [editorState, setEditorState] = React.useState(() =>
       EditorState.createEmpty()
     );
-    const editor = React.useRef(null);
+    const navigate = useNavigate();
     const _contentState = ContentState.createFromText('Sample content state');
     const raw = convertToRaw(_contentState);  // RawDraftContentState JSON
     const [contentState, setContentState] = useState(raw);
-
-
     const [convertedContent, setConvertedContent] = useState(null);
-
-    useEffect(() => {
-      let html = convertToHTML(editorState.getCurrentContent());
-      setConvertedContent(html);
-    }, [editorState]);
-
+    const [type,setType] = useState("")
+    const options = {
+      0:'NONE',
+      1:'NOTICE',
+      2:'EVENT',
+      3:'UPDATE',
+      4:'DEVELOPER_NOTES',
+      5:'BUG',
+      6:'GUIDE',
+      7:'FAQ'
+    }
     const uploadImageCallBack = async (file) =>{
       return new Promise(
         (resolve,reject) => {
           const data = new FormData();
           data.append('image',file)
-          
           fetch('https://api.imgur.com/3/image',{
               method:'POST',
-              headers:{'Authorization':'Client-ID 85b5a4be79665d6'},
+              headers:{'Authorization':process.env.REACT_APP_IMAGE_URL},
               body:data,
               credentials: 'same-origin',
               mode: 'cors',
@@ -51,28 +55,49 @@ const TextEditor = () => {
           });
         })
     }
-    const onEditorStateChange = (editorState) => {
-      // editorState에 값 설정
-      setEditorState(editorState);
-    };
+    // const onEditorStateChange = (editorState) => {
+    //   // editorState에 값 설정
+    //   setEditorState(editorState);
+    // };
     const postData = async () => {
-      try{
-        await axios.post(`/`,{
-          // title : title,
-          // content : draftToHtml(convertToRaw(editorState.getCurrentContent())),
-          // type : category,
-        })
-      }catch(error){
-        console.log(error)
+      if(options[category] === "NONE"){
+        Swal.fire({title:"카테고리를 선택해주세요."})
+        setSubmit((prev)=>!prev)
+      }else{
+        try{
+          const repo = await axios.post('/boards',{
+            title : title,
+            content:convertedContent,
+            type : options[category],
+          },{
+            headers:{
+              'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+            }
+          })
+          console.log(repo)
+          // navigate('/main')
+        }catch(error){
+          console.log(error)
+        }
       }
     }
 
     const createMarkup = (html)=> {
-      console.log(html)
       return {
         __html: DOMPurify.sanitize(html)
       }
     }
+
+    useEffect(() => {
+      let html = convertToHTML(editorState.getCurrentContent());
+      setConvertedContent(html);
+    }, [editorState]);
+    
+    useEffect(()=>{  
+      if(submit === true){
+        postData()
+      }
+    },[submit])
     return (
       <div>
         <Editor
