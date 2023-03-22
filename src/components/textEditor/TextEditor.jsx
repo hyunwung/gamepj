@@ -8,6 +8,7 @@ import "./TextEditor.scss"
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import "../../assets/Global.scss";
 
 const TextEditor = ({title,category,submit,setSubmit}) => {
     const [editorState, setEditorState] = React.useState(() =>
@@ -18,7 +19,7 @@ const TextEditor = ({title,category,submit,setSubmit}) => {
     const raw = convertToRaw(_contentState);  // RawDraftContentState JSON
     const [contentState, setContentState] = useState(raw);
     const [convertedContent, setConvertedContent] = useState(null);
-    const [type,setType] = useState("")
+    
     const options = {
       0:'NONE',
       1:'NOTICE',
@@ -61,7 +62,7 @@ const TextEditor = ({title,category,submit,setSubmit}) => {
     // };
     const postData = async () => {
       if(options[category] === "NONE"){
-        Swal.fire({title:"카테고리를 선택해주세요."})
+        Swal.fire({html:"카테고리를 선택해주세요."})
         setSubmit((prev)=>!prev)
       }else{
         try{
@@ -74,10 +75,16 @@ const TextEditor = ({title,category,submit,setSubmit}) => {
               'Authorization': 'Bearer '+localStorage.getItem("accessToken")
             }
           })
-          console.log(repo)
-          // navigate('/main')
+          if(repo.status === 201){
+            Swal.fire({title:"작성이 완료되었습니다."})
+            navigate('/main')
+          }
         }catch(error){
           console.log(error)
+          Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
+          localStorage.removeItem('accessToken')
+          localStorage.removeItem('user')
+          navigate("/login")
         }
       }
     }

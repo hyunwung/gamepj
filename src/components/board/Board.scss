@@ -1,7 +1,77 @@
-.board{
+.Board{
+    margin : 20px 0 80px 20px;
     width: 100%;
-    margin: 20px 0 40px 20px;
-    .slider-item{
+    .Board-container{
         width: 100%;
+        .Board-line{
+            opacity: 0.7;
+            color: black;
+        }
+        .Board-title{
+            display: flex;
+            justify-content: space-between;
+            .Board-title-name{
+                display: flex;
+            }
+            .Board-span{
+                font-size: 20px;
+            }
+            .create-board{
+                display: flex;
+                align-items: center;
+                color: black;
+                height: 30px;
+                padding: 0 12px 0 9px;
+                border: 1px solid #8b8e94;
+                text-decoration: none;
+                border-radius: 8px;
+                span{
+                    margin-left: 3px;
+                    font-size: 16px;
+                }
+            }
+        }
+        .Board-box{
+            .Board-box-contain{
+                display: flex;
+                padding: 4px 15px 4px 12px;
+                justify-content: space-between;
+                cursor: pointer;
+                .Board-left{
+                    display: flex;
+                    a{
+                        text-decoration: none;
+                        color: black;
+                        margin-top: 2px;
+                        font-size: 18px;
+                    }
+                    .Board-title{
+                        font-size: 16px;
+                    }
+                }
+                .Board-right{
+                    display: flex;
+                    .Board-date{
+                        margin: 4px 10px 0 0;
+                        color: gray;
+                        opacity: 0.7;
+                        font-size: 15px;
+                    }
+                    .Board-like{
+                        margin: 3px 5px 0 0;
+                        height: 20px;
+                    }
+                    .Board-like-count{
+                        margin: 3px 5px 0 0;
+                        color: gray;
+                    }
+                    .Board-view{
+                        margin-top: 3px;
+                        font-size: 15px;
+                        color: gray;
+                    }
+                }
+            }            
+        }
     }
 }

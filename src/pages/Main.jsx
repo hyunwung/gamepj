@@ -2,9 +2,9 @@ import React from 'react'
 import NavBar from '../components/navBar/NavBar'
 import { useNavigate } from "react-router-dom";
 import "../assets/Global.scss"
-import Board from '../components/board/Board'
+import Slide from '../components/slide/Slide'
 import Header from '../components/header/Header'
-import Notice from '../components/notice/Notice'
+import Board from '../components/board/Board'
 import Update from '../components/update/Update'
 import Swal from "sweetalert2";
 import { useEffect } from 'react';
@@ -14,7 +14,7 @@ const Main = () => {
   useEffect(()=>{
     // if(localStorage.getItem("user") !== null){
     //   if(localStorage.getItem("user").length > 8){
-    //     Swal.fire({title:"닉네임을 2자~6자로 변경해주세요"})
+    //     Swal.fire({title:"닉네임을 2자~8자로 변경해주세요"})
     //     navigate("/profile")
     //   }
     // }
@@ -28,8 +28,8 @@ const Main = () => {
         <div className='default-container'>
           <NavBar></NavBar>
           <div className='default-page'>
+            <Slide></Slide>
             <Board></Board>
-            <Notice></Notice>
             <Update></Update>
           </div>
         </div>
