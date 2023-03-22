@@ -20,7 +20,7 @@ const ProfileSets = () => {
   }
   const updateName = async () => {
     if(nickname.length < 2){
-      Swal.fire({title:"닉네임은 최소 두글자 입니다."})
+      Swal.fire({html:"닉네임은 최소 두글자 입니다."})
     }
     try {
         const response = await axios.patch("/users",{userName:nickname},
