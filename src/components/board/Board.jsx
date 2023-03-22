@@ -50,7 +50,7 @@ const Board = () => {
             <AiFillHome style={{fontSize:"23px" , margin:"0 5px 4px 8px"}}></AiFillHome><h2 className='Board-span'>공지사항(2)</h2>
           </div>
           <a href='/create' className='create-board'>
-            <BsFillPencilFill style={{fontSize:"16px"}}></BsFillPencilFill>
+            {/* <BsFillPencilFill style={{fontSize:"16px"}}></BsFillPencilFill> */}
             <span>글쓰기</span>
           </a>
           {/* <button onClick={()=>handleModal()}>신고하기</button> */}

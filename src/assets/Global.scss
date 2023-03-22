@@ -19,11 +19,6 @@ $header-color : rgb(30, 55, 153);
     }
 }
 
-.swal2-popup {
-    font-weight: bold;
-    font-size: 20px !important;
-}
-
 .profile{
     width: 100%;
     .profile-container{
@@ -33,6 +28,21 @@ $header-color : rgb(30, 55, 153);
         justify-content: center;
     }
 }
+
+.swal2-popup {
+    font-weight: bold;
+    font-size: 20px !important;
+}
+
+.con_box00 {float:left; width:100%; margin:0 0 0 0;}
+.con_box05 {float:left; width:100%; margin:5px 0 0 0;}
+.con_box10 {float:left; width:100%; margin:10px 0 0 0;}
+.con_box15 {float:left; width:100%; margin:15px 0 0 0;}
+.con_box20 {float:left; width:100%; margin:20px 0 0 0;}
+.con_box30 {float:left; width:100%; margin:30px 0 0 0;}
+.con_box40 {float:left; width:100%; margin:40px 0 0 0;}
+.con_box50 {float:left; width:100%; margin:50px 0 0 0;}
+.con_box60 {float:left; width:100%; margin:60px 0 0 0;}
 
 @mixin mobile {
 	@media (max-width: 500px) {

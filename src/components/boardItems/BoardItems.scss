@@ -16,20 +16,7 @@
             .BoardItems-span{
                 font-size: 20px;
             }
-            .create-board{
-                display: flex;
-                align-items: center;
-                color: black;
-                height: 30px;
-                padding: 0 12px 0 9px;
-                border: 1px solid #8b8e94;
-                text-decoration: none;
-                border-radius: 8px;
-                span{
-                    margin-left: 3px;
-                    font-size: 16px;
-                }
-            }
+            
         }
         .BoardItems-box{
             .BoardItems-box-contain{
@@ -72,6 +59,22 @@
                     }
                 }
             }            
+        }
+        .create-board{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            height: 30px;
+            width: 70px;
+            padding: 2px 10px 2px 10px;
+            border: 1px solid #8b8e94;
+            text-decoration: none;
+            border-radius: 8px;
+            float: right;
+            span{
+                font-size: 16px;
+            }
         }
     }
 }
