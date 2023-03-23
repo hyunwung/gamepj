@@ -2,6 +2,7 @@ import { useState } from 'react';
 import "./ReportDetail.scss";
 import { BiArrowBack } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import axios from 'axios';
 
 const ReportDetail = ({reportDetail,setReportDetail,modalIsOpen,setModalIsOpen,category}) => {
 	const [text,setText] = useState("")
@@ -11,8 +12,16 @@ const ReportDetail = ({reportDetail,setReportDetail,modalIsOpen,setModalIsOpen,c
         const selectedFiles = e.target.files[0]; 
         setImage(selectedFiles)
     }
-	const submitReport = () => {
-
+	const submitReport = async () => {
+		try{
+			const repo = await axios.post('/reports',{
+			  headers:{
+				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+			}})
+			console.log(repo)
+		}catch(error){
+			console.log(error)
+		}
 	}
 	const handleTexts = (e) => {
 		e.preventDefault();
