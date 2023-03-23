@@ -8,11 +8,9 @@ import { BsFillPencilFill } from "react-icons/bs";
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
-import Report from '../modal/Report';
 
 const Board = () => {
   const [datas,setData] = useState([])
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const navigate = useNavigate()
   
   const getBoardData = async() =>{
@@ -35,10 +33,6 @@ const Board = () => {
     navigate(`/board/detail/${id}`,{state:{id:id}})
   }
 
-  const handleModal = () => {
-    setModalIsOpen((prev)=>!prev)
-  }
-
   useEffect(()=>{
     getBoardData()
   },[])
@@ -53,7 +47,7 @@ const Board = () => {
             {/* <BsFillPencilFill style={{fontSize:"16px"}}></BsFillPencilFill> */}
             <span>글쓰기</span>
           </a>
-          {/* <button onClick={()=>handleModal()}>신고하기</button> */}
+          
         </div>
         <hr className='Board-line'></hr>
         {Array.isArray(datas) && datas.length === 0 || datas === undefined ? null : datas.map((data, index)=>{
@@ -81,8 +75,6 @@ const Board = () => {
           )
         })}
       </div>
-      {/* 팝업창 */}
-      <Report modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}></Report>
       <FiMoreHorizontal style={{fontSize:"24px", margin:"0 auto", display:"flex"}}></FiMoreHorizontal>
     </div>
   )

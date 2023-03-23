@@ -57,7 +57,7 @@ const BoardItems = () => {
                   <img src={like} className="BoardItems-like"></img>
                   <span className="BoardItems-like-count">{data.like}</span>
                   <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
-                  <span className="BoardItems-view">{data.views}</span>
+                  <span className="BoardItems-view">{data.view}</span>
                 </div>
               </div>
               <hr className='BoardItems-line'></hr>

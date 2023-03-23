@@ -19,7 +19,7 @@ const NavBar = () => {
           <li className='navbar-toggle'>
           </li>
           <div className='nav-menu-item' onMouseEnter={()=>handleDisplay(1)} onMouseLeave={handleUnDisplay}>새 소식
-            <a href='/notice' className='nav-anchor'><div className={'nav-menu-in-item'+(menuItem === 1 ? " active" : " none")}>업데이트</div></a>
+            <a href='/board' className='nav-anchor'><div className={'nav-menu-in-item'+(menuItem === 1 ? " active" : " none")}>업데이트</div></a>
             <div className={'nav-menu-in-item'+(menuItem === 1 ? " active" : " none")}>공지사항</div>
           </div>
           <div className='nav-menu-item' onMouseEnter={()=>handleDisplay(2)} onMouseLeave={handleUnDisplay} >커뮤니티
