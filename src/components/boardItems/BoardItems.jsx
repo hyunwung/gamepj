@@ -10,11 +10,16 @@ import "../../assets/Global.scss";
 
 const BoardItems = () => {
   const [datas,setData] = useState([])
+  const [page,setPage] = useState(0)
   const navigate = useNavigate()
-  const getBoardData = async() =>{
-    try{
 
-      const repo = await axios.get("/boards",{
+  const handlePage = (id) => {
+    setPage(id)
+    getBoardData()
+  }
+  const getBoardData = async () =>{
+    try{
+      const repo = await axios.get(`/boards?page=${page}`,{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
@@ -66,9 +71,9 @@ const BoardItems = () => {
         })}
         <div className='Board-footer'>
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li onClick={()=>handlePage(0)}>1</li>
+            <li onClick={()=>handlePage(1)}>2</li>
+            <li onClick={()=>handlePage(2)}>3</li>
           </ul>
           <a href='/create' className='create-board'>
             <span>글쓰기</span>

@@ -6,14 +6,15 @@ import { useEffect } from 'react'
 import heart2 from "../../assets/heart2.png"
 import Report from '../modal/Report';
 import { BsLink45Deg } from "react-icons/bs";
+import { CopyToClipboard } from "react-copy-to-clipboard/src";
+import Swal from "sweetalert2";
 
 const Comment = () => {
   const location = useLocation()
-  // const [ex , setEx] = useState()
-  // const [commentCT,setCommentCT] = useState()
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [data,setData] = useState([])
   const [comment,setComment] = useState("")
+  const url = window.location.href;
 
   const handleComment = (e) =>{
     setComment(e.target.value)
@@ -75,26 +76,6 @@ const Comment = () => {
   const handleModal = () => {
     setModalIsOpen((prev)=>!prev)
   }
-  // const commentOn = (id) => {
-  //   if (id === 0){
-  //     setData([{id:0,datas:"여기 댓글과 내용들이 작성됩니다."},{id:1,datas:"여기 댓글과 내용들이 작성됩니다."},{id:2,datas:"여기 댓글과 내용들이 작성됩니다"}])
-  //     setEx(0)
-  //   }
-  //   if (id === 1){
-  //     setData([{id:0,datas:"여기 댓글과 내용들이 작성됩니다."},{id:1,datas:"여기 댓글과 내용들이 작성됩니다."},{id:2,datas:"여기 댓글과 내용들이 작성됩니다"}])
-  //     setEx(1)
-  //   }
-  // }
-  // const commentOff = () => {
-  //   setEx()
-  // }
-  // const commentControlOn = (id) => {
-  //   setCommentCT(id)
-  // }
-  
-  // const commentControlOff = () => {
-  //   setCommentCT()
-  // }
   useEffect(()=>{
     getComment()
   },[])
@@ -110,7 +91,10 @@ const Comment = () => {
           <img className='comment-likeIcon' src={heart2} onClick={()=>likeHandle()}></img>
         </div>
         <div className='comment-ul'>
-          <BsLink45Deg style={{color:"gray",fontSize:"22px",marginRight:"9px", cursor:"pointer"}}></BsLink45Deg>
+          <CopyToClipboard text={url} onCopy={() => Swal.fire({
+          text:"링크 복사 !",
+          confirmButtonColor: '#488bf4',
+          })}><BsLink45Deg style={{color:"gray",fontSize:"22px",marginRight:"9px", cursor:"pointer"}}></BsLink45Deg></CopyToClipboard>
           <span className='board-report' onClick={()=>handleModal()}>신고</span>
         </div>
       </div>
