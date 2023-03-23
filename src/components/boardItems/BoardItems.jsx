@@ -11,10 +11,15 @@ import "../../assets/Global.scss";
 
 const BoardItems = () => {
   const [datas,setData] = useState([])
-  const [page,setPage] = useState([])
   const navigate = useNavigate()
-  const getBoardData = async() =>{
+
+  const handlePage = (id) => {
+    setPage(id)
+    getBoardData()
+  }
+  const getBoardData = async () =>{
     try{
+
       const repo = await axios.get("/boards",{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
@@ -64,7 +69,7 @@ const BoardItems = () => {
                   <img src={like} className="BoardItems-like"></img>
                   <span className="BoardItems-like-count">{data.like}</span>
                   <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
-                  <span className="BoardItems-view">{data.views}</span>
+                  <span className="BoardItems-view">{data.view}</span>
                 </div>
               </div>
               <hr className='BoardItems-line'></hr>
@@ -74,11 +79,9 @@ const BoardItems = () => {
         <div className='Board-footer con_box20'>
           <div></div>
           <ul>
-            {Array.isArray(datas) && datas.length === 0 || datas === null ? null : page.map((page,index)=>{
-              return(      
-                <li className={'active'} key={index}>{page}</li>
-              )
-            })}
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
           </ul>
           <a href='/create' className='create-board'>
             <span>글쓰기</span>

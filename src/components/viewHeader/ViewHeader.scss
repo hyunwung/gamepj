@@ -2,9 +2,9 @@
     width: 100%;
     margin: 20px 0 40px 20px;
     .board-category{
-        font-size: 18px;
-        margin-bottom: 12px;
-        margin-left: 6px;
+        font-size: 24px;
+        margin-bottom: 16px;
+        margin-left: 10px;
     }
     .board-detail-header{
         margin: 20px 25px 30px 25px;
@@ -31,7 +31,7 @@
             .board-detail-title2{
                 display: flex;
                 align-items: center;
-                span{
+                .board-detail-items{
                     cursor: pointer;
                 }
             }
