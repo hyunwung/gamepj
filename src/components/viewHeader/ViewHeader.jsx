@@ -14,7 +14,11 @@ const ViewHeader = () => {
   const [data,setData] = useState("")
   const getBoardData = async () =>{
     try{
-      const repo = await axios.get(`/${location.state.id}`)
+      const repo = await axios.get(`/boards/${location.state.id}`,{
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+      }})
+      console.log(repo)
       setData(repo.data)
     }catch(error){
       console.log(error)

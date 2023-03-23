@@ -1,3 +1,5 @@
+@import "../../assets/Global.scss";
+
 .BoardItems{
     margin : 20px 0 80px 20px;
     width: 100%;
@@ -60,20 +62,33 @@
                 }
             }            
         }
-        .create-board{
+        .Board-footer{
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            color: black;
-            height: 30px;
-            width: 70px;
-            padding: 2px 10px 2px 10px;
-            border: 1px solid #8b8e94;
-            text-decoration: none;
-            border-radius: 8px;
-            float: right;
-            span{
-                font-size: 16px;
+            ul{
+                margin-left: 70px;
+                display: flex;
+                li{
+                    margin: 6px;
+                    cursor: pointer;
+                }
+                .active{color:$nav-color}
+            }
+            .create-board{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: black;
+                height: 30px;
+                width: 70px;
+                padding: 2px 10px 2px 10px;
+                border: 1px solid #8b8e94;
+                text-decoration: none;
+                border-radius: 8px;
+                span{
+                    font-size: 16px;
+                }
             }
         }
     }
