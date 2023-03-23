@@ -11,25 +11,24 @@ import "../../assets/Global.scss";
 
 const BoardItems = () => {
   const [datas,setData] = useState([])
+  const [pages,setPages] = useState([])
+  const [page,setPage] = useState(0)
   const navigate = useNavigate()
 
   const handlePage = (id) => {
+    console.log(id)
     setPage(id)
-    getBoardData()
+    
   }
   const getBoardData = async () =>{
     try{
-
-      const repo = await axios.get("/boards",{
+      const repo = await axios.get(`/boards?page=${page}`,{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
       if (repo.data.data.content[0] !== undefined){
         setData(repo.data.data.content)
-      }
-      console.log(repo.data.data)
-      for(var i = 1; i < repo.data.data.totalPages+1; i++) {
-        page.push(i)
+        setPages([...Array(repo.data.data.totalPages).keys()])
       }
     }catch(error){
       console.log(error)
@@ -45,7 +44,7 @@ const BoardItems = () => {
 
   useEffect(()=>{
     getBoardData()
-  },[])
+  },[page])
   return (
     <div className='BoardItems'>
       <div className='BoardItems-container con_box5'>
@@ -79,9 +78,11 @@ const BoardItems = () => {
         <div className='Board-footer con_box20'>
           <div></div>
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+          {pages.map((page,index)=>{
+            return(
+              <li onClick={()=>handlePage(index)} key={index}>{page}</li>
+            )
+          })}
           </ul>
           <a href='/create' className='create-board'>
             <span>글쓰기</span>

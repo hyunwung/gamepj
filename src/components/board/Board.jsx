@@ -11,11 +11,12 @@ import { useEffect } from 'react';
 
 const Board = () => {
   const [datas,setData] = useState([])
+  const [page,setPage] = useState(0)
   const navigate = useNavigate()
   
   const getBoardData = async() =>{
     try{
-      const repo = await axios.get("/boards",{
+      const repo = await axios.get(`/boards?page=${page}`,{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
@@ -67,7 +68,6 @@ const Board = () => {
                   <span className="Board-like-count">{data.like}</span>
                   <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
                   <span className="Board-view">{data.views}</span>
-                  
                 </div>
               </div>
               <hr className='Board-line'></hr>
