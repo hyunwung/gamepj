@@ -110,7 +110,7 @@ const Comment = () => {
           <img className='comment-likeIcon' src={heart2} onClick={()=>likeHandle()}></img>
         </div>
         <div className='comment-ul'>
-          <BsLink45Deg style={{color:"gray",fontSize:"22px",marginRight:"9px"}}></BsLink45Deg>
+          <BsLink45Deg style={{color:"gray",fontSize:"22px",marginRight:"9px", cursor:"pointer"}}></BsLink45Deg>
           <span className='board-report' onClick={()=>handleModal()}>신고</span>
         </div>
       </div>
