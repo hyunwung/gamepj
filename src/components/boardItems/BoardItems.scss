@@ -72,6 +72,12 @@
                 li{
                     margin: 6px;
                     cursor: pointer;
+                    background: #62CDFF;
+                    width: 20px;
+                    height: 25px;
+                    text-align: center;
+                    color: #fff;
+                    line-height: 25px;
                 }
                 .active{color:$nav-color}
             }

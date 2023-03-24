@@ -80,7 +80,7 @@ const BoardItems = () => {
           <ul>
           {pages.map((page,index)=>{
             return(
-              <li onClick={()=>handlePage(index)} key={index}>{page}</li>
+              <li onClick={()=>handlePage(index)} key={index}>{page+1}</li>
             )
           })}
           </ul>
