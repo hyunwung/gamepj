@@ -72,14 +72,14 @@
                 li{
                     margin: 6px;
                     cursor: pointer;
-                    background: #62CDFF;
+                    background: none;
                     width: 20px;
                     height: 25px;
                     text-align: center;
-                    color: #fff;
+                    color: #000;
                     line-height: 25px;
                 }
-                .active{color:$nav-color}
+                .active{color:$nav-color; background: #f9f9f9;}
             }
             .create-board{
                 display: flex;

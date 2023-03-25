@@ -28,7 +28,13 @@ const BoardItems = () => {
       }})
       if (repo.data.data.content[0] !== undefined){
         setData(repo.data.data.content)
-        setPages([...Array(repo.data.data.totalPages).keys()])
+        
+        if(repo.data.data.totalPages <= 10){
+          setPages([...Array(repo.data.data.totalPages).keys()])
+        }else{
+          setPages()
+        }
+        
       }
     }catch(error){
       console.log(error)
@@ -78,9 +84,9 @@ const BoardItems = () => {
         <div className='Board-footer con_box20'>
           <div></div>
           <ul>
-          {pages.map((page,index)=>{
+          {pages.map((pagenum,index)=>{
             return(
-              <li onClick={()=>handlePage(index)} key={index}>{page+1}</li>
+              <li className={index === page ? "active" : null} onClick={()=>handlePage(index)} key={index}>{pagenum+1}</li>
             )
           })}
           </ul>
