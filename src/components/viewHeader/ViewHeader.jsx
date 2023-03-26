@@ -77,15 +77,13 @@ const ViewHeader = () => {
             <h4 className='board-detail-title'>{data.title}</h4>
             <div className="board-detail-bottom">
               <div className='board-detail-title1'>
-                <span>{data.createTime[0]}. {data.createTime[1]}. {data.createTime[2]} &nbsp; {data.createTime[3]}:{data.createTime[4]}&nbsp;&nbsp; | &nbsp; &nbsp;</span>
-                <img src={heart} className="board-detail-heart"></img> &nbsp; 
-                <span>{data.like} &nbsp; &nbsp; |</span> &nbsp; &nbsp;
-                <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye> &nbsp;
+                <span>{data.createTime[0]}. {data.createTime[1]}. {data.createTime[2]} &nbsp; {data.createTime[3]}:{data.createTime[4]}&nbsp;&nbsp;</span>&nbsp;&nbsp;
+                <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye>&nbsp;
                 <span>{data.view} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>
-                <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleModi}>수정</span>
-                <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleDelete}>삭제</span>
+                <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleModi} className='board-detail-items'>수정</span>
+                <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleDelete} className='board-detail-items'>삭제</span>
               </div>
             </div>
             <hr style={{opacity:"0.3" , color:"gray" ,margin:"15px 0 15px 0"}}></hr>

@@ -67,7 +67,6 @@ const BoardItems = () => {
   }
 
   useEffect(()=>{
-    console.log(pages)
     if(pagination === Number(String(maxPage).slice(0,-1))){
       setNextActive(true)
     }else{
@@ -78,7 +77,6 @@ const BoardItems = () => {
     }else{
       setPrevActive(false)
     }
-    
   },[maxPage])
 
   useEffect(()=>{
@@ -104,7 +102,6 @@ const BoardItems = () => {
                 </div>
                 <div className="BoardItems-right">
                   <span className="BoardItems-date">{data.createTime[0]}. {data.createTime[1]} .{data.createTime[2]}</span>
-                  <img src={like} className="BoardItems-like"></img>
                   <span className="BoardItems-like-count">{data.like}</span>
                   <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
                   <span className="BoardItems-view">{data.view}</span>

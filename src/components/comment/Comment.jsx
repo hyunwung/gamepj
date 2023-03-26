@@ -87,8 +87,8 @@ const Comment = () => {
       <div className='comment-bottom'>
         <div className='comment-ul'>
           <span className='comment-element'>댓글 {data.length}</span>
-          <span className='comment-element'>좋아요 </span>
-          <img className='comment-likeIcon' src={heart2} onClick={()=>likeHandle()}></img>
+          {/* <span className='comment-element'>좋아요 </span>
+          <img className='comment-likeIcon' src={heart2} onClick={()=>likeHandle()}></img> */}
         </div>
         <div className='comment-ul'>
           <CopyToClipboard text={url} onCopy={() => Swal.fire({
