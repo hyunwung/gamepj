@@ -3,22 +3,44 @@ import "./BoardItems.scss"
 import { AiFillHome ,AiFillStar ,AiFillEye} from "react-icons/ai";
 import like from "../../assets/heart.png"
 import {useNavigate} from "react-router-dom"
-import { BsFillPencilFill } from "react-icons/bs";
+import prev from "../../assets/prev.png"
+import next from "../../assets/next.png"
 import { useState , useEffect} from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
 const BoardItems = () => {
-  const [datas,setData] = useState([])
-  const [pages,setPages] = useState([])
-  const [page,setPage] = useState(0)
+  const [datas,setData] = useState([]) // 게시글들
+  const [pages,setPages] = useState([]) // 총 페이지 수 
+  const [page,setPage] = useState(0) // 해당 몇 페이지
+  const [pagination,setPagination] = useState(0) // 페이지 그룹
+  const [maxPage,setMaxPage] = useState(10) // 최소 페이지
+  const [minPage,setMinPage] = useState(0) // 최대 페이지
+  const [prevActive,setPrevActive] = useState(false)
+  const [nextActive,setNextActive] = useState(false)
   const navigate = useNavigate()
 
+  const paginationPrev = () => {
+    if(0 === Number(String(minPage).slice(0,-1))){      
+      return
+    }else{
+      setMaxPage(maxPage-10)
+      setMinPage(minPage-10)
+      setPage(minPage-10)
+    }
+  }
+  const paginationNext = () => {
+    if(pagination === Number(String(maxPage).slice(0,-1))){
+      return
+    }else{
+      setMaxPage(maxPage+10)
+      setMinPage(minPage+10)
+      setPage(maxPage)
+    }
+  }
   const handlePage = (id) => {
-    console.log(id)
     setPage(id)
-    
   }
   const getBoardData = async () =>{
     try{
@@ -26,15 +48,11 @@ const BoardItems = () => {
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
+      console.log(repo)
       if (repo.data.data.content[0] !== undefined){
         setData(repo.data.data.content)
-        
-        if(repo.data.data.totalPages <= 10){
-          setPages([...Array(repo.data.data.totalPages).keys()])
-        }else{
-          setPages()
-        }
-        
+        setPages([...Array(repo.data.data.totalPages).keys()])
+        setPagination(Math.ceil(repo.data.data.totalPages/10))
       }
     }catch(error){
       console.log(error)
@@ -47,6 +65,21 @@ const BoardItems = () => {
   const enterRoom = (id) => {
     navigate(`/board/detail/${id}`,{state:{id:id}})
   }
+
+  useEffect(()=>{
+    console.log(pages)
+    if(pagination === Number(String(maxPage).slice(0,-1))){
+      setNextActive(true)
+    }else{
+      setNextActive(false)
+    }
+    if(0 === Number(String(minPage).slice(0,-1))){
+      setPrevActive(true)
+    }else{
+      setPrevActive(false)
+    }
+    
+  },[maxPage])
 
   useEffect(()=>{
     getBoardData()
@@ -84,11 +117,16 @@ const BoardItems = () => {
         <div className='Board-footer con_box20'>
           <div></div>
           <ul>
+          <button className='dir-btn' onClick={paginationPrev} style={{display:prevActive ? "none" : "block"}}><img src={prev}></img></button>
           {pages.map((pagenum,index)=>{
+            if(index >= maxPage || index < minPage){
+              return
+            }
             return(
               <li className={index === page ? "active" : null} onClick={()=>handlePage(index)} key={index}>{pagenum+1}</li>
             )
           })}
+          <button className='dir-btn' onClick={paginationNext} style={{display: pages.length <= 10 || nextActive ? "none" : "block"}}><img src={next}></img></button>
           </ul>
           <a href='/create' className='create-board'>
             <span>글쓰기</span>

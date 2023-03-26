@@ -80,6 +80,8 @@
                     line-height: 25px;
                 }
                 .active{color:$nav-color; background: #f9f9f9;}
+                .dir-btn{border: none; background: none;}
+                .dir-btn img{width: 18px; margin-top: 3px;}
             }
             .create-board{
                 display: flex;
