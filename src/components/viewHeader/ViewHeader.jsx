@@ -1,7 +1,6 @@
 import "../../assets/Global.scss"
 import "./ViewHeader.scss"
 import {AiFillEye} from "react-icons/ai";
-import heart from "../../assets/heart.png"
 import { useLocation ,useNavigate} from 'react-router-dom'
 import axios from "axios"
 import { useEffect ,useState} from 'react';

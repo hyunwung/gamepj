@@ -2,7 +2,6 @@ import React from 'react'
 import { AiFillPushpin ,AiFillStar ,AiFillEye} from "react-icons/ai";
 import { FiLink ,FiMoreHorizontal } from "react-icons/fi";
 import "./Update.scss"
-import like from "../../assets/heart.png"
 import {Link} from "react-router-dom"
 
 const Update = () => {
@@ -10,10 +9,9 @@ const Update = () => {
     <div className='update'>
         <div className='update-container'>
         <div className='update-title'>
-          <AiFillPushpin style={{fontSize:"23px" , margin:"0 8px 4px 8px"}}></AiFillPushpin><h2 className='update-span'>업데이트(2)</h2>
+          <h2 className='update-span'>업데이트</h2>
         </div>
         <hr className='update-line'></hr>
-
         <div className='update-box'>
           <div className='update-box-contain'>
             <div className="update-left">
@@ -22,8 +20,6 @@ const Update = () => {
             </div>
             <div className="update-right">
               <span className="update-date">2022. 10. 15</span>
-              <img src={like} className="update-like"></img>
-              <span className="update-like-count">8</span>
               <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
               <span className="update-view">253</span>
             </div>

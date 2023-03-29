@@ -1,7 +1,6 @@
 import React from 'react'
 import "./BoardItems.scss"
 import { AiFillHome ,AiFillStar ,AiFillEye} from "react-icons/ai";
-import like from "../../assets/heart.png"
 import {useNavigate} from "react-router-dom"
 import prev from "../../assets/prev.png"
 import next from "../../assets/next.png"

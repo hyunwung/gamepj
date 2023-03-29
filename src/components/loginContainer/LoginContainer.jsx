@@ -17,7 +17,7 @@ const LoginContainer = () => {
             <a className='login-link' href='/main'><span className='login-logo'>RSD</span></a>
         </div>
         <div className='login-bottom-container'>
-            <span className='login-title'>RSD</span>
+            {/* <span className='login-title'>RSD</span> */}
             <img src={icon} className='social-login-btn' onClick={openGoogle}></img>
         </div>
     </div>

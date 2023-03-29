@@ -2,7 +2,6 @@ import React from 'react'
 import "./Board.scss"
 import { AiFillHome ,AiFillStar ,AiFillEye} from "react-icons/ai";
 import { FiMoreHorizontal } from "react-icons/fi";
-import like from "../../assets/heart.png"
 import {useNavigate} from "react-router-dom"
 import { BsFillPencilFill } from "react-icons/bs";
 import { useState } from 'react';
@@ -42,7 +41,7 @@ const Board = () => {
       <div className='Board-container'>
         <div className='Board-title'>
           <div className='Board-title-name'>
-            <AiFillHome style={{fontSize:"23px" , margin:"0 5px 4px 8px"}}></AiFillHome><h2 className='Board-span'>공지사항(2)</h2>
+            <h2 className='Board-span'>공지사항</h2>
           </div>
           <a href='/create' className='create-board'>
             {/* <BsFillPencilFill style={{fontSize:"16px"}}></BsFillPencilFill> */}
@@ -64,7 +63,6 @@ const Board = () => {
                 </div>
                 <div className="Board-right">
                   <span className="Board-date">{data.createTime[0]}. {data.createTime[1]} .{data.createTime[2]}</span>
-                  <img src={like} className="Board-like"></img>
                   <span className="Board-like-count">{data.like}</span>
                   <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
                   <span className="Board-view">{data.views}</span>
