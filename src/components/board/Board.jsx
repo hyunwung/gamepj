@@ -1,9 +1,8 @@
 import React from 'react'
 import "./Board.scss"
-import { AiFillHome ,AiFillStar ,AiFillEye} from "react-icons/ai";
+import { AiFillStar ,AiFillEye} from "react-icons/ai";
 import { FiMoreHorizontal } from "react-icons/fi";
 import {useNavigate} from "react-router-dom"
-import { BsFillPencilFill } from "react-icons/bs";
 import { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
@@ -44,10 +43,8 @@ const Board = () => {
             <h2 className='Board-span'>공지사항</h2>
           </div>
           <a href='/create' className='create-board'>
-            {/* <BsFillPencilFill style={{fontSize:"16px"}}></BsFillPencilFill> */}
             <span>글쓰기</span>
           </a>
-          
         </div>
         <hr className='Board-line'></hr>
         {Array.isArray(datas) && datas.length === 0 || datas === undefined ? null : datas.map((data, index)=>{
