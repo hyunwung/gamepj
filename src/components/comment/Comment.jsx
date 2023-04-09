@@ -117,9 +117,8 @@ const Comment = () => {
                 {/* <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button> */}
               </div>
               <div className='comment-right'>
-                  <span className='comment-option' onClick={()=>editComment(datas.id)}>수정</span>
-                  <span className='comment-option' onClick={()=>deleteComment(datas.id)}>삭제</span>
-                  
+                <span className='comment-option' onClick={()=>editComment(datas.id)}>수정</span>
+                <span className='comment-option' onClick={()=>deleteComment(datas.id)}>삭제</span>
               </div>
             </div>
             <div className='comment-bottom'>

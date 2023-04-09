@@ -10,8 +10,7 @@ import { useEffect } from 'react';
 const Board = () => {
   const [datas,setData] = useState([])
   const [page,setPage] = useState(0)
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
   const getBoardData = async() =>{
     try{
       const repo = await axios.get(`/boards?page=${page}`,{
