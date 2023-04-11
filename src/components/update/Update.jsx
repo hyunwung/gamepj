@@ -21,7 +21,7 @@ const Update = () => {
             <div className="update-right">
               <span className="update-date">2022. 10. 15</span>
               <AiFillEye style={{margin:"0 4px 0 4px",fontSize:"24px",color:"gray",float:"right"}}></AiFillEye>
-              <span className="update-view">253</span>
+              <span className="update-view">203</span>
             </div>
           </div>
           <hr className='update-line'></hr>
