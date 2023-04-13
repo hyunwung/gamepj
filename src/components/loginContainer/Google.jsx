@@ -1,17 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from "react-router-dom";
-import {useCookies} from "react-cookie"
 import Swal from "sweetalert2";
 
 const Google = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [cookies, setCookie] = useCookies(['refresh_token']); // 쿠키 훅 
-  const settingCookie = () => {
-    console.log(cookies)
-    //setCookie('name', newName, { path: '/' });
-  }
-  const [token,setToken] = useState('')
   const navigate = useNavigate();
 
   const googleLogin = async () => {
@@ -42,7 +35,6 @@ const Google = () => {
   useEffect(() => {
     googleLogin()
   }, []);
-
     return (
         <div>
           잠시만 기다려주세요 🤗

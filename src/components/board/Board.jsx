@@ -13,7 +13,12 @@ const Board = () => {
   const navigate = useNavigate();
   const getBoardData = async() =>{
     try{
-      const repo = await axios.get(`/boards?page=${page}`)
+      const repo = await axios.get(`/boards?page=${page}`,
+      {
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+        }
+      },{ withCredentials: true })
       console.log(repo)
       if (repo.data.data.content[0] !== undefined){
         setData(repo.data.data.content)
