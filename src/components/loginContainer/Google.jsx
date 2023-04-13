@@ -23,7 +23,7 @@ const Google = () => {
           }
         });
         console.log(response)
-        const user = response.data.body.user.id  
+        const user = response.data.data.userName  
         localStorage.setItem("accessToken", searchParams.get("token"));
         localStorage.setItem("user", user);
         
