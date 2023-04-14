@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -36,9 +36,9 @@ const Google = () => {
     googleLogin()
   }, []);
     return (
-        <div>
-          잠시만 기다려주세요 🤗
-        </div>
+      <div>
+        잠시만 기다려주세요 🤗
+      </div>
     );
 }
 
