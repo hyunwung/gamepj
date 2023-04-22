@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import "./CreateBoard.scss"
 import TextEditor from '../textEditor/TextEditor'
+import { useLocation } from 'react-router-dom';
 
 const CreateBoard = () => {
+  const location = useLocation();
   const [submit,setSubmit] = useState(false)
   const [title,setTitle] = useState("")
   const [category,setCategory] = useState(0)
+  console.log(location.state.id,"dddddddddddddddd")
   const submitData = () => {
     setSubmit(true)
   }

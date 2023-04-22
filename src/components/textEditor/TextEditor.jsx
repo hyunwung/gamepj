@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
-const TextEditor = ({title,category,submit,setSubmit}) => {
+const TextEditor = ({title,category,submit,setSubmit,modi}) => {
     const [editorState, setEditorState] = React.useState(() =>
       EditorState.createEmpty()
     );

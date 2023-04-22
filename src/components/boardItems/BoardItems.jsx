@@ -113,16 +113,16 @@ const BoardItems = () => {
         <div className='Board-footer con_box20'>
           <div></div>
           <ul>
-          <button className='dir-btn' onClick={paginationPrev} style={{display:prevActive ? "none" : "block"}}><img src={prev}></img></button>
-          {pages.map((pagenum,index)=>{
-            if(index >= maxPage || index < minPage){
-              return
-            }
-            return(
-              <li className={index === page ? "active" : null} onClick={()=>handlePage(index)} key={index}>{pagenum+1}</li>
-            )
-          })}
-          <button className='dir-btn' onClick={paginationNext} style={{display: pages.length <= 10 || nextActive ? "none" : "block"}}><img src={next}></img></button>
+            <button className='dir-btn' onClick={paginationPrev} style={{display:prevActive ? "none" : "block"}}><img src={prev}></img></button>
+            {pages.map((pagenum,index)=>{
+              if(index >= maxPage || index < minPage){
+                return
+              }
+              return(
+                <li className={index === page ? "active" : null} onClick={()=>handlePage(index)} key={index}>{pagenum+1}</li>
+              )
+            })}
+            <button className='dir-btn' onClick={paginationNext} style={{display: pages.length <= 10 || nextActive ? "none" : "block"}}><img src={next}></img></button>
           </ul>
           <a href='/create' className='create-board'>
             <span>글쓰기</span>

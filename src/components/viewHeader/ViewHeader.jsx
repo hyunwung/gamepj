@@ -37,7 +37,6 @@ const ViewHeader = () => {
   const handleModi = () => {
     navigate("/modi",{
       state:{
-        datas:data,
         id:location.state.id
     }}
   )}

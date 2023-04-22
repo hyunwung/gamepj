@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../components/header/Header'
 import NavBar from '../components/navBar/NavBar'
 import "../assets/Global.scss"
-import ModiBoard from "../components/modi/ModiBoard"
+import CreateBoard from "../components/createBoard/CreateBoard"
 
 const Modi = () => {
   return (
@@ -13,7 +13,7 @@ const Modi = () => {
         <div className='default-container'>
           <NavBar></NavBar>
           <div className='default-page'>
-            <ModiBoard></ModiBoard>
+            <CreateBoard></CreateBoard>
           </div>
         </div>
         <div className='이미지2'></div>

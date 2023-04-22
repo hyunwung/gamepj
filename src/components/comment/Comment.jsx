@@ -79,7 +79,6 @@ const Comment = () => {
   useEffect(()=>{
     getComment()
   },[])
-  console.log(comment)
   return (
     <div className='comment'>
       <hr style={{opacity:"0.3",color:"gray",margin:"15px 5px 15px 24px"}}></hr>

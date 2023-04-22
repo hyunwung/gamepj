@@ -7,7 +7,6 @@ import axios from 'axios';
 const ReportDetail = ({reportDetail,setReportDetail,modalIsOpen,setModalIsOpen,category}) => {
 	const [text,setText] = useState("")
 	const [image,setImage] = useState("")
-	console.log(category)
 	const onSelectFile = (e) => {
         const selectedFiles = e.target.files[0]; 
         setImage(selectedFiles)

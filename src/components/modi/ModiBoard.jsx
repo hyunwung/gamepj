@@ -1,15 +1,30 @@
 import React, { useState } from 'react'
 import "./ModiBoard.scss"
-import { ModiEditor } from '../textEditor/ModiEditor'
+import TextEditor from '../textEditor/TextEditor'
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
+import axios from 'axios';
 const ModiBoard = () => {
+  const location = useLocation();
+  const [submit,setSubmit] = useState(false)
+  const [data,setData] = useState("")
   const [modi,setModi] = useState(true)
   const [title,setTitle] = useState("")
   const [category,setCategory] = useState(0)
-  const location = useLocation()
 
+  const getBoardData = async () =>{
+    try{
+      const repo = await axios.get(`/boards/${location.state.id}`,{
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+        }
+      })
+      console.log(repo)
+      setData(repo)
+    }catch(error){
+      console.log(error)
+    }
+  }
   const submitData = () => {
     setModi(true)
   }
@@ -19,10 +34,9 @@ const ModiBoard = () => {
   const handleSelect = (e) => {
     setCategory(e.target.value)
   }
+  
   useEffect(()=>{
-    if(location.state.datas.data.title !== undefined){
-      setTitle(location.state.datas.data.title)
-    }
+    getBoardData()
   },[])
   return (
     <div className='ModiBoard'>
@@ -37,8 +51,8 @@ const ModiBoard = () => {
           <option value="3">공지사항</option>
         </select>
         <span>내용</span>
-        <ModiEditor title={title} modi={modi} setModi={setModi} category={category} contents={location.state.datas.data.content} id={location.state.id}></ModiEditor>
-        <a href='/main'><button className='board-submit' onClick={()=>submitData()}><span>저장</span></button></a>
+        <TextEditor title={title} category={category} submit={submit} setSubmit={setSubmit} modi={modi}></TextEditor>
+        <a href='/main'><button className='board-submit' onClick={()=>submitData()}><span>수정</span></button></a>
       </div>
     </div>
   )
