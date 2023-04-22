@@ -81,6 +81,7 @@ const BoardItems = () => {
   useEffect(()=>{
     getBoardData()
   },[page])
+  
   return (
     <div className='BoardItems'>
       <div className='BoardItems-container con_box5'>
