@@ -32,6 +32,14 @@ const ViewHeader = () => {
       setData(repo.data.data)
     }catch(error){
       console.log(error)
+      if(localStorage.getItem("accessToken") === null){
+        navigate('/login')
+        Swal.fire({icon: 'warning', html:"로그인을 해주세요."})
+      }
+      else{
+        navigate('/profile')
+        Swal.fire({icon: 'warning', html:"로딩에 실패하였습니다. <br/>로그인을 해주세요."})
+      }
     }
   }
   const handleModi = () => {
