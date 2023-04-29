@@ -8,7 +8,7 @@ const CreateBoard = () => {
   const [submit,setSubmit] = useState(false)
   const [title,setTitle] = useState("")
   const [category,setCategory] = useState(0)
-  console.log(location.state.id,"dddddddddddddddd")
+  
   const submitData = () => {
     setSubmit(true)
   }
