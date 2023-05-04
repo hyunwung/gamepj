@@ -3,8 +3,11 @@ import Header from '../components/header/Header'
 import NavBar from '../components/navBar/NavBar'
 import "../assets/Global.scss"
 import CreateBoard from "../components/createBoard/CreateBoard"
+import { useParams } from "react-router-dom"
 
 const Modi = () => {
+  const {id} = useParams()
+  console.log(id)
   return (
     <div className='default'>
       <Header></Header>
@@ -13,7 +16,7 @@ const Modi = () => {
         <div className='default-container'>
           <NavBar></NavBar>
           <div className='default-page'>
-            <CreateBoard></CreateBoard>
+            <CreateBoard modi={true} id={id}></CreateBoard>
           </div>
         </div>
         <div className='이미지2'></div>

@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route path="/boards" element={<NoticeBoard></NoticeBoard>}></Route>
         <Route path="/create" element={<Create></Create>}></Route>
-        <Route path="/modi" element={<Modi></Modi>}></Route>
+        <Route path="/modi/:id" element={<Modi></Modi>}></Route>
         <Route path="/board/detail/:id" element={<ViewBoard></ViewBoard>}></Route>
         <Route path="/oauth/redirect" element={<Google></Google>}></Route>
       </Routes>

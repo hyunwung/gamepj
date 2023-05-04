@@ -10,7 +10,8 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
-const TextEditor = ({title,category,submit,setSubmit,modi}) => {
+const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) => {
+    console.log(modi)
     const [editorState, setEditorState] = React.useState(() =>
       EditorState.createEmpty()
     );
@@ -88,6 +89,22 @@ const TextEditor = ({title,category,submit,setSubmit,modi}) => {
         }
       }
     }
+    
+    const updateData = async () => {
+      try{
+        const repo = await axios.patch(`/boards/${id}`,{
+          headers:{
+            'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+        }})
+        console.log(repo)
+      }catch(error){
+        console.log(error)
+        Swal.fire({icon: 'warning', html:"로딩에 실패하였습니다. <br/>로그인을 해주세요."})
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('user')
+        navigate("/login")
+      }
+  }
 
     const createMarkup = (html)=> {
       return {
@@ -105,6 +122,12 @@ const TextEditor = ({title,category,submit,setSubmit,modi}) => {
         postData()
       }
     },[submit])
+    
+    useEffect(()=>{
+      if(update === true){
+        updateData()
+      }
+    },[update])
     return (
       <div>
         <Editor

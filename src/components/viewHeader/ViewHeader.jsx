@@ -37,17 +37,17 @@ const ViewHeader = () => {
         Swal.fire({icon: 'warning', html:"로그인을 해주세요."})
       }
       else{
-        navigate('/profile')
+        console.log(error)
         Swal.fire({icon: 'warning', html:"로딩에 실패하였습니다. <br/>로그인을 해주세요."})
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('user')
+        navigate("/login")
       }
     }
   }
   const handleModi = () => {
-    navigate("/modi",{
-      state:{
-        id:location.state.id
-    }}
-  )}
+    navigate(`/modi/${location.state.id}`)
+  }
   const handleDelete = () => {
     Swal.fire({
       icon: "warning",
