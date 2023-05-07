@@ -15,14 +15,35 @@ const ViewHeader = () => {
 
   const likeControl = async () => {
     try{
-			const repo = await axios.post('/reports',{
-				
+			const repo = await axios.post(`/boards/${location.state.id}/likes`,{
 			},{
 			  headers:{
 				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
 			}
 		},{ withCredentials: true })
-			console.log(repo)
+			console.log(repo.status)
+      if(repo.status === 200){
+        console.log('좋아요')
+      }
+		}catch(error){
+			console.log(error)
+			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
+			localStorage.removeItem('accessToken')
+			localStorage.removeItem('user')
+			localStorage.removeItem('id')
+			navigate("/login")
+		}
+  }
+
+  const unlikeControl = async () => {
+    try{
+			const repo = await axios.delete(`/boards/${location.state.id}/unlikes`,{
+			},{
+			  headers:{
+				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+			}
+		},{ withCredentials: true })
+			console.log(repo.status)
 		}catch(error){
 			console.log(error)
 			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
@@ -109,7 +130,7 @@ const ViewHeader = () => {
                 <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye>&nbsp;
                 <span>{data.view} &nbsp; &nbsp; </span>
 
-                <img src={heart2} alt='heart' onClick={()=>likeControl}></img>&nbsp;
+                <img src={heart2} alt='heart' onClick={()=>unlikeControl()}></img>&nbsp;
                 <span>{data.likeCount} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 import "./Comment.scss"
 import { useEffect } from 'react'
+import heart from "../../assets/heart.png"
 import heart2 from "../../assets/heart2.png"
 import Report from '../modal/Report';
 import { BsLink45Deg } from "react-icons/bs";
@@ -14,10 +15,22 @@ const Comment = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [data,setData] = useState([])
   const [comment,setComment] = useState("")
+  const [modi,setModi] = useState("eee")
+  const [modicheck, setModiCheck] = useState(false)
+  const [modiIdx,setIndex] = useState('')
   const url = window.location.href;
 
   const handleComment = (e) =>{
     setComment(e.target.value)
+  }
+
+  const modiComment = (e) =>{
+    setModi(e.target.value)
+  }
+
+  const modion = (id) => {
+    setIndex(id)
+    setModiCheck((prev)=>!prev)
   }
 
   const getComment = async () => {
@@ -30,6 +43,10 @@ const Comment = () => {
   }
 
   const postComment = async () => {
+    if(comment.length < 2){
+      Swal.fire({title:"댓글은 최소 2글자여야 합니다 !"})
+      return
+    }
     try{
       await axios.post(`/boards/${location.state.id}/comments`,{content:comment},{
         headers:{
@@ -43,10 +60,15 @@ const Comment = () => {
   }
   const deleteComment = async (id) => {
     try{
-      await axios.delete(`/boards/${location.state.id}/comments/${id}`,{
+      const repo = await axios.delete(`/boards/${location.state.id}/comments/${id}`,{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
+      console.log(repo.status)
+      if(repo.status === 200){
+        Swal.fire({title:"댓글 삭제 완료 !"})
+        getComment()
+      }
     }catch(error){
       console.log(error)
     }
@@ -63,9 +85,28 @@ const Comment = () => {
       console.log(error)
     }
   }
+  const unlikeHandle = async () => {
+    try{
+      const repo = await axios.post(`/boards/${location.state.id}/likes`,{
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+      }})
+      console.log(repo)
+      getComment()
+    }catch(error){
+      console.log(error)
+    }
+  }
+
   const editComment = async (id) => {
+    if(modi.length < 2){
+      Swal.fire({title:"댓글은 최소 2글자여야 합니다 !"})
+      return
+    }
     try{
       await axios.patch(`/boards/${location.state.id}/comments/${id}`,{
+        content:modi
+      },{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
@@ -112,11 +153,14 @@ const Comment = () => {
             <div className='comment-info'>
               <div className='comment-left'>
                 <span className='comment-username'>형식</span>
-                <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span>
+
+                <img src={heart} alt='like'></img>
+                <span className='like-count'>{datas.likeView}</span>
+                {/* <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span> */}
                 {/* <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button> */}
               </div>
               <div className='comment-right'>
-                <span className='comment-option' onClick={()=>editComment(datas.id)}>수정</span>
+                <span className='comment-option' onClick={()=>modion(index)}>수정</span>
                 <span className='comment-option' onClick={()=>deleteComment(datas.id)}>삭제</span>
               </div>
             </div>
@@ -154,7 +198,13 @@ const Comment = () => {
                 </div>
               </div>
               : <p className='comment-answer' onClick={()=>commentOn(0)}>답글 2개 모두 보기</p>} */}
-              </div>
+            {modicheck === true && modiIdx === index ? 
+              <div className='modi-container'>
+                <textarea value={modi} onChange={modiComment} maxLength={200} className='modi-textarea'></textarea>
+                <span className='comment-option' onClick={()=>editComment(datas.id)}>수정</span>
+                <span className='comment-option' onClick={()=>modion()}>닫기</span>
+              </div> : null}
+          </div>
             )}
           )}
 

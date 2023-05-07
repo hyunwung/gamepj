@@ -68,12 +68,26 @@
     }
     .origin-comment{
         margin: 0 0 20px 20px;
+        .modi-container{
+            display: flex;
+        }
+        .modi-textarea{
+            
+        }
         .comment-info{
             color: gray;
             opacity: 0.7;
             margin-bottom: 5px;
             display: flex;
             justify-content: space-between;
+            img{
+                margin-left: 15px;
+                width: 15px;
+            }
+            .like-count{
+                margin-left: 4px;
+                margin-bottom: 2px;
+            }
             .comment-username{
                 margin-left: 7px;
                 font-size: 16px;
