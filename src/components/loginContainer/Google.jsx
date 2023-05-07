@@ -16,10 +16,12 @@ const Google = () => {
           }
         });
         console.log(response)
-        const user = response.data.data.userName  
+        const user = response.data.data.userName
+        const id = response.data.data.id
         localStorage.setItem("accessToken", searchParams.get("token"));
         localStorage.setItem("user", user);
-        
+        localStorage.setItem("id", id);
+
         if(user.length > 8){
           Swal.fire({html:"닉네임을 2자~8자로 변경해주세요"})
           navigate("/profile")

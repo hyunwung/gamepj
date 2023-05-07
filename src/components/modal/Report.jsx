@@ -1,16 +1,44 @@
 import { useState } from 'react';
 import { AiOutlineCheck , AiOutlineClose} from "react-icons/ai";
-import ReportDetail from './ReportDetail';
+import { useParams, useNavigate } from 'react-router-dom';
 import "./Report.scss";
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Report = ({modalIsOpen , setModalIsOpen}) => {
+	const param = useParams();
+	const navigate = useNavigate();
 	const [reportDetail, setReportDetail] = useState(false);
+
 	const handleModal = () => {
 		setModalIsOpen((prev)=>!prev)
 	}
-	const [nickname,setNickname] = useState("김애용") // 임시 닉네임
-	const [content,setContent] = useState("김애용") // 임시 내용
+	// const [nickname,setNickname] = useState("김애용") // 임시 닉네임
+	// const [content,setContent] = useState("김애용") // 임시 내용
 	const [select,setSelect] = useState(0)
+
+	const submitReport = async () => {
+		console.log(select)
+		try{
+			const repo = await axios.post('/reports',{
+				boardId: param.id,
+				content: "string",
+				reportUserId: localStorage.getItem("id"),
+			},{
+			  headers:{
+				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+			}
+		},{ withCredentials: true })
+			console.log(repo)
+		}catch(error){
+			console.log(error)
+			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
+			localStorage.removeItem('accessToken')
+			localStorage.removeItem('user')
+			localStorage.removeItem('id')
+			navigate("/login")
+		}
+	}
 
 	const handleSelect = (id) =>{
 		setSelect(id)
@@ -30,10 +58,10 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 				</button>
 			</div>
 			<div className='report-container'>
-				<div className='report-data'>
+				{/* <div className='report-data'>
 					<span className='report-area'>작성자&nbsp;|<p>{nickname}</p></span>
 					<span className='report-area2'>제 &nbsp;목&nbsp;&nbsp;|<p>{content}</p></span>
-				</div>
+				</div> */}
 				<div className='report-reason'>
 					<h1 className='reason-title'>사유선택</h1>
 					<ul>
@@ -83,12 +111,11 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 							<span className='report-reason-items'>불법촬영물등이 포함되어 있습니다.</span>
 						</li>
 					</ul>
-					<button className='report-btn' onClick={()=>nextReport()}>신고하기</button>
+					<button className='report-btn' onClick={()=>submitReport()}>신고하기</button>
 				</div>
 			</div>
 		</div>
 		<div className='report-background' style={{display : modalIsOpen ? "block" : "none"}}></div>
-		<ReportDetail reportDetail={reportDetail} setReportDetail={setReportDetail} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} category={select}></ReportDetail>
 	</div>
     
   )

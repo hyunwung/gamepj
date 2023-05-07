@@ -5,11 +5,33 @@ import { useLocation ,useNavigate} from 'react-router-dom'
 import axios from "axios"
 import { useEffect ,useState} from 'react';
 import Swal from "sweetalert2";
+import heart from "../../assets/heart.png";
+import heart2 from "../../assets/heart2.png";
 
 const ViewHeader = () => {
   const navigate = useNavigate()
   const location = useLocation();
   const [data,setData] = useState("")
+
+  const likeControl = async () => {
+    try{
+			const repo = await axios.post('/reports',{
+				
+			},{
+			  headers:{
+				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+			}
+		},{ withCredentials: true })
+			console.log(repo)
+		}catch(error){
+			console.log(error)
+			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
+			localStorage.removeItem('accessToken')
+			localStorage.removeItem('user')
+			localStorage.removeItem('id')
+			navigate("/login")
+		}
+  }
 
   const options = {
     'NONE':'에러',
@@ -86,6 +108,9 @@ const ViewHeader = () => {
                 <span>{data.createTime[0]}. {data.createTime[1]}. {data.createTime[2]} &nbsp; {data.createTime[3]}:{data.createTime[4]}&nbsp;&nbsp;</span>&nbsp;&nbsp;
                 <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye>&nbsp;
                 <span>{data.view} &nbsp; &nbsp; </span>
+
+                <img src={heart2} alt='heart' onClick={()=>likeControl}></img>&nbsp;
+                <span>{data.likeCount} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>
                 <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleModi} className='board-detail-items'>수정</span>
