@@ -12,8 +12,8 @@ const ProfileTable = () => {
     <div className='profileTable'>
       <div className='profileTable-container'>  
         <div className='profile-items'>
-          <span className='profile-item' onClick={()=>handleTitle(0)}>작성글</span>
-          <span className='profile-item' onClick={()=>handleTitle(1)}>작성댓글</span>
+          {/* <span className='profile-item' onClick={()=>handleTitle(0)}>작성글</span>
+          <span className='profile-item' onClick={()=>handleTitle(1)}>작성댓글</span> */}
           <span className='profile-item' onClick={()=>handleTitle(2)}>좋아요한 글</span>
         </div>
         <table className='profile-table'>

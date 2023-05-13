@@ -10,6 +10,7 @@ import Profile from './pages/Profile'
 import "./App.css"
 import Modi from './pages/Modi'
 import Google from './components/loginContainer/Google';
+import Search from './pages/Search'
 import axios from './api/axios';
 
 const App = () => {
@@ -20,7 +21,8 @@ const App = () => {
         <Route path="/main" element={<Main></Main>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/profile" element={<Profile></Profile>}></Route>
-        <Route path="/boards" element={<NoticeBoard></NoticeBoard>}></Route>
+        <Route path="/boards/:id" element={<NoticeBoard></NoticeBoard>}></Route>
+        <Route path="/search/:keyword" element={<Search></Search>}></Route>
         <Route path="/create" element={<Create></Create>}></Route>
         <Route path="/modi/:id" element={<Modi></Modi>}></Route>
         <Route path="/board/detail/:id" element={<ViewBoard></ViewBoard>}></Route>

@@ -46,11 +46,11 @@ const ViewHeader = () => {
 			console.log(repo.status)
 		}catch(error){
 			console.log(error)
-			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
-			localStorage.removeItem('accessToken')
-			localStorage.removeItem('user')
-			localStorage.removeItem('id')
-			navigate("/login")
+			// Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
+			// localStorage.removeItem('accessToken')
+			// localStorage.removeItem('user')
+			// localStorage.removeItem('id')
+			// navigate("/login")
 		}
   }
 

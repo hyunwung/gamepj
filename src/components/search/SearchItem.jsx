@@ -1,5 +1,5 @@
 import React from 'react'
-import "./BoardItems.scss"
+import "./SearchItem.scss"
 import { AiFillHome ,AiFillStar ,AiFillEye} from "react-icons/ai";
 import {useNavigate , useParams} from "react-router-dom"
 import prev from "../../assets/prev.png"
@@ -9,7 +9,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
-const BoardItems = () => {
+const SearchItem = () => {
   const [datas,setData] = useState([]) // 게시글들
   const [pages,setPages] = useState([]) // 총 페이지 수 
   const [page,setPage] = useState(0) // 해당 몇 페이지
@@ -20,18 +20,8 @@ const BoardItems = () => {
   const [nextActive,setNextActive] = useState(false)
 
   const navigate = useNavigate()
-  const param = useParams();
-  console.log(param.id)
+  const params = useParams()
 
-  const options = {
-    1:'NOTICE',
-    2:'EVENT',
-    3:'UPDATE',
-    4:'DEVELOPER_NOTES',
-    5:'BUG',
-    6:'GUIDE',
-    7:'FAQ'
-  }
   const paginationPrev = () => {
     if(0 === Number(String(minPage).slice(0,-1))){      
       return
@@ -55,7 +45,7 @@ const BoardItems = () => {
   }
   const getBoardData = async () =>{
     try{
-      const repo = await axios.get(`/boards?page=${page}&type=${options[param.id]}`,{
+      const repo = await axios.get(`/boards?page=${page}&title=${params.keyword}`,{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
@@ -99,7 +89,7 @@ const BoardItems = () => {
       <div className='BoardItems-container con_box5'>
         <div className='BoardItems-title'>
           <div className='BoardItems-title-name'>
-            <h2 className='BoardItems-span'>{options[param.id]}</h2>
+            <h2 className='BoardItems-span'>{params.keyword}에 대한 검색 결과 입니다.</h2>
           </div>
         </div>
         <hr className='BoardItems-line'></hr>
@@ -145,4 +135,4 @@ const BoardItems = () => {
   )
 }
 
-export default BoardItems
+export default SearchItem

@@ -10,7 +10,7 @@ const Profile = () => {
       <Header></Header>
       <div className='profile-container'>
         <ProfileSets></ProfileSets>
-        {/* <ProfileTable></ProfileTable> */}
+        <ProfileTable></ProfileTable>
       </div>
     </div>
   )

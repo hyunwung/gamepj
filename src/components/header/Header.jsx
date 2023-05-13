@@ -1,10 +1,13 @@
 import React, { useState } from "react"
 import "./Header.scss"
 import search from "../../assets/search.png"
+import { useNavigate } from "react-router-dom"
 
 const Header = () => {
   const [login,setLogin] = useState(false)
   const [keyword,setKeyWord] = useState("")
+  const navigate = useNavigate()
+
   const handleLogin = () => {
     setLogin((prev)=>!prev)
   }
@@ -12,7 +15,8 @@ const Header = () => {
     setKeyWord(e.target.value)
   }
   const searchKeyWord = () => {
-
+    // navigate(`/search/${keyword}`,{state:{keyword:keyword}})
+    window.location.replace(`/search/${keyword}`);
   }
   return (
     <div className="header">
@@ -31,9 +35,9 @@ const Header = () => {
               onChange={handleSearch}>  
             </input>
           </form>
-          <a href="/main" onClick={searchKeyWord} className="search-link">
+          <div onClick={searchKeyWord} className="search-link">
             <img src={search} className="search-btn"></img>
-          </a>
+          </div>
         </div>
         <div className="header-right">
           {localStorage.getItem("accessToken") ? <a className="login-link" href="/profile">Profile</a> : <a className="login-link" href="/login">Login</a>}
