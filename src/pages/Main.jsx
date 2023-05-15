@@ -30,7 +30,7 @@ const Main = () => {
           <div className='default-page'>
             <Slide></Slide>
             <Board></Board>
-            <Update></Update>
+            {/* <Update></Update> */}
           </div>
         </div>
         <div className='여기에 이미지 2'></div>

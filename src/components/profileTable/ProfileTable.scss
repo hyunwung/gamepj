@@ -5,7 +5,8 @@
 	.profileTable-container{		
 		background-color: white;
 		width: 900px;
-		height: 200vh;
+		min-height: 100%;
+		max-height: 100vh;
 		display: flex;
 		flex-direction: column;
 		.profile-items{
@@ -79,7 +80,9 @@
 			}
 			
 		}
-		
+		.profile-move{
+			cursor: pointer;
+		}
 		.profile-items{
 			display: flex;
 			.profile-item{
