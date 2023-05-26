@@ -25,8 +25,8 @@ const ProfileSets = () => {
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }
       },{ withCredentials: true });
-      //setNickName(response.data.data.userName)
-      setNickName("아잇")
+      
+      setNickName(response.data.data.userName)
     }catch (error) {
       console.log(error)
     }

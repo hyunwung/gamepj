@@ -38,7 +38,7 @@ const ProfileTable = () => {
   }
 
   const moveBoard = (id) => {
-    navigate(`/board/detail/${id}`)
+    navigate(`/board/detail/${id}`,{state:{id:id}})
   }
   const handleTitle = (id) => {
     setTitle(id)

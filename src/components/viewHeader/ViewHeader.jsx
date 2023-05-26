@@ -130,7 +130,7 @@ const ViewHeader = () => {
                 <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye>&nbsp;
                 <span>{data.view} &nbsp; &nbsp; </span>
 
-                <img src={heart2} alt='heart' onClick={()=>unlikeControl()}></img>&nbsp;
+                <img src={heart2} alt='heart' onClick={()=>likeControl()}></img>&nbsp;
                 <span>{data.likeCount} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>

@@ -16,7 +16,17 @@ const Header = () => {
   }
   const searchKeyWord = () => {
     // navigate(`/search/${keyword}`,{state:{keyword:keyword}})
-    window.location.replace(`/search/${keyword}`);
+    navigate(`/search/${keyword}`);
+  }
+  const handleOnKeyPress = (e) => {
+    console.log("1")
+    if (e.key === 'Enter') {
+      console.log("2")
+      searchKeyWord()
+    }
+  }
+  const onSubmit = () => {
+    return false
   }
   return (
     <div className="header">
@@ -32,7 +42,8 @@ const Header = () => {
               maxLength="14"
               placeholder="검색"
               value={keyword}
-              onChange={handleSearch}>  
+              onChange={handleSearch}
+              onKeyDown={handleOnKeyPress}>  
             </input>
           </form>
           <div onClick={searchKeyWord} className="search-link">
