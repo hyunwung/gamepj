@@ -139,11 +139,10 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           editorClassName="editor-class"
           toolbarClassName="toolbar-class"
           toolbar={{
-            inline:{inDropdown:true},
-            list:{inDropdown:true},
-            textAlign:{inDropdown:true},
-            link:{inDropdown:true},
-            history:{inDropdown:true},
+            inline:{inDropdown:false},
+            list:{inDropdown:false},
+            textAlign:{inDropdown:false},
+            link:{inDropdown:false},
             image:{uploadCallback:uploadImageCallBack, alt:{present:true,mandatory:false}}
           }}
         />
