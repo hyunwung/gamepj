@@ -10,8 +10,7 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
-const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) => {
-    console.log(modi)
+const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) => {    
     const [editorState, setEditorState] = React.useState(() =>
       EditorState.createEmpty()
     );
@@ -57,10 +56,7 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           });
         })
     }
-    // const onEditorStateChange = (editorState) => {
-    //   // editorState에 값 설정
-    //   setEditorState(editorState);
-    // };
+    
     const postData = async () => {
       if(options[category] === "NONE"){
         Swal.fire({html:"카테고리를 선택해주세요."})
@@ -139,10 +135,10 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           editorClassName="editor-class"
           toolbarClassName="toolbar-class"
           toolbar={{
-            inline:{inDropdown:false},
-            list:{inDropdown:false},
-            textAlign:{inDropdown:false},
-            link:{inDropdown:false},
+            inline: { inDropdown: true },
+            list: { inDropdown: true },
+            textAlign: { inDropdown: true },
+            link: { inDropdown: true },
             image:{uploadCallback:uploadImageCallBack, alt:{present:true,mandatory:false}}
           }}
         />
