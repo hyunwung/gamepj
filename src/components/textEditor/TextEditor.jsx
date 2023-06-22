@@ -11,10 +11,11 @@ import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
 const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) => {    
+    const navigate = useNavigate();
     const [editorState, setEditorState] = React.useState(() =>
       EditorState.createEmpty()
     );
-    const navigate = useNavigate();
+    const [image,setImage] = useState(null)
     const _contentState = ContentState.createFromText('Sample content state');
     const raw = convertToRaw(_contentState);  // RawDraftContentState JSON
     const [contentState, setContentState] = useState(raw);
@@ -49,6 +50,7 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           .then((result) => {
             console.log('성공:', result);
             resolve(result)
+            setImage(result.data.link)
           })
           .catch((error) => {
             console.error('실패:', error);
@@ -56,11 +58,17 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           });
         })
     }
-    
+
     const postData = async () => {
-      if(options[category] === "NONE"){
-        Swal.fire({html:"카테고리를 선택해주세요."})
+      if(title === null || title === undefined || title === ""){
+        Swal.fire({title:"제목을 작성해주세요."})
         setSubmit((prev)=>!prev)
+        return
+      }
+      if(options[category] === "NONE"){
+        Swal.fire({title:"카테고리를 선택해주세요."})
+        setSubmit((prev)=>!prev)
+        return
       }else{
         try{
           const repo = await axios.post('/boards',{
@@ -100,8 +108,7 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
         localStorage.removeItem('user')
         navigate("/login")
       }
-  }
-
+    }
     const createMarkup = (html)=> {
       return {
         __html: DOMPurify.sanitize(html)
@@ -110,9 +117,17 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
 
     useEffect(() => {
       let html = convertToHTML(editorState.getCurrentContent());
+      console.log(html)
       setConvertedContent(html);
     }, [editorState]);
     
+    useEffect(() => {
+      const images = `<img src=${image}></img>`
+      let html = convertToHTML(editorState.getCurrentContent());
+      console.log(html)
+      setConvertedContent(html);
+    }, [image]);
+
     useEffect(()=>{  
       if(submit === true){
         postData()
@@ -135,6 +150,7 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           editorClassName="editor-class"
           toolbarClassName="toolbar-class"
           toolbar={{
+            previewImage: true,
             inline: { inDropdown: true },
             list: { inDropdown: true },
             textAlign: { inDropdown: true },
