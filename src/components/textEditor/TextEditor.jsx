@@ -49,8 +49,9 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           .then((response) => response.json())
           .then((result) => {
             console.log('성공:', result);
-            resolve(result)
-            setImage(result.data.link)
+            resolve({ data: { link: result.data.link}})
+            console.log(result.data.link)
+            //setImage(result.data.link)
           })
           .catch((error) => {
             console.error('실패:', error);
@@ -114,19 +115,12 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
         __html: DOMPurify.sanitize(html)
       }
     }
-
+    
     useEffect(() => {
       let html = convertToHTML(editorState.getCurrentContent());
       console.log(html)
       setConvertedContent(html);
     }, [editorState]);
-    
-    useEffect(() => {
-      const images = `<img src=${image}></img>`
-      let html = convertToHTML(editorState.getCurrentContent());
-      console.log(html)
-      setConvertedContent(html);
-    }, [image]);
 
     useEffect(()=>{  
       if(submit === true){
@@ -155,7 +149,7 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
             list: { inDropdown: true },
             textAlign: { inDropdown: true },
             link: { inDropdown: true },
-            image:{uploadCallback:uploadImageCallBack, alt:{present:true,mandatory:false}}
+            image:{uploadCallback:uploadImageCallBack, alt:{present:true,mandatory:false}},
           }}
         />
         <div
