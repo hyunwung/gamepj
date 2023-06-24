@@ -2,7 +2,8 @@
 
 .profileTable{
 	width: 49vw;
-	.profileTable-container{		
+	.profileTable-container{
+		font-family: 'DungGeunMo';
 		background-color: white;
 		width: 900px;
 		min-height: 100%;
@@ -86,9 +87,10 @@
 		.profile-items{
 			display: flex;
 			.profile-item{
+				font-size: 20px;
 				margin: 9px 12px 4px 11px;
 				cursor: pointer;
-				font-size: 16px;
+				font-weight: 700;
 			}	
 		}
 		.line1{

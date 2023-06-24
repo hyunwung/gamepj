@@ -3,7 +3,7 @@
 .profileSets{
 	.profileSets-container{
 		border-radius: 12px;
-		background-color: $nav-color;
+		background-color: $header-color;
 		width: 300px;
 		height: 400px;
 		display: flex;
@@ -16,6 +16,7 @@
 			border-radius: 50%;
 		}
 		.profile-modi{
+			font-family: 'DungGeunMo';
 			display: flex;
 			margin: 0 auto;
 			input{
@@ -27,8 +28,10 @@
 				border-radius: 5px;
 				box-sizing: border-box;
 				outline: none;
+				font-family: 'DungGeunMo';
 			}	
 			.profile-confirm{
+				font-family: 'DungGeunMo';
 				margin-left: 4px;
 				width: 60px;
 				height: 34px;
@@ -44,7 +47,7 @@
 			margin-top: 65px;
 			margin-left: 5px;
 			font-size: 13px;
-			color: black;
+			color: #ffffff;
 			opacity: 0.7;
 			cursor: pointer;
 		}

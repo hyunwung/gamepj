@@ -21,7 +21,6 @@ const BoardItems = () => {
 
   const navigate = useNavigate()
   const param = useParams();
-  console.log(param.id)
 
   const options = {
     1:'NOTICE',
@@ -108,7 +107,7 @@ const BoardItems = () => {
             <div className='BoardItems-box' key={index}>
               <div className='BoardItems-box-contain' onClick={()=>enterRoom(data.id)}>
                 <div className="BoardItems-left">
-                  <AiFillStar style={{margin:"0 5px 0 0",fontSize:"22px",color:"rgb(255, 221, 89)"}}></AiFillStar>
+                  {/* <AiFillStar style={{margin:"0 5px 0 0",fontSize:"22px",color:"rgb(255, 221, 89)"}}></AiFillStar> */}
                   <a><h3 className='BoardItems-title'>{data.title}</h3></a>
                 </div>
                 <div className="BoardItems-right">

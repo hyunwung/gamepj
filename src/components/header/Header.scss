@@ -5,15 +5,15 @@
         display: flex;
         justify-content: space-between;
         height: 70px;
-        background-color: rgb(30, 55, 153);
-        // background-image: url('../../assets/heart.png');
+        background-image: url('../../assets/banner1.png');
         background-size: cover;
-        background-position: center;
+        background-position: 0% 96%;
         .header-left{
             font-size: 30px;
             margin: 0 0 0 35px;
             padding-bottom: 50px;
             .header-logo{
+                line-height: 60px;
                 text-decoration: none;
                 color: white;
             }
@@ -47,7 +47,6 @@
         }
         .search-link{
             margin-top: 13px;
-            background-color: #1295e0;
             border-radius: 6px;
             height: 42px;
             width: 42px;

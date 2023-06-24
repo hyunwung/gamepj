@@ -10,6 +10,7 @@
         .Board-title{
             display: flex;
             justify-content: space-between;
+            font-family: 'DungGeunMo';
             .Board-title-name{
                 display: flex;
             }
@@ -18,6 +19,7 @@
                 font-size: 22px;
             }
             .create-board{
+                font-family: 'DungGeunMo';
                 display: flex;
                 align-items: center;
                 color: black;

@@ -41,7 +41,7 @@ const Board = () => {
       <div className='Board-container'>
         <div className='Board-title'>
           <div className='Board-title-name'>
-            <h2 className='Board-span'>공지사항</h2>
+            <h2 className='Board-span'>Notice</h2>
           </div>
           <a href='/create' className='create-board'>
             <span>글쓰기</span>
@@ -56,7 +56,7 @@ const Board = () => {
             <div className='Board-box' key={index}>
               <div className='Board-box-contain' onClick={()=>enterRoom(data.id)}>
                 <div className="Board-left">
-                  <AiFillStar style={{margin:"0 5px 0 0",fontSize:"22px",color:"rgb(255, 221, 89)"}}></AiFillStar>
+                  {/* <AiFillStar style={{margin:"0 5px 0 0",fontSize:"22px",color:"rgb(255, 221, 89)"}}></AiFillStar> */}
                   <a><h3 className='Board-title'>{data.title}</h3></a>
                 </div>
                 <div className="Board-right">

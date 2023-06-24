@@ -3,9 +3,8 @@ import "./Slide.scss"
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import logo from "../../assets/optimize2.webp"
-import logo2 from "../../assets/optimize3.webp"
-import logo3 from "../../assets/optimize4.webp"
+import banner1 from "../../assets/banner1.png"
+import banner2 from "../../assets/banner2.png"
 
 const Slide = () => {
     const settings = {
@@ -23,13 +22,10 @@ const Slide = () => {
         <div className='Slide'>
             <Slider {...settings}>
                 <div>
-                    <img src={logo} className="slider-item"></img>
+                    <img src={banner1} className="slider-item"></img>
                 </div>
                 <div>
-                    <img src={logo2} className="slider-item"></img>
-                </div>
-                <div>
-                    <img src={logo3} className="slider-item"></img>
+                    <img src={banner2} className="slider-item"></img>
                 </div>
             </Slider>
         </div>

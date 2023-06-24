@@ -4,6 +4,7 @@
     margin : 20px 0 80px 20px;
     width: 100%;
     .BoardItems-container{
+        font-family: 'DungGeunMo';
         width: 100%;
         .BoardItems-line{
             opacity: 0.7;
@@ -17,7 +18,7 @@
             }
             .BoardItems-span{
                 margin: 5px;
-                font-size: 20px;
+                font-size: 24px;
             }
             
         }
@@ -64,6 +65,7 @@
             }            
         }
         .Board-footer{
+            font-family: 'Noto Sans KR', sans-serif;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -85,6 +87,7 @@
                 .dir-btn img{width: 18px; margin-top: 3px;}
             }
             .create-board{
+                font-family: 'DungGeunMo';
                 display: flex;
                 align-items: center;
                 justify-content: center;

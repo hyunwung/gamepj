@@ -15,7 +15,8 @@ const Comment = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [data,setData] = useState([])
   const [comment,setComment] = useState("")
-  const [modi,setModi] = useState("eee")
+  const [modi,setModi] = useState("")
+  const [first,setFirst] = useState("")
   const [modicheck, setModiCheck] = useState(false)
   const [modiIdx,setIndex] = useState('')
   const url = window.location.href;
@@ -104,20 +105,42 @@ const Comment = () => {
       return
     }
     try{
-      await axios.patch(`/boards/${location.state.id}/comments/${id}`,{
+      const repo = await axios.patch(`/boards/${location.state.id}/comments/${id}`,{
         content:modi
       },{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
+      console.log(repo.data.data)
+      if(repo.data.data === "comment 수정이 완료 되었습니다."){
+        getComment()
+        setModiCheck((prev)=>!prev)
+      }
     }catch(error){
       console.log(error)
     }
   }
+  const commentLike = async (id) => {
+    try{
+      const repo = await axios.patch(`/boards/${location.state.id}/comments/${id}/like`,{
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+      }})
+      console.log(repo)
+    }catch(error){
+      console.log(error)
+    }
+  }
+  
+  const getFirstNamae = () => {
+    setFirst(localStorage.getItem("user")[0])
+  }
+
   const handleModal = () => {
     setModalIsOpen((prev)=>!prev)
   }
   useEffect(()=>{
+    getFirstNamae()
     getComment()
   },[])
   return (
@@ -141,10 +164,10 @@ const Comment = () => {
       
       <div className='comment-container'>
         <div className='comment-userbox'>
-          <span className='comment-surname'>형</span>
+          <span className='comment-surname'>{first}</span>
         </div>
         <textarea value={comment} onChange={handleComment} maxLength={200}></textarea>
-        <a><button onClick={()=>postComment()}>등록</button></a>
+        <a><button className='comment-confirm' onClick={()=>postComment()}>등록</button></a>
       </div>
 
       {data.map((datas,index)=>{
@@ -153,8 +176,7 @@ const Comment = () => {
             <div className='comment-info'>
               <div className='comment-left'>
                 <span className='comment-username'>형식</span>
-
-                <img src={heart} alt='like'></img>
+                <img src={heart} alt='like' onClick={()=>commentLike(datas.id)}></img>
                 <span className='like-count'>{datas.likeView}</span>
                 {/* <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span> */}
                 {/* <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button> */}
@@ -201,8 +223,8 @@ const Comment = () => {
             {modicheck === true && modiIdx === index ? 
               <div className='modi-container'>
                 <textarea value={modi} onChange={modiComment} maxLength={200} className='modi-textarea'></textarea>
-                <span className='comment-option' onClick={()=>editComment(datas.id)}>수정</span>
-                <span className='comment-option' onClick={()=>modion()}>닫기</span>
+                <span className='comment-option2' onClick={()=>editComment(datas.id)}>수정</span>
+                <span className='comment-option2' onClick={()=>modion()}>닫기</span>
               </div> : null}
           </div>
             )}

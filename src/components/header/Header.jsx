@@ -32,7 +32,7 @@ const Header = () => {
     <div className="header">
       <div className="header-container">
         <div className="header-left">
-          <a href="/main" className="header-logo"><span>게임 로고</span></a>
+          <a href="/main" className="header-logo"><span>RSE</span></a>
         </div>
         <div className="header-center">
           <form>
