@@ -71,10 +71,11 @@ const CreateBoard = ({modi ,id}) => {
           <option value="0">선택해주세요</option>
           <option value="1">공지사항</option>
           <option value="2">이벤트</option>
-          <option value="3">개발노트</option>
-          <option value="4">버그</option>
-          <option value="5">가이드</option>
-          <option value="6">FAQ</option>
+          <option value="3">업데이트</option>
+          <option value="4">개발자 노트</option>
+          <option value="5">버그</option>
+          <option value="6">가이드</option>
+          <option value="7">FAQ</option>
         </select>
         <span className='create-input'>내용</span>
         <TextEditor title={title} category={category} submit={submit} setSubmit={setSubmit} update={update} setUpdate={setUpdate} id={id}></TextEditor>

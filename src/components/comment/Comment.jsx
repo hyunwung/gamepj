@@ -19,6 +19,7 @@ const Comment = () => {
   const [first,setFirst] = useState("")
   const [modicheck, setModiCheck] = useState(false)
   const [modiIdx,setIndex] = useState('')
+  const [auth2,setAuth2] = useState(false)
   const url = window.location.href;
 
   const handleComment = (e) =>{
@@ -39,7 +40,6 @@ const Comment = () => {
       headers:{
         'Authorization': 'Bearer '+localStorage.getItem("accessToken")
     }})
-    console.log(repo)
     setData(repo.data.data)
   }
 
@@ -171,6 +171,9 @@ const Comment = () => {
       </div>
 
       {data.map((datas,index)=>{
+        if(datas.mine === true){
+          
+        }
         return(
           <div className='origin-comment' key={index}>
             <div className='comment-info'>
@@ -182,8 +185,11 @@ const Comment = () => {
                 {/* <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button> */}
               </div>
               <div className='comment-right'>
-                <span className='comment-option' onClick={()=>modion(index)}>수정</span>
-                <span className='comment-option' onClick={()=>deleteComment(datas.id)}>삭제</span>
+                {datas.mine ? 
+                <div>
+                  <span className='comment-option' onClick={()=>modion(index)}>수정</span>
+                  <span className='comment-option' onClick={()=>deleteComment(datas.id)}>삭제</span>
+                </div> : null}
               </div>
             </div>
             <div className='comment-bottom'>

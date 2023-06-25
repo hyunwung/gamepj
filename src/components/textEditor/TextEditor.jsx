@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { EditorState , ContentState ,convertToRaw } from 'draft-js';
+import { EditorState } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from 'draft-convert';
@@ -16,9 +16,6 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
       EditorState.createEmpty()
     );
     const [image,setImage] = useState(null)
-    const _contentState = ContentState.createFromText('Sample content state');
-    const raw = convertToRaw(_contentState);  // RawDraftContentState JSON
-    const [contentState, setContentState] = useState(raw);
     const [convertedContent, setConvertedContent] = useState(null);
     
     const options = {
@@ -50,8 +47,7 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
           .then((result) => {
             console.log('성공:', result);
             resolve({ data: { link: result.data.link}})
-            console.log(result.data.link)
-            //setImage(result.data.link)
+            setImage(result.data.link)
           })
           .catch((error) => {
             console.error('실패:', error);
@@ -70,7 +66,13 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
         Swal.fire({title:"카테고리를 선택해주세요."})
         setSubmit((prev)=>!prev)
         return
-      }else{
+      }
+      if(convertedContent==="<p></p>"){
+        Swal.fire({title:"내용을 입력하세요."})
+        setSubmit((prev)=>!prev)
+        return
+      }
+      else{
         try{
           const repo = await axios.post('/boards',{
             title : title,
@@ -117,9 +119,23 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
     }
     
     useEffect(() => {
-      let html = convertToHTML(editorState.getCurrentContent());
-      console.log(html)
+      let html = convertToHTML({
+        entityToHTML: (entity, originalText) => {
+          console.log(entity)
+          if (entity.type === 'IMAGE') {
+            return <img src={image} alt=""></img>
+          }
+          if (entity.type === 'LINK') {
+            return {
+                start: `<a href="${entity.data.url}">`,
+                end: '</a>',
+            }
+          }
+          return originalText;
+        }
+      })(editorState.getCurrentContent());
       setConvertedContent(html);
+      console.log(html)
     }, [editorState]);
 
     useEffect(()=>{  
@@ -136,8 +152,6 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
     return (
       <div>
         <Editor
-          defaultContentState={contentState}
-          onContentStateChange={setContentState}
           editorState={editorState}
           onEditorStateChange={setEditorState}
           wrapperClassName="wrapper-class"

@@ -81,7 +81,7 @@ const ProfileTable = () => {
                 return(
                 <tr key={index} onClick={()=>moveBoard(datas.id)} className='profile-move'>
                   <td style={{textAlign:"start"}}>
-                    <input type="checkbox" className='profile-checkbox'></input>
+                    {/* <input type="checkbox" className='profile-checkbox'></input> */}
                     <span>{datas.title}</span>
                   </td>
                   <td>
