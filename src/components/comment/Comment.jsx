@@ -172,7 +172,6 @@ const Comment = () => {
 
       {data.map((datas,index)=>{
         if(datas.mine === true){
-          
         }
         return(
           <div className='origin-comment' key={index}>
@@ -235,7 +234,6 @@ const Comment = () => {
           </div>
             )}
           )}
-
       {/* <div className='origin-comment'>
         <div className='comment-info'>
           <div className='comment-left'>
