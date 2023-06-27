@@ -23,7 +23,9 @@ const CreateBoard = ({modi ,id}) => {
       }})
       console.log(repo.data.data)
       setData(repo.data.data)
-      console.log(data.title)
+      setTitle(repo.data.data.title)      
+      setCategory(options[repo.data.data.type])
+      
     }catch(error){
       console.log(error)
       Swal.fire({icon: 'warning', html:"로딩에 실패하였습니다. <br/>로그인을 해주세요."})
@@ -58,14 +60,13 @@ const CreateBoard = ({modi ,id}) => {
   useEffect(()=>{
     if(modi===true){
       getBoardData()
-      setCategory(options[data.type])
     }
   },[])
   return (
     <div className='createBoard'>
       <div className='createBoard-container'>
-        <span className='create-input'>제목</span>
-        <input type="text" className='board-title' placeholder="글 제목" value={title} onChange={onChange} defaultValue={data.title}></input>
+        <span className='create-input'>제 목</span>
+        <input type="text" className='board-title' placeholder="글 제목" value={title} onChange={onChange}></input>
         <span className='create-input'>카테고리</span>
         <select onChange={handleSelect} value={category} defaultValue={category}>
           <option value="0">선택해주세요</option>
@@ -78,7 +79,7 @@ const CreateBoard = ({modi ,id}) => {
           <option value="7">FAQ</option>
         </select>
         <span className='create-input'>내용</span>
-        <TextEditor title={title} category={category} submit={submit} setSubmit={setSubmit} update={update} setUpdate={setUpdate} id={id}></TextEditor>
+        <TextEditor title={title} category={category} submit={submit} setSubmit={setSubmit} update={update} setUpdate={setUpdate} id={id} content={data.content} modi={modi}></TextEditor>
         {modi === true ?
           <a href='#'><button className='board-submit' onClick={()=>updateData()}><span>수정</span></button></a> :
           <a href='#'><button className='board-submit' onClick={()=>submitData()}><span>저장</span></button></a>}

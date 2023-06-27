@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom"
 
 const Modi = () => {
   const {id} = useParams()
-  console.log(id)
   return (
     <div className='default'>
       <Header></Header>

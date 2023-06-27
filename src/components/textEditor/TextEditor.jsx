@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { EditorState } from 'draft-js';
+import { EditorState ,ContentState ,convertFromHTML } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from 'draft-convert';
@@ -10,11 +10,15 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
-const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) => {    
+const TextEditor = ({title,category,submit,setSubmit,update,content,id,modi}) => {    
     const navigate = useNavigate();
-    const [editorState, setEditorState] = React.useState(() =>
-      EditorState.createEmpty()
+    const [editorState, setEditorState] = useState(() =>
+    EditorState.createWithContent(
+      ContentState.createFromBlockArray(
+        convertFromHTML(content === null || content === undefined ? "" : content)
+      ))
     );
+
     const [image,setImage] = useState(null)
     const [convertedContent, setConvertedContent] = useState(null);
     
@@ -168,7 +172,8 @@ const TextEditor = ({title,category,submit,setSubmit,modi,update,setUpdate,id}) 
         />
         <div
           className="preview"
-          dangerouslySetInnerHTML={createMarkup(convertedContent)}>
+          dangerouslySetInnerHTML={createMarkup(convertedContent)}
+          >
         </div>
       </div>
     );

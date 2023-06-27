@@ -13,7 +13,18 @@ const ViewHeader = () => {
   const location = useLocation();
   const [data,setData] = useState("")
   const [auth,setAuth] = useState(false)
+  const [like,setLike] = useState(false)
 
+  const likeHandle = () => {
+    if(like === true){
+      unlikeControl()
+      getBoardData()
+    }else{
+      likeControl()
+      getBoardData()
+    }
+  }
+  
   const likeControl = async () => {
     try{
 			const repo = await axios.post(`/boards/${location.state.id}/likes`,{
@@ -73,12 +84,14 @@ const ViewHeader = () => {
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }
       })
-      console.log(repo.data.data)
+      console.log("게시글 정보 : ",repo.data.data)
       setData(repo.data.data)
       if(repo.data.data.mine === true){
         setAuth((prev)=>!prev)
       }
-      console.log(auth)
+      if(repo.data.data.likeMine === true){
+        setLike(true)
+      } 
     }catch(error){
       console.log(error)
       if(localStorage.getItem("accessToken") === null){
@@ -119,6 +132,7 @@ const ViewHeader = () => {
       }
     });
   }
+
   useEffect(()=>{
     getBoardData()
   },[])
@@ -135,7 +149,7 @@ const ViewHeader = () => {
                 <span>{data.createTime[0]}. {data.createTime[1]}. {data.createTime[2]} &nbsp; {data.createTime[3]}:{data.createTime[4]}&nbsp;&nbsp;</span>&nbsp;&nbsp;
                 <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye>&nbsp;
                 <span>{data.view} &nbsp; &nbsp; </span>
-                <img src={heart} alt='heart' onClick={()=>likeControl()}></img>&nbsp;
+                <img src={like ? heart : heart2} alt='heart' onClick={()=>likeHandle()}></img>&nbsp;
                 <span>{data.likeCount} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>

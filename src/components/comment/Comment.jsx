@@ -41,6 +41,7 @@ const Comment = () => {
         'Authorization': 'Bearer '+localStorage.getItem("accessToken")
     }})
     setData(repo.data.data)
+    console.log("댓글 정보 : ",repo.data.data)
   }
 
   const postComment = async () => {
@@ -74,7 +75,11 @@ const Comment = () => {
       console.log(error)
     }
   }
-  const likeHandle = async () => {
+
+  const commentHandle = () => {
+
+  }
+  const likeComment = async () => {
     try{
       const repo = await axios.post(`/boards/${location.state.id}/likes`,{
         headers:{
@@ -86,7 +91,7 @@ const Comment = () => {
       console.log(error)
     }
   }
-  const unlikeHandle = async () => {
+  const unlikeComment = async () => {
     try{
       const repo = await axios.post(`/boards/${location.state.id}/likes`,{
         headers:{
@@ -177,7 +182,7 @@ const Comment = () => {
           <div className='origin-comment' key={index}>
             <div className='comment-info'>
               <div className='comment-left'>
-                <span className='comment-username'>형식</span>
+                <span className='comment-username'>{datas.userName}</span>
                 <img src={heart} alt='like' onClick={()=>commentLike(datas.id)}></img>
                 <span className='like-count'>{datas.likeView}</span>
                 {/* <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span> */}
