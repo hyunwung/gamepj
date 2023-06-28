@@ -23,16 +23,17 @@ const Report = ({modalIsOpen , setModalIsOpen}) => {
 			const repo = await axios.post('/reports',{
 				boardId: param.id,
 				content: "string",
-				reportUserId: localStorage.getItem("id"),
 			},{
 			  headers:{
 				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
 			}
 		},{ withCredentials: true })
 			console.log(repo)
+			navigate("/main")
+			Swal.fire({title:"접수 되었습니다."})
 		}catch(error){
 			console.log(error)
-			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
+			Swal.fire({icon: 'warning', html:"신고에 실패하였습니다. <br/> 다시 로그인 해주세요."})
 			localStorage.removeItem('accessToken')
 			localStorage.removeItem('user')
 			localStorage.removeItem('id')

@@ -20,6 +20,7 @@ const Comment = () => {
   const [modicheck, setModiCheck] = useState(false)
   const [modiIdx,setIndex] = useState('')
   const [auth2,setAuth2] = useState(false)
+  const [like,setLike] = useState(false)
   const url = window.location.href;
 
   const handleComment = (e) =>{
@@ -65,7 +66,7 @@ const Comment = () => {
       const repo = await axios.delete(`/boards/${location.state.id}/comments/${id}`,{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
-      }})
+      }},{ withCredentials: true })
       console.log(repo.status)
       if(repo.status === 200){
         Swal.fire({title:"댓글 삭제 완료 !"})
@@ -76,24 +77,30 @@ const Comment = () => {
     }
   }
 
-  const commentHandle = () => {
-
+  const commentHandle = (id) => {
+    setLike(prev => !prev)
+    if(like === true){
+      unlikeComment(id)
+    }else{
+      likeComment(id)
+    }
   }
-  const likeComment = async () => {
+
+  const likeComment = async (id) => {
     try{
-      const repo = await axios.post(`/boards/${location.state.id}/likes`,{
+      const repo = await axios.patch(`/boards/${location.state.id}/comments/${id}/like`,{},{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
-      }})
+      }},{ withCredentials: true })
       console.log(repo)
       getComment()
     }catch(error){
       console.log(error)
     }
   }
-  const unlikeComment = async () => {
+  const unlikeComment = async (id) => {
     try{
-      const repo = await axios.post(`/boards/${location.state.id}/likes`,{
+      const repo = await axios.patch(`/boards/${location.state.id}/comments/${id}/unlike`,{},{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }})
@@ -183,7 +190,7 @@ const Comment = () => {
             <div className='comment-info'>
               <div className='comment-left'>
                 <span className='comment-username'>{datas.userName}</span>
-                <img src={heart} alt='like' onClick={()=>commentLike(datas.id)}></img>
+                <img src={heart} alt='like' onClick={()=>commentHandle(datas.id)}></img>
                 <span className='like-count'>{datas.likeView}</span>
                 {/* <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span> */}
                 {/* <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button> */}

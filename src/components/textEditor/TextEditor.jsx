@@ -104,10 +104,17 @@ const TextEditor = ({title,category,submit,setSubmit,update,content,id,modi}) =>
     const updateData = async () => {
       try{
         const repo = await axios.patch(`/boards/${id}`,{
+          title:title,
+          content:convertedContent,
+        },{
           headers:{
             'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }})
         console.log(repo)
+        if(repo.status === 200){
+          Swal.fire({title:"수정이 완료되었습니다."})
+          navigate('/main')
+        }
       }catch(error){
         console.log(error)
         Swal.fire({icon: 'warning', html:"로딩에 실패하였습니다. <br/>로그인을 해주세요."})

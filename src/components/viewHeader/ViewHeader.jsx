@@ -14,49 +14,50 @@ const ViewHeader = () => {
   const [data,setData] = useState("")
   const [auth,setAuth] = useState(false)
   const [like,setLike] = useState(false)
+  const [view,setView] = useState(false)
 
   const likeHandle = () => {
+    setLike(prev => !prev)
+    setView(prev => !prev)
     if(like === true){
-      unlikeControl()
-      getBoardData()
+      unlikeControl()   
     }else{
       likeControl()
-      getBoardData()
     }
   }
   
   const likeControl = async () => {
     try{
-			const repo = await axios.post(`/boards/${location.state.id}/likes`,{
-			},{
+			const repo = await axios.post(`/boards/${location.state.id}/likes`,{},{
 			  headers:{
 				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
 			}
 		},{ withCredentials: true })
 			console.log(repo)
-
       if(repo.status === 200){
         console.log('좋아요')
       }
 		}catch(error){
 			console.log(error)
 			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
-			localStorage.removeItem('accessToken')
-			localStorage.removeItem('user')
-			localStorage.removeItem('id')
-			navigate("/login")
+			// localStorage.removeItem('accessToken')
+			// localStorage.removeItem('user')
+			// localStorage.removeItem('id')
+			// navigate("/login")
 		}
   }
 
   const unlikeControl = async () => {
     try{
 			const repo = await axios.delete(`/boards/${location.state.id}/unlikes`,{
-			},{
 			  headers:{
 				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
 			}
 		},{ withCredentials: true })
 			console.log(repo.status)
+      if(repo.status === 200){
+        console.log('싫어요')
+      }
 		}catch(error){
 			console.log(error)
 			// Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
@@ -91,7 +92,9 @@ const ViewHeader = () => {
       }
       if(repo.data.data.likeMine === true){
         setLike(true)
-      } 
+      }else{
+        setLike(false)
+      }
     }catch(error){
       console.log(error)
       if(localStorage.getItem("accessToken") === null){
@@ -120,9 +123,14 @@ const ViewHeader = () => {
       cancelButtonText: "취소",
       }).then((res) => {
       if(res.isConfirmed) {
-         try{
-          axios.delete(`/boards/${location.state.id}`)
+        try{
+          axios.delete(`/boards/${location.state.id}`,{
+            headers:{
+              'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+            }
+          })
           navigate("/main")
+          Swal.fire({title:"게시글 삭제 완료 !"})
         }catch(error){
           console.log(error)
         }
@@ -150,13 +158,13 @@ const ViewHeader = () => {
                 <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye>&nbsp;
                 <span>{data.view} &nbsp; &nbsp; </span>
                 <img src={like ? heart : heart2} alt='heart' onClick={()=>likeHandle()}></img>&nbsp;
-                <span>{data.likeCount} &nbsp; &nbsp; </span>
+                <span>{view ? data.likeCount+1 : data.likeCount} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>
                 {auth ? 
                 <div>
-                  <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleModi} className='board-detail-items'>수정</span>
-                  <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={handleDelete} className='board-detail-items'>삭제</span>
+                  <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={()=>handleModi()} className='board-detail-items'>수정</span>
+                  <span style={{marginRight:"9px" , opacity:"0.7"}} onClick={()=>handleDelete()} className='board-detail-items'>삭제</span>
                 </div> : null}
               </div>
             </div>
