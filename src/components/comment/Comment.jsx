@@ -19,8 +19,7 @@ const Comment = () => {
   const [first,setFirst] = useState("")
   const [modicheck, setModiCheck] = useState(false)
   const [modiIdx,setIndex] = useState('')
-  const [auth2,setAuth2] = useState(false)
-  const [like,setLike] = useState(false)
+  
   const url = window.location.href;
 
   const handleComment = (e) =>{
@@ -77,9 +76,8 @@ const Comment = () => {
     }
   }
 
-  const commentHandle = (id) => {
-    setLike(prev => !prev)
-    if(like === true){
+  const commentHandle = (id,lm) => {
+    if(lm === true){
       unlikeComment(id)
     }else{
       likeComment(id)
@@ -184,13 +182,14 @@ const Comment = () => {
 
       {data.map((datas,index)=>{
         if(datas.mine === true){
+          
         }
         return(
           <div className='origin-comment' key={index}>
             <div className='comment-info'>
               <div className='comment-left'>
                 <span className='comment-username'>{datas.userName}</span>
-                <img src={heart} alt='like' onClick={()=>commentHandle(datas.id)}></img>
+                <img src={datas.likeMine ? heart : heart2} alt='like' onClick={()=>commentHandle(datas.id,datas.likeMine)}></img>
                 <span className='like-count'>{datas.likeView}</span>
                 {/* <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span> */}
                 {/* <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button> */}

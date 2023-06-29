@@ -18,11 +18,12 @@ const ViewHeader = () => {
 
   const likeHandle = () => {
     setLike(prev => !prev)
-    setView(prev => !prev)
     if(like === true){
-      unlikeControl()   
+      unlikeControl()
+      setView(prev => !prev)
     }else{
       likeControl()
+      setView(true)
     }
   }
   
