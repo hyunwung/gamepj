@@ -34,6 +34,41 @@ $header-color : #333333;
     font-size: 20px !important;
 }
 
+.intro{
+    width: 100%;
+    height: 100vh;
+    .intro-img{
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        background-size: cover;
+        background-position: center;
+    }
+    .intro-options{
+        display: flex;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .options-btn{
+            width: 200px;
+        }
+        .options-btn2{
+            align-items: center;
+            margin-top: 10px;
+            margin-left: 5px;
+            width: 200px;
+            height: 56px;
+            border-radius: 6px;
+            border: white 1px solid;
+            background-color: $header-color;
+            color: white;
+            font-size: 20px;
+            font-family: "DungGeunMo";
+        }
+    }
+}
+
 .con_box00 {float:left; width:100%; margin:0 0 0 0;}
 .con_box05 {float:left; width:100%; margin:5px 0 0 0;}
 .con_box10 {float:left; width:100%; margin:10px 0 0 0;}

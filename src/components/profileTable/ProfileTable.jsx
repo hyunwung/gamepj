@@ -18,7 +18,7 @@ const ProfileTable = () => {
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }
       })
-      console.log(repo.data.data)
+      console.log("좋아요 목록 : ",repo.data.data)
       setData(repo.data.data)
     }catch(error){
       console.log(error)
@@ -45,7 +45,6 @@ const ProfileTable = () => {
   }
   useEffect(()=>{
     getLikeData()
-    console.log(data)
   },[])
   return (
     <div className='profileTable'>
@@ -53,7 +52,7 @@ const ProfileTable = () => {
         <div className='profile-items'>
           {/* <span className='profile-item' onClick={()=>handleTitle(0)}>작성글</span>
           <span className='profile-item' onClick={()=>handleTitle(1)}>작성댓글</span> */}
-          <span className='profile-item' onClick={()=>handleTitle(2)}>좋아요한 글</span>
+          <span className='profile-item'>좋아요한 글</span>
         </div>
         <table className='profile-table'>
           <thead>
@@ -97,40 +96,6 @@ const ProfileTable = () => {
             <tr>
               <td className='profil e-comment-null' colSpan="3">작성하신 글이 없습니다.</td>
             </tr>}
-
-            {data === null && title === 1 ? 
-              <tr>
-                <td className='profile-comment-null'>작성하신 댓글이 없습니다.</td>
-              </tr> : null}
-            {data !== null && title === 1 ?
-              <tr>
-                <td className='comment-td'>
-                  <p><input type="checkbox" className='profile-checkbox'></input>댓글!!!!!!!!!!!!!!!!!!!!</p>
-                  <p className='comment-data'>2023.01.15</p>
-                  <p className='comment-data'>어떤 게시글 일까요?</p>
-                </td>
-              </tr> : null}
-
-            {data === null && title === 2 ? 
-              <tr>
-                <td className='profile-comment-null' colSpan="4">좋아요 하신 글이 없습니다.</td>
-              </tr> : null}
-            {data !== null && title === 2 ?
-            <tr>
-              <td style={{textAlign:"left"}}>
-                <input type="checkbox" className='profile-checkbox'></input>
-                <span>글 제목@@@</span>
-              </td>
-              <td>
-                <span>2023.01.15</span>
-              </td>
-              <td>
-                <span>서현웅님</span>
-              </td>
-              <td>
-                <span>155</span>
-              </td>
-            </tr> : null}
           </tbody>
         </table>
        </div>

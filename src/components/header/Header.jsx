@@ -2,11 +2,18 @@ import React, { useState } from "react"
 import "./Header.scss"
 import search from "../../assets/search.png"
 import { useNavigate } from "react-router-dom"
+import Swal from "sweetalert2";
 
 const Header = () => {
   const [login,setLogin] = useState(false)
   const [keyword,setKeyWord] = useState("")
   const navigate = useNavigate()
+
+  const logout = () => {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('user')
+    localStorage.removeItem('id')
+  }
 
   const handleLogin = () => {
     setLogin((prev)=>!prev)
@@ -51,7 +58,12 @@ const Header = () => {
           </div>
         </div>
         <div className="header-right">
-          {localStorage.getItem("accessToken") ? <a className="login-link" href="/profile">Profile</a> : <a className="login-link" href="/login">Login</a>}
+          {localStorage.getItem("accessToken") ?
+          <div>
+            <a className="login-link" href="/profile">Profile</a>
+            <a className="login-link" href="" onClick={()=>logout()}>Logout</a>
+          </div>
+            : <a className="login-link" href="/login">Login</a>}
         </div>
       </div>
     </div>

@@ -17,11 +17,12 @@ const ProfileSets = () => {
   const [nickname , setNickName] = useState("")
   const [defaultNick,setDefault] = useState("")
   const navigate = useNavigate();
+
   const logout = () => {
     localStorage.removeItem('accessToken')
     localStorage.removeItem('user')
     localStorage.removeItem('id')
-    Swal.fire({title:"로그아웃 되었습니다."})
+    // Swal.fire({title:"로그아웃 되었습니다."})
     navigate("/main")
   }
   const defaultName = async () => {
@@ -32,7 +33,7 @@ const ProfileSets = () => {
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }
       },{ withCredentials: true });
-      
+      console.log(response.data.data)
       setNickName(response.data.data.userName)
     }catch (error) {
       console.log(error)
@@ -53,8 +54,11 @@ const ProfileSets = () => {
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }
       },{ withCredentials: true });
+      console.log(response.data)
       if(response.status){
         Swal.fire({title:"변경에 성공하였습니다."})
+        localStorage.removeItem('user')
+        localStorage.setItem('user',nickname)
         setNickName("")
       }
     }catch (error) {

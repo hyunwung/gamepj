@@ -181,9 +181,6 @@ const Comment = () => {
       </div>
 
       {data.map((datas,index)=>{
-        if(datas.mine === true){
-          
-        }
         return(
           <div className='origin-comment' key={index}>
             <div className='comment-info'>
