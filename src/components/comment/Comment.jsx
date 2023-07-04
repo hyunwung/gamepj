@@ -40,8 +40,8 @@ const Comment = () => {
       headers:{
         'Authorization': 'Bearer '+localStorage.getItem("accessToken")
     }})
-    setData(repo.data.data)
-    console.log("댓글 정보 : ",repo.data.data)
+    setData(repo.data.data.content)
+    console.log("댓글 정보 : ",repo.data.data.content)
   }
 
   const postComment = async () => {
@@ -86,7 +86,7 @@ const Comment = () => {
 
   const likeComment = async (id) => {
     try{
-      const repo = await axios.patch(`/boards/${location.state.id}/comments/${id}/like`,{},{
+      const repo = await axios.post(`/boards/${location.state.id}/comments/${id}/like`,{},{
         headers:{
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
       }},{ withCredentials: true })
@@ -186,7 +186,7 @@ const Comment = () => {
             <div className='comment-info'>
               <div className='comment-left'>
                 <span className='comment-username'>{datas.userName}</span>
-                <img src={datas.likeMine ? heart : heart2} alt='like' onClick={()=>commentHandle(datas.id,datas.likeMine)}></img>
+                <img src={datas.likeFlag ? heart : heart2} alt='like' onClick={()=>commentHandle(datas.id,datas.likeFlag)}></img>
                 <span className='like-count'>{datas.likeView}</span>
                 {/* <span className='comment-date'>2022. 10. 15. &nbsp; 15:30</span> */}
                 {/* <button className='comment-reply' onClick={()=>commentControlOn(0)}>답글</button> */}

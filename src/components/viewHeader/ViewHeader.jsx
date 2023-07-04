@@ -15,6 +15,8 @@ const ViewHeader = () => {
   const [auth,setAuth] = useState(false)
   const [like,setLike] = useState(false)
   const [view,setView] = useState(false)
+  const [viewCount, setViewCount] = useState(0)
+  const [likeCount, setLikeCount] = useState(0)
 
   const likeHandle = () => {
     setLike(prev => !prev)
@@ -50,7 +52,7 @@ const ViewHeader = () => {
 
   const unlikeControl = async () => {
     try{
-			const repo = await axios.delete(`/boards/${location.state.id}/unlikes`,{
+			const repo = await axios.patch(`/boards/${location.state.id}/unlikes`,{
 			  headers:{
 				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
 			}
@@ -91,7 +93,7 @@ const ViewHeader = () => {
       if(repo.data.data.mine === true){
         setAuth((prev)=>!prev)
       }
-      if(repo.data.data.likeMine === true){
+      if(repo.data.data.likeFlag === true){
         setLike(true)
       }else{
         setLike(false)
@@ -111,6 +113,61 @@ const ViewHeader = () => {
       }
     }
   }
+
+  const getBoardRead = async () =>{
+    try{
+      const repo = await axios.get(`/boards/read/${location.state.id}`,{
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+        }
+      })
+      console.log("게시글 읽기 : ",repo.data)
+      if(repo.data.message === "READ_VIEW_BOARD_SUCCESS"){
+        setViewCount(repo.data.data)
+      }
+    }catch(error){
+      console.log(error)
+      if(localStorage.getItem("accessToken") === null){
+        navigate('/login')
+        Swal.fire({icon: 'warning', html:"로그인을 해주세요."})
+      }
+      else{
+        console.log(error)
+        Swal.fire({icon: 'warning', html:"로딩에 실패하였습니다. <br/>로그인을 해주세요."})
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('user')
+        navigate("/login")
+      }
+    }
+  }
+
+  const getLikeCount = async () =>{
+    try{
+      const repo = await axios.get(`/boards/${location.state.id}/likes/counts`,{
+        headers:{
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+        }
+      })
+      console.log("게시글 좋아요 갯수 : ",repo.data.data)
+      if(repo.data.message === "READ_VIEW_BOARD_SUCCESS"){
+        setLikeCount(repo.data.data)
+      }
+    }catch(error){
+      console.log(error)
+      if(localStorage.getItem("accessToken") === null){
+        navigate('/login')
+        Swal.fire({icon: 'warning', html:"로그인을 해주세요."})
+      }
+      else{
+        console.log(error)
+        Swal.fire({icon: 'warning', html:"로딩에 실패하였습니다. <br/>로그인을 해주세요."})
+        localStorage.removeItem('accessToken')
+        localStorage.removeItem('user')
+        navigate("/login")
+      }
+    }
+  }
+  
   const handleModi = () => {
     navigate(`/modi/${location.state.id}`)
   }
@@ -144,6 +201,8 @@ const ViewHeader = () => {
 
   useEffect(()=>{
     getBoardData()
+    getBoardRead()
+    getLikeCount()
   },[])
   return (
     <div className='viewBoard'>
@@ -157,9 +216,9 @@ const ViewHeader = () => {
               <div className='board-detail-title1'>
                 <span>{data.createTime[0]}. {data.createTime[1]}. {data.createTime[2]} &nbsp; {data.createTime[3]}:{data.createTime[4]}&nbsp;&nbsp;</span>&nbsp;&nbsp;
                 <AiFillEye style={{ marginTop:"3px", fontSize:"23px",color:"gray"}}></AiFillEye>&nbsp;
-                <span>{data.view} &nbsp; &nbsp; </span>
+                <span>{viewCount} &nbsp; &nbsp; </span>
                 <img src={like ? heart : heart2} alt='heart' onClick={()=>likeHandle()}></img>&nbsp;
-                <span>{view ? data.likeCount+1 : data.likeCount} &nbsp; &nbsp; </span>
+                <span>{likeCount} &nbsp; &nbsp; </span>
               </div>
               <div className='board-detail-title2'>
                 {auth ? 
