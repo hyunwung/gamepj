@@ -39,14 +39,15 @@ const ViewHeader = () => {
 			console.log(repo)
       if(repo.status === 200){
         console.log('좋아요')
+        getLikeCount()
       }
 		}catch(error){
 			console.log(error)
 			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
-			// localStorage.removeItem('accessToken')
-			// localStorage.removeItem('user')
-			// localStorage.removeItem('id')
-			// navigate("/login")
+			localStorage.removeItem('accessToken')
+			localStorage.removeItem('user')
+			localStorage.removeItem('id')
+			navigate("/login")
 		}
   }
 
@@ -60,14 +61,15 @@ const ViewHeader = () => {
 			console.log(repo.status)
       if(repo.status === 200){
         console.log('싫어요')
+        getLikeCount()
       }
 		}catch(error){
 			console.log(error)
-			// Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
-			// localStorage.removeItem('accessToken')
-			// localStorage.removeItem('user')
-			// localStorage.removeItem('id')
-			// navigate("/login")
+			Swal.fire({icon: 'warning', html:"작성에 실패하였습니다. <br/> 다시 로그인 해주세요."})
+			localStorage.removeItem('accessToken')
+			localStorage.removeItem('user')
+			localStorage.removeItem('id')
+			navigate("/login")
 		}
   }
 

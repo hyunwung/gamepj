@@ -1,21 +1,20 @@
 import React, { useEffect } from 'react'
 import "./ProfileSets.scss"
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
+import axios from 'axios'
+import Swal from "sweetalert2";
 import img from "../../assets/PAN_ULT.gif"
 import img2 from "../../assets/PAN_FLower.gif"
 import img3 from "../../assets/PAN_skill2.gif"
 import img4 from "../../assets/PAN_ULT2.gif"
-import axios from 'axios'
-import Swal from "sweetalert2";
-import { useNavigate } from 'react-router'
 
 const ProfileSets = () => {
   const imgList = [img, img2, img3, img4]; // 랜덤 이미지 생성
   const randomIndex = Math.floor(Math.random() * imgList.length); 
-  const randomImg = imgList[randomIndex];
 
   const [nickname , setNickName] = useState("")
-  const [defaultNick,setDefault] = useState("")
+  const [randomImg,setRandomImg] = useState("")
   const navigate = useNavigate();
 
   const logout = () => {
@@ -69,6 +68,7 @@ const ProfileSets = () => {
     }
   };
   useEffect(()=>{
+    setRandomImg(imgList[randomIndex])
     defaultName()
   },[])
   return (

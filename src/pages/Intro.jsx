@@ -1,6 +1,5 @@
-import backImg from "../assets/banner2.png"
+import backImg from "../assets/back1.jpg"
 import downloadBtn from "../assets/google-play-badge.png"
-import "../assets/back1.jpg"
 
 const Intro = () => {
     return(
