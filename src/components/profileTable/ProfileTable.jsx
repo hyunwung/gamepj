@@ -18,8 +18,8 @@ const ProfileTable = () => {
           'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }
       })
-      console.log("좋아요 목록 : ",repo.data.data)
-      setData(repo.data.data)
+      console.log("좋아요 목록 : ",repo.data.data.content)
+      setData(repo.data.data.content)
     }catch(error){
       console.log(error)
       if(localStorage.getItem("accessToken") === null){

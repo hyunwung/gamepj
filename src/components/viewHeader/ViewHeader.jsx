@@ -52,7 +52,7 @@ const ViewHeader = () => {
 
   const unlikeControl = async () => {
     try{
-			const repo = await axios.patch(`/boards/${location.state.id}/unlikes`,{
+			const repo = await axios.patch(`/boards/${location.state.id}/unlikes`,{},{
 			  headers:{
 				'Authorization': 'Bearer '+localStorage.getItem("accessToken")
 			}
