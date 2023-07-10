@@ -10,17 +10,11 @@ import { useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import "../../assets/Global.scss";
 
-const TextEditor = ({title,category,submit,setSubmit,update,content,id,modi}) => {    
+const TextEditor = ({title,category,submit,setSubmit,update,content,id}) => {    
     const navigate = useNavigate();
-    const [editorState, setEditorState] = useState(() =>
-    EditorState.createWithContent(
-      ContentState.createFromBlockArray(
-        convertFromHTML(content === null || content === undefined ? "" : content)
-      ))
-    );
-
     const [image,setImage] = useState(null)
     const [convertedContent, setConvertedContent] = useState(null);
+    const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
     
     const options = {
       0:'NONE',
@@ -102,15 +96,31 @@ const TextEditor = ({title,category,submit,setSubmit,update,content,id,modi}) =>
     }
     
     const updateData = async () => {
+      console.log("수정된내용",convertedContent)
+      if(title === null || title === undefined || title === ""){
+        Swal.fire({title:"제목을 작성해주세요."})
+        setSubmit((prev)=>!prev)
+        return
+      }
+      if(options[category] === "NONE"){
+        Swal.fire({title:"카테고리를 선택해주세요."})
+        setSubmit((prev)=>!prev)
+        return
+      }
+      if(convertedContent==="<p></p>"){
+        Swal.fire({title:"내용을 입력하세요."})
+        setSubmit((prev)=>!prev)
+        return
+      }
       try{
         const repo = await axios.patch(`/boards/${id}`,{
           title:title,
           content:convertedContent,
+          type : options[category],
         },{
           headers:{
             'Authorization': 'Bearer '+localStorage.getItem("accessToken")
         }})
-        console.log(repo)
         if(repo.status === 200){
           Swal.fire({title:"수정이 완료되었습니다."})
           navigate('/main')
@@ -132,9 +142,8 @@ const TextEditor = ({title,category,submit,setSubmit,update,content,id,modi}) =>
     useEffect(() => {
       let html = convertToHTML({
         entityToHTML: (entity, originalText) => {
-          console.log(entity)
           if (entity.type === 'IMAGE') {
-            return <img src={image} alt=""></img>
+            return <img src={image} alt="upload"></img>
           }
           if (entity.type === 'LINK') {
             return {
@@ -146,7 +155,6 @@ const TextEditor = ({title,category,submit,setSubmit,update,content,id,modi}) =>
         }
       })(editorState.getCurrentContent());
       setConvertedContent(html);
-      console.log(html)
     }, [editorState]);
 
     useEffect(()=>{  
@@ -160,6 +168,13 @@ const TextEditor = ({title,category,submit,setSubmit,update,content,id,modi}) =>
         updateData()
       }
     },[update])
+
+    useEffect(()=>{
+      console.log(content)
+      if(content !== undefined){
+        setEditorState(EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(content))));
+      }
+    },[content])
     return (
       <div>
         <Editor
