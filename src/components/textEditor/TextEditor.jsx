@@ -170,7 +170,6 @@ const TextEditor = ({title,category,submit,setSubmit,update,content,id}) => {
     },[update])
 
     useEffect(()=>{
-      console.log(content)
       if(content !== undefined){
         setEditorState(EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(content))));
       }
