@@ -174,6 +174,7 @@ const TextEditor = ({title,category,submit,setSubmit,update,content,id}) => {
         setEditorState(EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(content))));
       }
     },[content])
+    
     return (
       <div>
         <Editor
