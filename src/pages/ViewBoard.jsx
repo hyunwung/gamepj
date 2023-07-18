@@ -17,7 +17,7 @@ const ViewBoard = () => {
             <Comment></Comment>
           </div>
         </div>
-        <div className='이미지2'></div>
+        <div className='이미지23'></div>
       </div>
     </div>
   )
