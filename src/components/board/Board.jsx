@@ -16,7 +16,8 @@ const Board = () => {
       const repo = await axios.get(`/boards?page=${page}&type=NOTICE`,
       {
         headers:{
-          'Authorization': 'Bearer '+localStorage.getItem("accessToken")
+          'Authorization': 'Bearer '+localStorage.getItem("accessToken"),
+          'Origin': 'http://rseproject.s3-website.ap-northeast-2.amazonaws.com/',
         }
       },{ withCredentials: true })
       console.log(repo)
